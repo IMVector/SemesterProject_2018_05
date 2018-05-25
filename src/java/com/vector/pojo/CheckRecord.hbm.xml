@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-25 7:55:17 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.vector.pojo.CheckRecord" table="CheckRecord" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
+        <id name="checkRecordId" type="int">
+            <column name="CheckRecordId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="bill" class="com.vector.pojo.Bill" fetch="select">
+            <column name="BillId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="checkItem" class="com.vector.pojo.CheckItem" fetch="select">
+            <column name="CheckItemId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="patient" class="com.vector.pojo.Patient" fetch="select">
+            <column name="PatientId" not-null="true" />
+        </many-to-one>
+        <property name="paymentStatus" type="string">
+            <column name="PaymentStatus" not-null="true" />
+        </property>
+        <property name="checkDate" type="timestamp">
+            <column name="CheckDate" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

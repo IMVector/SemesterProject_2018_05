@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-25 7:55:17 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.vector.pojo.BloodBank" table="BloodBank" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
+        <id name="recordId" type="int">
+            <column name="RecordId" />
+            <generator class="assigned" />
+        </id>
+        <property name="donorName" type="string">
+            <column name="DonorName" not-null="true" />
+        </property>
+        <property name="donorBloodType" type="string">
+            <column name="DonorBloodType" not-null="true" />
+        </property>
+        <property name="donorGender" type="string">
+            <column name="DonorGender" not-null="true" />
+        </property>
+        <property name="donorAddress" type="string">
+            <column name="DonorAddress" not-null="true" />
+        </property>
+        <property name="donorPhone" type="string">
+            <column name="DonorPhone" length="11" not-null="true" />
+        </property>
+        <property name="isInBank" type="string">
+            <column name="IsInBank" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <context:component-scan base-package="com.vector.dao" />
+    <context:component-scan base-package="com.vector.service" />
+    
+    <!--Spring和Hibernate的集成：-->
+    <!--将会话工厂的管理和创建交给Spring，后续使用依赖注入注入Dao类-->
+    <!--id可给可不给，如果使用@Autowired不需要id，如果用@Resource需要id或name-->
+    <!--因为hibernate.cfg.xml在源包下，所以添加classpath:前缀-->
+    
+    <!--加载属性文件,可用bean或标记加载-->
+    <!--这里加载源包下properties文件夹下的jdbc.properties文件
+        然后使用${键名}表达式引用属性文件中的属性
+    -->
+    <context:property-placeholder location="classpath:properties/jdbc.properties" />
+    
+    <!--集成Spring和Hibernate框架，一般将数据源的定义放到spring配置文件中定义-->
+    
+    <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driverClass}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+    </bean>
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <!--<property name="configLocation" value="classpath:hibernate.cfg.xml" />-->
+        <!--因为数据源现在没有配置在hibernate.cfg.xml文件中，所以需要指定引用的数据源-->
+        <property name="dataSource"  ref="ds"/>
+        <property name="mappingLocations">
+            <list>
+                <!--mappingLocations指定映射文件的位置，可使用*和**通配符-->
+                <value>classpath:com/vector/pojo/*.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <!--hibernateProperties属性是Properties类型，也就是属性集合，使用props标记注入值-->
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+    
+</beans>
