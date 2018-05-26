@@ -5,12 +5,16 @@
  */
 package com.vector.dao;
 
+import com.vector.pojo.MedicalRecord;
 import com.vector.pojo.Patient;
+import java.util.List;
 
 /**
  *
  * @author Vector
  */
 public interface PatientSearchDao extends BaseDao<Patient>{
+    
+    List<MedicalRecord> getMedecalRecordList(String patientId);
     
 }

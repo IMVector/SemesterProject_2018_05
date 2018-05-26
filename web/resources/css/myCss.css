@@ -6,6 +6,61 @@
     background-color: lightblue;
 }
 
+.col-offset-1{
+    margin-left: 6.25%;
+}
+
+.col-offset-2{
+    margin-left: 12.5%;
+}
+
+.col-offset-3{
+    margin-left: 18.75%;
+}
+
+.col-offset-4{
+    margin-left: 25%;
+}
+.col-offset-5{
+    margin-left: 31.25%;
+}
+.col-offset-6{
+    margin-left: 37.5%;
+}
+.col-offset-7{
+    margin-left: 43.75%;
+}
+.col-offset-8{
+    margin-left: 50%;
+}
+.col-offset-9{
+    margin-left: 56.25%;
+}
+.col-offset-10{
+    margin-left: 62.5%;
+}
+.col-offset-11{
+    margin-left: 68.75%;
+}
+.col-offset-12{
+    margin-left: 75%;
+}
+.col-offset-13{
+    margin-left: 81.25%;
+}
+.col-offset-14{
+    margin-left: 87.5%;
+}
+.col-offset-15{
+    margin-left: 93.75%;
+}
+.col-offset-16{
+    margin-left: 100%;
+}
+
+
+
+
 
 @keyframes l1animation
 {

@@ -6,36 +6,43 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-        <div class="container body-under-header">
-            <!-- Main component for a primary marketing message or call to action -->
-            <div class="jumbotron">
-                <img src="resources/image/狗子.jpeg" class="img-thumbnail pull-left" alt="头像" style="height: 200px;"/>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <label for="">编号：</label>       P0123                     
+       <div class="ui container">
+                <div class="ui relaxed divided items">
+                    <div class="ui divider"></div>
+                    <div class="item">
+                        <div class="ui small image">
+                            <img src="resources/image/狗子.jpeg">
                         </div>
-                        <div class="col-md-5">
-                            <label for="">姓名：</label>       你好                     
-                        </div>
-                        <div class="col-md-5">
-                            <label for="">性别：</label>       男                     
-                        </div>
-                        <div class="col-md-5">
-                            <label for="">年龄：</label>       22                     
-                        </div>
-                        <div class="col-md-5">
-                            <label for="">血型：</label>       o型                     
-                        </div>
-                        <div class="col-md-5">
-                            <label for="">婚否：</label>       否                     
+
+                        <div class="content">
+                            <!--<a class="header">内容标题</a>-->
+                            <div class="meta">
+                                <a>编号：</a>
+                            </div>
+                            <div class="meta">
+                                <a>姓名：</a>
+                            </div>
+                            <div class="meta">
+                                <a>日期</a>
+                            </div>
+                            <div class="meta">
+                                <a>日期</a>
+                            </div>
+                            <div class="meta">
+                                <a>日期</a>
+                            </div>
+                            <div class="description">
+                                可以为多个行流并给内容提供上下文的描述。
+                            </div>
+                            <div class="extra">
+                                <div class="ui right floated primary button">
+                                    Primary
+                                    <i class="right chevron icon"></i>
+                                </div>
+                                <div class="ui label">Limited</div>
+                            </div>
                         </div>
                     </div>
+                    <div class="ui divider"></div>
                 </div>
-                <!--                <h1>test</h1>
-                                <p>test</p>
-                
-                                <p>这里显示病人的详细信息</p> -->
             </div>
-
-        </div>

@@ -6,9 +6,11 @@
 package com.vector.dao.impl;
 
 import com.vector.dao.PatientSearchDao;
+import com.vector.pojo.MedicalRecord;
 import com.vector.pojo.Patient;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,10 +18,13 @@ import org.springframework.stereotype.Repository;
  * @author Vector
  */
 @Repository
-public class PatientSearchDaoImpl extends BaseDaoImpl<Patient> implements PatientSearchDao{
+public class PatientSearchDaoImpl extends BaseDaoImpl<Patient> implements PatientSearchDao {
 
-    @Autowired
-    private SessionFactory sessionFactory;
-    
+    @Override
+    public List<MedicalRecord> getMedecalRecordList(String patientId) {
+        Set<MedicalRecord> set=getOneById(patientId).getMedicalRecords();
+        List<MedicalRecord> result = new ArrayList<>(set);
+        return result;
+    }
 
 }

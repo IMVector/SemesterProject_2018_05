@@ -1,8 +1,7 @@
 package com.vector.pojo;
-// Generated 2018-5-25 7:55:16 by Hibernate Tools 4.3.1
+// Generated 2018-5-26 16:13:05 by Hibernate Tools 4.3.1
 
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,13 +25,13 @@ public class Patient  implements java.io.Serializable {
      private String patientQuestion;
      private String patientAnswer;
      private String patientPassword;
-     private Set dietAdvices = new HashSet(0);
-     private Set bills = new HashSet(0);
-     private Set medicalRecords = new HashSet(0);
-     private Set checkResults = new HashSet(0);
-     private Set precautionAdvices = new HashSet(0);
-     private Set checkRecords = new HashSet(0);
-     private Set medicationHistories = new HashSet(0);
+     private Set<DietAdvice> dietAdvices = new HashSet<DietAdvice>(0);
+     private Set<Bill> bills = new HashSet<Bill>(0);
+     private Set<MedicalRecord> medicalRecords = new HashSet<MedicalRecord>(0);
+     private Set<CheckResult> checkResults = new HashSet<CheckResult>(0);
+     private Set<PrecautionAdvice> precautionAdvices = new HashSet<PrecautionAdvice>(0);
+     private Set<CheckRecord> checkRecords = new HashSet<CheckRecord>(0);
+     private Set<MedicationHistory> medicationHistories = new HashSet<MedicationHistory>(0);
 
     public Patient() {
     }
@@ -51,7 +50,7 @@ public class Patient  implements java.io.Serializable {
         this.patientAnswer = patientAnswer;
         this.patientPassword = patientPassword;
     }
-    public Patient(String patientId, Image image, String patientName, String patientBirthday, String patientGender, Integer patientAge, String bloodType, String patientPhone, String patientAddress, String patientMstatus, String patientEmail, String patientQuestion, String patientAnswer, String patientPassword, Set dietAdvices, Set bills, Set medicalRecords, Set checkResults, Set precautionAdvices, Set checkRecords, Set medicationHistories) {
+    public Patient(String patientId, Image image, String patientName, String patientBirthday, String patientGender, Integer patientAge, String bloodType, String patientPhone, String patientAddress, String patientMstatus, String patientEmail, String patientQuestion, String patientAnswer, String patientPassword, Set<DietAdvice> dietAdvices, Set<Bill> bills, Set<MedicalRecord> medicalRecords, Set<CheckResult> checkResults, Set<PrecautionAdvice> precautionAdvices, Set<CheckRecord> checkRecords, Set<MedicationHistory> medicationHistories) {
        this.patientId = patientId;
        this.image = image;
        this.patientName = patientName;
@@ -173,53 +172,53 @@ public class Patient  implements java.io.Serializable {
     public void setPatientPassword(String patientPassword) {
         this.patientPassword = patientPassword;
     }
-    public Set getDietAdvices() {
+    public Set<DietAdvice> getDietAdvices() {
         return this.dietAdvices;
     }
     
-    public void setDietAdvices(Set dietAdvices) {
+    public void setDietAdvices(Set<DietAdvice> dietAdvices) {
         this.dietAdvices = dietAdvices;
     }
-    public Set getBills() {
+    public Set<Bill> getBills() {
         return this.bills;
     }
     
-    public void setBills(Set bills) {
+    public void setBills(Set<Bill> bills) {
         this.bills = bills;
     }
-    public Set getMedicalRecords() {
+    public Set<MedicalRecord> getMedicalRecords() {
         return this.medicalRecords;
     }
     
-    public void setMedicalRecords(Set medicalRecords) {
+    public void setMedicalRecords(Set<MedicalRecord> medicalRecords) {
         this.medicalRecords = medicalRecords;
     }
-    public Set getCheckResults() {
+    public Set<CheckResult> getCheckResults() {
         return this.checkResults;
     }
     
-    public void setCheckResults(Set checkResults) {
+    public void setCheckResults(Set<CheckResult> checkResults) {
         this.checkResults = checkResults;
     }
-    public Set getPrecautionAdvices() {
+    public Set<PrecautionAdvice> getPrecautionAdvices() {
         return this.precautionAdvices;
     }
     
-    public void setPrecautionAdvices(Set precautionAdvices) {
+    public void setPrecautionAdvices(Set<PrecautionAdvice> precautionAdvices) {
         this.precautionAdvices = precautionAdvices;
     }
-    public Set getCheckRecords() {
+    public Set<CheckRecord> getCheckRecords() {
         return this.checkRecords;
     }
     
-    public void setCheckRecords(Set checkRecords) {
+    public void setCheckRecords(Set<CheckRecord> checkRecords) {
         this.checkRecords = checkRecords;
     }
-    public Set getMedicationHistories() {
+    public Set<MedicationHistory> getMedicationHistories() {
         return this.medicationHistories;
     }
     
-    public void setMedicationHistories(Set medicationHistories) {
+    public void setMedicationHistories(Set<MedicationHistory> medicationHistories) {
         this.medicationHistories = medicationHistories;
     }
 

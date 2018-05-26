@@ -9,6 +9,8 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
+    
+    
     <context:component-scan base-package="com.vector.dao" />
     <context:component-scan base-package="com.vector.service" />
     
@@ -51,6 +53,14 @@
             </props>
         </property>
     </bean>
+     <!--使用注解的方式配置事务-->
+    <!--1. 配置事务管理器Transaction Manager  Transaction-tx-->
+    <bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <!--事务管理器需要知道会话工厂是哪个,方便帮你管理事务-->
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
     
+    <!--2. 启用注解驱动的编程-->
+    <tx:annotation-driven transaction-manager="txManager" />
     
 </beans>

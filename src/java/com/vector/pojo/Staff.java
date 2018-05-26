@@ -1,8 +1,7 @@
 package com.vector.pojo;
-// Generated 2018-5-25 7:55:16 by Hibernate Tools 4.3.1
+// Generated 2018-5-26 16:13:05 by Hibernate Tools 4.3.1
 
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,10 +19,10 @@ public class Staff  implements java.io.Serializable {
      private String staffAnswer;
      private int departmentId;
      private String staffPassword;
-     private Set medicalRecords = new HashSet(0);
-     private Set checkResults = new HashSet(0);
-     private Set precautionAdvices = new HashSet(0);
-     private Set dietAdvices = new HashSet(0);
+     private Set<MedicalRecord> medicalRecords = new HashSet<MedicalRecord>(0);
+     private Set<CheckResult> checkResults = new HashSet<CheckResult>(0);
+     private Set<PrecautionAdvice> precautionAdvices = new HashSet<PrecautionAdvice>(0);
+     private Set<DietAdvice> dietAdvices = new HashSet<DietAdvice>(0);
 
     public Staff() {
     }
@@ -38,7 +37,7 @@ public class Staff  implements java.io.Serializable {
         this.departmentId = departmentId;
         this.staffPassword = staffPassword;
     }
-    public Staff(String staffId, Image image, Title title, String staffName, String staffQuestion, String staffAnswer, int departmentId, String staffPassword, Set medicalRecords, Set checkResults, Set precautionAdvices, Set dietAdvices) {
+    public Staff(String staffId, Image image, Title title, String staffName, String staffQuestion, String staffAnswer, int departmentId, String staffPassword, Set<MedicalRecord> medicalRecords, Set<CheckResult> checkResults, Set<PrecautionAdvice> precautionAdvices, Set<DietAdvice> dietAdvices) {
        this.staffId = staffId;
        this.image = image;
        this.title = title;
@@ -109,32 +108,32 @@ public class Staff  implements java.io.Serializable {
     public void setStaffPassword(String staffPassword) {
         this.staffPassword = staffPassword;
     }
-    public Set getMedicalRecords() {
+    public Set<MedicalRecord> getMedicalRecords() {
         return this.medicalRecords;
     }
     
-    public void setMedicalRecords(Set medicalRecords) {
+    public void setMedicalRecords(Set<MedicalRecord> medicalRecords) {
         this.medicalRecords = medicalRecords;
     }
-    public Set getCheckResults() {
+    public Set<CheckResult> getCheckResults() {
         return this.checkResults;
     }
     
-    public void setCheckResults(Set checkResults) {
+    public void setCheckResults(Set<CheckResult> checkResults) {
         this.checkResults = checkResults;
     }
-    public Set getPrecautionAdvices() {
+    public Set<PrecautionAdvice> getPrecautionAdvices() {
         return this.precautionAdvices;
     }
     
-    public void setPrecautionAdvices(Set precautionAdvices) {
+    public void setPrecautionAdvices(Set<PrecautionAdvice> precautionAdvices) {
         this.precautionAdvices = precautionAdvices;
     }
-    public Set getDietAdvices() {
+    public Set<DietAdvice> getDietAdvices() {
         return this.dietAdvices;
     }
     
-    public void setDietAdvices(Set dietAdvices) {
+    public void setDietAdvices(Set<DietAdvice> dietAdvices) {
         this.dietAdvices = dietAdvices;
     }
 

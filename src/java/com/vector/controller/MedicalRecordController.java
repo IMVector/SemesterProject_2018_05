@@ -5,11 +5,15 @@
  */
 package com.vector.controller;
 
+import com.vector.pojo.MedicalRecord;
 import com.vector.service.PatientSearchService;
-import javax.websocket.server.PathParam;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -17,19 +21,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class MedicalRecordController {
-
+// produces = "text/html;charset=utf-8"
     @Autowired
     private PatientSearchService patientSearchService;
 
     @RequestMapping("/medicalRecordDetails/{MdeicalRecordId}")
-    public String showMdeicalRecordDetails(@PathParam("MdeicalRecordId") int MdeicalRecordId) {
+    public String showMdeicalRecordDetails(@PathVariable int MdeicalRecordId) {
 
         return "medicalRecordDetails";
     }
 
-    @RequestMapping("/medicalRecordList/{patientId}")
-    public String showMdeicalRecordList(@PathParam("patientId") String patientId) {
-        patientSearchService.searchMedicalRecordsList(patientId);
-        return "medicalRecordDetails";
+    @RequestMapping(value = "/medicalRecordList/{patientId}",method = RequestMethod.POST)
+    @ResponseBody
+    public List showMdeicalRecordList(@PathVariable String patientId) {
+        List<MedicalRecord> list = patientSearchService.searchMedicalRecordsList(patientId);
+        System.out.println(list.get(0).getInDiagnosis());
+        return list;
     }
 }
