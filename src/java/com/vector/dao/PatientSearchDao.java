@@ -15,6 +15,6 @@ import java.util.List;
  */
 public interface PatientSearchDao extends BaseDao<Patient>{
     
-    List<MedicalRecord> getMedecalRecordList(String patientId);
-    
+//    List<MedicalRecord> getMedecalRecordList(String patientId,Integer currentPage);
+    Patient getPatient(String patientId);
 }

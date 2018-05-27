@@ -11,6 +11,7 @@ import java.util.Set;
  */
 public class MedicalRecord implements java.io.Serializable {
 
+    private String doctorName;
     private int medicalRecordId;
     private Department department;
     @JsonIgnore
@@ -78,6 +79,7 @@ public class MedicalRecord implements java.io.Serializable {
 
     public void setStaff(Staff staff) {
         this.staff = staff;
+        this.doctorName = staff.getStaffName();
     }
 
     public Date getInDate() {
@@ -134,6 +136,14 @@ public class MedicalRecord implements java.io.Serializable {
 
     public void setCheckResults(Set<CheckResult> checkResults) {
         this.checkResults = checkResults;
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
     }
 
 }

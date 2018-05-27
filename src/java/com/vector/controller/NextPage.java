@@ -5,6 +5,10 @@
  */
 package com.vector.controller;
 
+import com.vector.pojo.Patient;
+import com.vector.service.PatientSearchService;
+import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class NextPage {
+
+    @Autowired
+    private PatientSearchService patientSearchService;
 
     @RequestMapping({"/index", "/"})
     public String index() {
@@ -36,7 +43,10 @@ public class NextPage {
     }
 
     @RequestMapping("/personalCenter")
-    public String personalCenter() {
+    public String personalCenter(HttpSession session) {
+
+        Patient p = patientSearchService.searchPatient("p001");
+        session.setAttribute("patient", p);
         return "personalCenter";
     }
 

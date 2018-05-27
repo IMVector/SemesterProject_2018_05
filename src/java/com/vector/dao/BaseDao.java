@@ -12,6 +12,8 @@ public interface BaseDao<T> {
     void update(T t);
     void delete(Serializable id);
     T getOneById(Serializable id);
-    List<T> getListByQuery(String hql,Object... params); //可变参数
+    List<T> getListByQuery(String hql,Object... params);
+    List<T>getListPaginationByQuery(String hql,Integer currentPage,Object... params);
+    int getListSize(String hql,Object... params);
     
 }

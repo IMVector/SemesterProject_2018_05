@@ -14,10 +14,10 @@
                 <div class="item">
                     <img src="resources/image/狗子.jpeg">
                 </div>
-                <a class="active item">
+                <a href="index" class="active item">
                     InstalHMS 医院系统
                 </a>
-                <a class="item">
+                <a href="patientIndex" class="item">
                     患者主页
                 </a>
                 <div class="menu">

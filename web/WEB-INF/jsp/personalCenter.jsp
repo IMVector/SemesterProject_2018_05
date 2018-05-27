@@ -14,47 +14,6 @@
         <jsp:include page="patientHeaderTemplete.jsp"/>
         <div class="container body-under-header">
             <jsp:include page="persionalCenterTemplete.jsp"/>
-            <!--            <div class="ui container">
-                            <div class="ui relaxed divided items">
-                                <div class="ui divider"></div>
-                                <div class="item">
-                                    <div class="ui small image">
-                                        <img src="resources/image/狗子.jpeg">
-                                    </div>
-            
-                                    <div class="content">
-                                        <a class="header">内容标题</a>
-                                        <div class="meta">
-                                            <a>编号：</a>
-                                        </div>
-                                        <div class="meta">
-                                            <a>姓名：</a>
-                                        </div>
-                                        <div class="meta">
-                                            <a>日期</a>
-                                        </div>
-                                        <div class="meta">
-                                            <a>日期</a>
-                                        </div>
-                                        <div class="meta">
-                                            <a>日期</a>
-                                        </div>
-                                        <div class="description">
-                                            可以为多个行流并给内容提供上下文的描述。
-                                        </div>
-                                        <div class="extra">
-                                            <div class="ui right floated primary button">
-                                                Primary
-                                                <i class="right chevron icon"></i>
-                                            </div>
-                                            <div class="ui label">Limited</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ui divider"></div>
-                            </div>
-                        </div>-->
-
 
             <div class="ui container">
 
@@ -77,40 +36,40 @@
 
                         <div class="twelve wide column">
                             <div class="ui tab attached segment" data-tab="medicalRecord">
-                                <div class="ui header blue segment">    XXX的个人病例消息</div>
+                                <div class="ui header blue segment">${patient.patientName}的个人病例消息</div>
                                 <jsp:include page="medicalRecord.jsp"/>
 
                             </div>
                             <div class="ui tab attached segment" data-tab="chaeckRecord">    
-                                <div class="ui header blue segment">    XXX的个人检查记录</div>
-                                <jsp:include page="medicalRecord.jsp"/>
+                                <div class="ui header teal segment">    ${patient.patientName}的个人检查记录</div>
+                                <jsp:include page="checkRecord.jsp"/>
                             </div>
                             <div class="ui tab attached segment " data-tab="prescription">
-                                <div class="ui header blue segment">    XXX的个人处方信息</div>
-                                <jsp:include page="medicalRecord.jsp"/>
+                                <div class="ui header olive segment">    ${patient.patientName}的个人处方信息</div>
+                                <jsp:include page="prescription.jsp"/>
                             </div>
                             <div class="ui tab attached segment " data-tab="bill">
-                                <div class="ui header blue segment">    XXX的个人账单信息</div>
-                                <jsp:include page="medicalRecord.jsp"/>
+                                <div class="ui header orange segment">    ${patient.patientName}的个人账单信息</div>
+                                <jsp:include page="bill.jsp"/>
                             </div>
                             <div class="ui tab attached segment " data-tab="checkResult">
-                                <div class="ui header blue segment">    XXX的个人检查结果信息</div>
-                                <jsp:include page="medicalRecord.jsp"/>
+                                <div class="ui header green segment">    ${patient.patientName}的个人检查结果信息</div>
+                                <jsp:include page="checkResult.jsp"/>
                             </div>
                             <div class="ui tab attached segment " data-tab="healthAdvice">
-                                <div class="ui header blue segment">    XXX的个人健康建议</div>
-                                <jsp:include page="medicalRecord.jsp"/>
+                                <div class="ui header pink segment">    ${patient.patientName}的个人健康建议</div>
+                                <jsp:include page="healthAdvice.jsp"/>
                             </div>
                             <div class="ui tab attached segment " data-tab="dietAdvice">     
-                                <div class="ui header blue segment">    XXX的个人饮食建议</div>
-                                <jsp:include page="medicalRecord.jsp"/>
+                                <div class="ui header purple segment">    ${patient.patientName}的个人饮食建议</div>
+                                <jsp:include page="dietAdvice.jsp"/>
                             </div>
                             <div class="ui tab attached segment " data-tab="record">
-                                <div class="ui header blue segment">    XXX的个人就医记录</div>
-                                <jsp:include page="medicalRecord.jsp"/>
+                                <div class="ui header red segment">    ${patient.patientName}的个人就医记录</div>
+                                <jsp:include page="hospitalRecord.jsp"/>
                             </div>
                             <div class="ui tab attached segment " data-tab="graphy">
-                                <div class="ui header blue segment">    XXX的健康可视化</div>
+                                <div class="ui header blue segment">    ${patient.patientName}的健康可视化</div>
                                 <jsp:include page="medicalRecord.jsp"/>
                             </div>
                         </div>
@@ -118,39 +77,13 @@
                 </div>
                 <script>
                     $(document).ready(function () {
-                        $("#medicalRecord").click(function () {
-                            $.ajax({
-                                url: 'medicalRecordList/p001',
-                                type: 'POST',
-                                 data: {},
-                                success: function (data) {
-                                    $.each(data,function(index,medicalrecord){
-                                       alert(medicalrecord.inDiagnosis) ;
-                                    });
-
-                                }, error: function (req,status,error) {
-                                    alert("请求失败，请重试！");
-                                }
-
-                            });
-                        });
+           
                         $('.menu .item').tab();
-
-
-
-
-
-
-
-
-
                     });
                 </script>
 
 
 
-
-            </div>
             <jsp:include page="footerTemplete.jsp"/>
 
         </div>

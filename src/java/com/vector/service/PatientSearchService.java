@@ -8,6 +8,7 @@ package com.vector.service;
 import com.vector.pojo.Bill;
 import com.vector.pojo.CheckResult;
 import com.vector.pojo.MedicalRecord;
+import com.vector.pojo.Patient;
 import com.vector.pojo.Prescription;
 import java.util.List;
 
@@ -17,13 +18,15 @@ import java.util.List;
  */
 public interface PatientSearchService {
 
-    List<MedicalRecord> searchMedicalRecordsList(String patientId);
-
-    List<Bill> searchBillsList(String patientId);
-
-    List<Prescription> searchPrescriptionsList(String patientId);
-
-    List<CheckResult> serachResultsList(String patientId);
+    Patient searchPatient(String patientId);
+    
+//    List<MedicalRecord> searchMedicalRecordsList(String patientId,Integer currentPage);
+//
+//    List<Bill> searchBillsList(String patientId,Integer currentPage);
+//
+//    List<Prescription> searchPrescriptionsList(String patientId,Integer currentPage);
+//
+//    List<CheckResult> serachResultsList(String patientId,Integer currentPage);
     
     
 }
