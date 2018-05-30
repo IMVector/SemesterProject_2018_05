@@ -89,5 +89,11 @@
             </key>
             <one-to-many class="com.vector.pojo.MedicationHistory" />
         </set>
+        <set name="prescriptions" table="Prescription" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PrescriptionId" not-null="true" />
+            </key>
+            <one-to-many class="com.vector.pojo.Prescription" />
+        </set>
     </class>
 </hibernate-mapping>

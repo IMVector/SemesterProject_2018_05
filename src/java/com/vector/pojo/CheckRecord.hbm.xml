@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2018-5-26 16:13:07 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2018-5-29 16:00:48 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.vector.pojo.CheckRecord" table="CheckRecord" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
         <id name="checkRecordId" type="int">
@@ -11,8 +11,11 @@
         <many-to-one name="bill" class="com.vector.pojo.Bill" fetch="select">
             <column name="BillId" not-null="true" />
         </many-to-one>
-        <many-to-one name="checkItem" class="com.vector.pojo.CheckItem" fetch="select">
+        <many-to-one name="checkItem" class="com.vector.pojo.CheckItem" lazy="false" fetch="join">
             <column name="CheckItemId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="checkResult" class="com.vector.pojo.CheckResult" lazy="false" fetch="join">
+            <column name="CheckResultId" not-null="true" />
         </many-to-one>
         <many-to-one name="patient" class="com.vector.pojo.Patient" fetch="select">
             <column name="PatientId" not-null="true" />

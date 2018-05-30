@@ -41,20 +41,20 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="InstalHMS" match-schema="dbo"/>
-  <table-filter match-name="Medication"/>
-  <table-filter match-name="Image"/>
-  <table-filter match-name="Title"/>
-  <table-filter match-name="Bill"/>
-  <table-filter match-name="Department"/>
-  <table-filter match-name="MedicalRecord"/>
-  <table-filter match-name="BloodBank"/>
-  <table-filter match-name="DietAdvice"/>
-  <table-filter match-name="CheckItem"/>
-  <table-filter match-name="CheckRecord"/>
   <table-filter match-name="Prescription"/>
+  <table-filter match-name="Title"/>
+  <table-filter match-name="MedicalRecord"/>
+  <table-filter match-name="CheckRecord"/>
+  <table-filter match-name="DietAdvice"/>
+  <table-filter match-name="Bill"/>
+  <table-filter match-name="CheckItem"/>
+  <table-filter match-name="BloodBank"/>
+  <table-filter match-name="Image"/>
+  <table-filter match-name="Medication"/>
+  <table-filter match-name="Patient"/>
+  <table-filter match-name="Department"/>
+  <table-filter match-name="PrecautionAdvice"/>
+  <table-filter match-name="Staff"/>
   <table-filter match-name="MedicationHistory"/>
   <table-filter match-name="CheckResult"/>
-  <table-filter match-name="Staff"/>
-  <table-filter match-name="Patient"/>
-  <table-filter match-name="PrecautionAdvice"/>
 </hibernate-reverse-engineering>

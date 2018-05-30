@@ -20,13 +20,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class PatientSearchDaoImpl extends BaseDaoImpl<Patient> implements PatientSearchDao {
 
-//    @Override
-//    public List<MedicalRecord> getMedecalRecordList(String patientId,Integer currentPage) {
-//        Set<MedicalRecord> set=getOneById(patientId).getMedicalRecords();
-//        List<MedicalRecord> result = new ArrayList<>(set);
-//        return result;
-//    }
-
     @Override
     public Patient getPatient(String patientId) {
         return getOneById(patientId);

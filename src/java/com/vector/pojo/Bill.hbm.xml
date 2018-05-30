@@ -20,7 +20,7 @@
         <property name="totalAmount" type="java.lang.Double">
             <column name="TotalAmount" precision="53" scale="0" />
         </property>
-        <set name="checkRecords" table="CheckRecord" inverse="true" lazy="true" fetch="select">
+        <set name="checkRecords" table="CheckRecord" inverse="true" lazy="false" fetch="join">
             <key>
                 <column name="BillId" not-null="true" />
             </key>

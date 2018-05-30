@@ -9,20 +9,23 @@ import com.vector.pojo.Bill;
 import com.vector.pojo.CheckResult;
 import com.vector.pojo.MedicalRecord;
 import com.vector.pojo.Prescription;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author Vector
  */
-public interface BaseService {
+public interface BaseService<T> {
 
-    List<MedicalRecord> searchMedicalRecordsList(String patientId);
+    T getOneById(Serializable id);
 
-    List<Bill> searchBillsList(String patientId);
+    List<T> getAllList(Serializable currentPage);
 
-    List<Prescription> searchPrescriptionsList(String patientId);
+    List<T> getAllListOfSomeone(Serializable id, Serializable currentPage);
 
-    List<CheckResult> serachResultsList(String patientId);
+    int getListItemNumber();
+
+    int getListItemNumber(Serializable id);
 
 }

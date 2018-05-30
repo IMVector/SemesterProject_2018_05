@@ -1,6 +1,11 @@
 .body-under-header{
     margin-top: 60px;
 }
+canvas{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
 .test{
     height: 900px;
     background-color: lightblue;
@@ -296,10 +301,10 @@
 }
 #bg_body{
     background-image: url('../../resources/image/bg.png');
-        background-repeat:no-repeat;
-        background-size: 100% 100%;  
-        -moz-background-size: 100% 100%;  
-        -webkit-background-size: 100% 100%;  
+    background-repeat:no-repeat;
+    background-size: 100% 100%;  
+    -moz-background-size: 100% 100%;  
+    -webkit-background-size: 100% 100%;  
     /*background-color: khaki;*/
 
 }

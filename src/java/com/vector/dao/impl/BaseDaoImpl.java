@@ -72,13 +72,13 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
     }
 
     @Override
-    public List<T> getListPaginationByQuery(String hql, Integer currentPage, Object... params) {
+    public List<T> getListPaginationByQuery(String hql, Serializable currentPage, Object... params) {
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         for (int i = 0; i < params.length; i++) //遍历参数数组,设置查询参数值
         {
             query.setParameter(i, params[i]);
         }
-        query.setFirstResult((currentPage - 1) * EVERY_PAGE_NUMBER);
+        query.setFirstResult(((int)currentPage - 1) * EVERY_PAGE_NUMBER);
         query.setMaxResults(EVERY_PAGE_NUMBER);
         return query.list(); //执行查询,返回结果列表
     }

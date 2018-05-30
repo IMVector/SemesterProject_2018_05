@@ -11,6 +11,8 @@ public class Prescription implements java.io.Serializable {
 
     private int prescriptionId;
     @JsonIgnore
+    private Patient patient;
+    @JsonIgnore
     private MedicalRecord medicalRecord;
     private String prescriptionContent;
     private Date prescriptionDate;
@@ -19,11 +21,12 @@ public class Prescription implements java.io.Serializable {
     public Prescription() {
     }
 
-    public Prescription(int prescriptionId, MedicalRecord medicalRecord, String prescriptionContent, Date prescriptionDate) {
+    public Prescription(int prescriptionId, MedicalRecord medicalRecord, String prescriptionContent, Date prescriptionDate,Patient patient) {
         this.prescriptionId = prescriptionId;
         this.medicalRecord = medicalRecord;
         this.prescriptionContent = prescriptionContent;
         this.prescriptionDate = prescriptionDate;
+        this.patient=patient;
     }
 
     public Prescription(int prescriptionId, MedicalRecord medicalRecord, String prescriptionContent, Date prescriptionDate, String prescriptionPrecautions) {
@@ -72,6 +75,14 @@ public class Prescription implements java.io.Serializable {
 
     public void setPrescriptionPrecautions(String prescriptionPrecautions) {
         this.prescriptionPrecautions = prescriptionPrecautions;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
 }

@@ -8,8 +8,11 @@
             <column name="PrescriptionId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="medicalRecord" class="com.vector.pojo.MedicalRecord" fetch="select">
+        <many-to-one name="medicalRecord" class="com.vector.pojo.MedicalRecord" lazy="false" fetch="join">
             <column name="MedicalRecordId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="patient" class="com.vector.pojo.Patient" fetch="select">
+            <column name="PatientId" not-null="true" />
         </many-to-one>
         <property name="prescriptionContent" type="string">
             <column name="PrescriptionContent" not-null="true" />

@@ -1,5 +1,5 @@
 package com.vector.pojo;
-// Generated 2018-5-26 16:13:05 by Hibernate Tools 4.3.1
+// Generated 2018-5-29 16:00:47 by Hibernate Tools 4.3.1
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Date;
@@ -13,6 +13,7 @@ public class CheckRecord implements java.io.Serializable {
     @JsonIgnore
     private Bill bill;
     private CheckItem checkItem;
+    private CheckResult checkResult;
     @JsonIgnore
     private Patient patient;
     private String paymentStatus;
@@ -21,10 +22,11 @@ public class CheckRecord implements java.io.Serializable {
     public CheckRecord() {
     }
 
-    public CheckRecord(int checkRecordId, Bill bill, CheckItem checkItem, Patient patient, String paymentStatus, Date checkDate) {
+    public CheckRecord(int checkRecordId, Bill bill, CheckItem checkItem, CheckResult checkResult, Patient patient, String paymentStatus, Date checkDate) {
         this.checkRecordId = checkRecordId;
         this.bill = bill;
         this.checkItem = checkItem;
+        this.checkResult = checkResult;
         this.patient = patient;
         this.paymentStatus = paymentStatus;
         this.checkDate = checkDate;
@@ -52,6 +54,14 @@ public class CheckRecord implements java.io.Serializable {
 
     public void setCheckItem(CheckItem checkItem) {
         this.checkItem = checkItem;
+    }
+
+    public CheckResult getCheckResult() {
+        return this.checkResult;
+    }
+
+    public void setCheckResult(CheckResult checkResult) {
+        this.checkResult = checkResult;
     }
 
     public Patient getPatient() {

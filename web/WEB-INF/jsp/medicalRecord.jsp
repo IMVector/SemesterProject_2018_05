@@ -15,7 +15,7 @@
     </head>
 
     <body>
-        <jsp:include page="patientHeaderTemplete.jsp" />
+        <%--<jsp:include page="patientHeaderTemplete.jsp" />--%>
         <%--<jsp:include page="persionalCenterTemplete.jsp"/>--%>
         <div class="container">
             <table id="medicalRecordTable" class="ui blue table">
@@ -52,11 +52,13 @@
                     <!--发送ajax请求-->
                     <select id="pageSelecter" class="mini ui button basic dropdown">
                         <option value="">页码</option>
+                        
+                        
                         <!--<option value="1">1</option>-->
                     </select>
                 </div>
             </div>
-            <div id="pageNumber" class="nonevisiual"></div>
+            <!--<div id="pageNumber" class="nonevisiual"></div>-->
         </div>
     </body>
     <script>
