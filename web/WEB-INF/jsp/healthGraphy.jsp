@@ -17,9 +17,9 @@
     <body>
 
         <div class="ui container">
-            <div class="ui segment">
+            <div id="canvasContainer_1" class="ui segment">
                 <canvas id="chart_1"></canvas>
-                <select id="yearSelecter" class="mini ui button basic dropdown">
+                <select id="yearSelecter_1" class="mini ui button basic dropdown">
                     <option value="">选择年份</option>
                     <!--<option value="1">1</option>-->
                 </select>
@@ -28,23 +28,44 @@
             </div>
             <div class="ui segment">
                 <canvas id="chart_2"></canvas>
-                <select id="yearSelecter" class="mini ui button basic dropdown">
+                <select id="yearSelecter_2" class="mini ui button basic dropdown ">
                     <option value="">选择年份</option>
                     <!--<option value="1">1</option>-->
                 </select>
                 <button id="showChart" class="ui blue button">查看该年份的就医花费</button>
+                <a href="medicalRecordYearSet/${patient.patientId}">年份</a>
             </div>
         </div>
 
     </body>
     <script>
+        var year = 0;
         $("#showChart").click(function () {
 
             //            var year = $("#yearSelecter").val();
-            var year = 2018;
+            var year = $("#yearSelecter_1").val();
             var url = "graphy_times/${patient.patientId}/" + year;
             getSomethingByAjax(url, changeValue);
         })
+        $(document).ready(function () {
+            var url = "medicalRecordYearSet/${patient.patientId}/";
+            getSomethingByAjax(url, getYearSet);
+
+        });
+
+        function getYearSet(data) {
+            $("#yearSelecter_1").empty();
+            $("#yearSelecter_2").empty();
+            $("#yearSelecter_1").append('<option value="0">年份</option>');
+            $("#yearSelecter_2").append('<option value="0">年份</option>');
+
+            for (var i = 0; i < data.length; i++) {
+
+                $("#yearSelecter_1").append('<option value=' + data[i] + '>' + data[i] + '</option>');
+                $("#yearSelecter_2").append('<option value=' + data[i] + '>' + data[i] + '</option>');
+            }
+        }
+
         function changeValue(data) {
 
             var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -105,14 +126,33 @@
                     }
                 }
             };
+            
+            
+            
+            var i = 0;
+            config.data.datasets.forEach(function (dataset) {
+                dataset.data = dataset.data.map(function () {
+                    console.log(data[i]);
+                    return data[i++];
+
+                });
+            });
+
+            //清空画布
+            if (!!(document.getElementById("chart_1"))) {
+                document.getElementById("chart_1").remove();
+            }
+            $('#canvasContainer_1').prepend('<canvas id="chart_1"></canvas>');
+            
             var ctx = document.getElementById("chart_1").getContext("2d");
             window.myLine = new Chart(ctx, config);
+            window.myLine.update();
         }
 
         var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var color = Chart.helpers.color;
         var config = {
-           type: 'bar',
+            type: 'bar',
             data: {
                 labels: MONTHS,
                 datasets: [{
@@ -121,7 +161,7 @@
                         borderColor: window.chartColors.blue,
                         borderWidth: 1,
                         data: [
-                            8, 60, 70, 80, 90, 100
+                            0, 0, 0, 0, 0, 0,0,0,0,0,0,0
                         ]
                     }]
 
@@ -139,6 +179,7 @@
         };
         var ctx = document.getElementById("chart_2").getContext("2d");
         window.myLine = new Chart(ctx, config);
+
 
     </script>
 

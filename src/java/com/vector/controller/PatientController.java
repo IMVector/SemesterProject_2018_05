@@ -15,6 +15,7 @@ import com.vector.service.MedicalRecordService;
 import com.vector.service.PatientSearchService;
 import com.vector.service.PrescriptionService;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -139,6 +140,12 @@ public class PatientController {
     public double[] getMedicalFeeOfPatientByYear(@PathVariable String patientId, @PathVariable int year, Model model) {
         return billService.getMedicalVisitsFee(patientId, year);
 
+    }
+
+    @RequestMapping(value = "/medicalRecordYearSet/{patientId}", method = RequestMethod.POST)
+    @ResponseBody
+    public Set getMedicalRecordYearSetOfSomeone(@PathVariable String patientId) {
+        return medicalRecordService.getMedicalYear(patientId);
     }
 
 }
