@@ -29,7 +29,7 @@
                                 <!--<a id="checkResult" class="item" data-tab="checkResult">查看我的检查结果 </a>-->
                                 <a id="healthAdvice" class="item" data-tab="healthAdvice">健康建议 </a>
                                 <a id="dietAdvice" class="item" data-tab="dietAdvice">饮食建议 </a>
-                                <a id="record" class="item" data-tab="record">就医记录 </a>
+                                <a id="record" class="item" data-tab="record">查看检查安排 </a>
                                 <a id="graphy" class="item" data-tab="graphy">就医图表 </a>
                             </div>
                         </div>

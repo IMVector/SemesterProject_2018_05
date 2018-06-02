@@ -11,6 +11,12 @@
         <property name="medicationName" type="string">
             <column name="MedicationName" not-null="true" />
         </property>
+        <property name="productionDate" type="timestamp">
+            <column name="ProductionDate" length="23" not-null="true" />
+        </property>
+        <property name="validityPeriod" type="int">
+            <column name="ValidityPeriod" not-null="true" />
+        </property>
         <property name="medicationInstructions" type="string">
             <column name="MedicationInstructions" not-null="true" />
         </property>

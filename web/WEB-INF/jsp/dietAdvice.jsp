@@ -17,40 +17,72 @@
         <%--<jsp:include page="persionalCenterTemplete.jsp"/>--%>
         <div class="container">
 
-            <table id="medicalRecordTable" class="ui purple table">
-                <!--                        <thead>
-                                            <tr>
-                                                <th>病例编号</th>
-                                                <th>病人姓名</th>
-                                                <th>入院日期</th>
-                                                <th>入院诊断</th>
-                                                <th>诊查科室</th>
-                                                <th>诊查医生</th>
-                                                <th>诊查结果</th>
-                                                <th>是否住院</th>
-                                                <th>出院日期</th>
-                                                <th>出院诊断</th>
-                                                <th>查看详情</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td><a  class="ui button small" href="medicalRecordDetails\1">查看</a></td>
-                                            </tr>
-                                        </tbody>-->
+            <table id="dietAdviceTable" class="ui purple table">
 
             </table>
+            <div>
+                <p id="pageText_dietAdvice"></p>
+                <div id="dietAdvicePageButtons" class="mini ui basic buttons">
+
+                </div>
+                <div>
+                    <label for="" class="ui label">跳转到：</label>
+                    <!--发送ajax请求-->
+                    <select id="pageSelecter_dietAdvice" class="mini ui button basic dropdown">
+                        <option value="">页码</option>
+
+
+                    </select>
+                </div>
+            </div>
         </div>
+
+
+        <script>
+
+            $(document).ready(function () {
+                $("#dietAdvice").click(function () {
+                    var url = 'dietAdviceList/${patient.patientId}/page_key_word';
+                    fillForm("dietAdvicePageButtons", "pageText_dietAdvice", "pageSelecter_dietAdvice", currentPage = 1, url, showdietAdviceTable, getdietAdviceItemNum);
+                });
+
+                $("#pageSelecter_dietAdvice").on("change", function () {
+                    var url = 'dietAdviceList/${patient.patientId}/page_key_word';
+                    goToThPage("dietAdvicePageButtons", "pageText_dietAdvice", "pageSelecter_dietAdvice", url, showdietAdviceTable, getdietAdviceItemNum);
+                });
+            });
+
+            function showdietAdviceTable(data) {
+                $("#dietAdviceTable").empty();
+                $("#dietAdviceTable").append("<thead><tr> <th>建议编号</th><th>病人姓名</th><th>建议日期</th><th>建议内容</th><th>查看详情</th></tr></thead>");
+                $.each(data, function (index, dietAdvice) {
+                    var str = "<tr id=" + dietAdvice.dietAdviceId + ">\n\
+                    <td>" + dietAdvice.dietAdviceId + "</td><td>${patient.patientName}</td>\n\
+                    <td>" + formatDatebox(dietAdvice.dietAdviceTime) + "</td>\n\
+                    <td>" + dietAdvice.dietAdviceContent + "</td>\n\
+                    <td> <a  class='ui button small blue' href='dietAdviceDetails/" + dietAdvice.dietAdviceId + "'>查看</a> </td>\n\</tr>"
+
+                    $("#dietAdviceTable").append(str);
+                });
+            }
+            function getdietAdviceItemNum() {
+                var itemNum = 0;
+                $.ajax({
+                    url: "dietAdviceListItemNumber/${patient.patientId}",
+                    type: 'POST',
+                    async: false,
+                    data: {},
+                    success: function (data, textStatus, jqXHR) {
+                        //返回List项目总数量
+                        itemNum = data
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert("请求失败，请重试！");
+                    }
+                });
+                return itemNum;
+            }
+        </script>
 
     </body>
 </html>

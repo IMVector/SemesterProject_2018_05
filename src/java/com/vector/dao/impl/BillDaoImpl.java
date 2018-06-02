@@ -32,7 +32,7 @@ public class BillDaoImpl extends BaseDaoImpl<Bill> implements BillDao {
         try {
             startDate = sdf.parse(yearStart);
             endDate = sdf.parse(yearEnd);
-            String hql = "from Bill where patient.patientId=? and inDate between ? and ?";
+            String hql = "from Bill where patient.patientId=? and billDate between ? and ?";
             return getListByQuery(hql, patientId, startDate, endDate);
         } catch (ParseException ex) {
             return null;

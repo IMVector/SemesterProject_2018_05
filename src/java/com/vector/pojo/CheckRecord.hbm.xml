@@ -26,5 +26,8 @@
         <property name="checkDate" type="timestamp">
             <column name="CheckDate" length="23" not-null="true" />
         </property>
+        <property name="isChecked" type="int">
+            <column name="isChecked"  not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

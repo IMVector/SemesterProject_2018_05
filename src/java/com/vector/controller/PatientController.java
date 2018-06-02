@@ -7,14 +7,19 @@ package com.vector.controller;
 
 import com.vector.pojo.Bill;
 import com.vector.pojo.CheckRecord;
+import com.vector.pojo.DietAdvice;
 import com.vector.pojo.MedicalRecord;
+import com.vector.pojo.PrecautionAdvice;
 import com.vector.pojo.Prescription;
 import com.vector.service.BillService;
 import com.vector.service.CheckRecordService;
+import com.vector.service.DietAdviceService;
+import com.vector.service.HealthAdviceService;
 import com.vector.service.MedicalRecordService;
 import com.vector.service.PatientSearchService;
 import com.vector.service.PrescriptionService;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,6 +52,13 @@ public class PatientController {
     @Autowired
     private BillService billService;
 
+    @Autowired
+    private HealthAdviceService healthAdviceService;
+
+    @Autowired
+    private DietAdviceService dietAdviceService;
+
+    //////////////////////////////////////////病例报告//////////////////////////////////////////////
     @RequestMapping(value = "/medicalRecordDetails/{MdeicalRecordId}", method = RequestMethod.GET)
     public String showMdeicalRecordDetails(@PathVariable int MdeicalRecordId, Model model) {
         MedicalRecord medicalRecord = medicalRecordService.getOneById(MdeicalRecordId);
@@ -68,6 +80,7 @@ public class PatientController {
         return medicalRecordService.getListItemNumber(patientId);
     }
 
+    /////////////////////////////////////检查记录以及检查结果报告///////////////////////////////////////////////////
     @RequestMapping(value = "/checkRecordList/{patientId}/{currentPage}", method = RequestMethod.POST)
     @ResponseBody
     public List showCheckRecordList(@PathVariable String patientId, @PathVariable int currentPage) {
@@ -88,6 +101,7 @@ public class PatientController {
         return "checkRecordDetails";
     }
 
+    ///////////////////////////////////////处方报告/////////////////////////////////////////////////
     @RequestMapping(value = "/prescriptionList/{patientId}/{currentPage}", method = RequestMethod.POST)
     @ResponseBody
     public List showPrescriptionList(@PathVariable String patientId, @PathVariable int currentPage) {
@@ -107,13 +121,7 @@ public class PatientController {
         model.addAttribute("prescription", prescription);
         return "prescriptionDetails";
     }
-
-    @RequestMapping(value = "/graphy_times/{patientId}/{year}", method = RequestMethod.POST)
-    @ResponseBody
-    public int[] getMedicalOfPatientByYear(@PathVariable String patientId, @PathVariable int year, Model model) {
-        return medicalRecordService.getMedicalVisitsNum(patientId, year);
-
-    }
+    ///////////////////////////////////账单报告/////////////////////////////////////////////////////
 
     @RequestMapping(value = "/billList/{patientId}/{currentPage}", method = RequestMethod.POST)
     @ResponseBody
@@ -134,6 +142,14 @@ public class PatientController {
         model.addAttribute("bill", bill);
         return "billDetails";
     }
+    //////////////////////////////////健康内容可视化//////////////////////////////////////////////////////
+
+    @RequestMapping(value = "/graphy_times/{patientId}/{year}", method = RequestMethod.POST)
+    @ResponseBody
+    public int[] getMedicalOfPatientByYear(@PathVariable String patientId, @PathVariable int year, Model model) {
+        return medicalRecordService.getMedicalVisitsNum(patientId, year);
+
+    }
 
     @RequestMapping(value = "/graphy_fee/{patientId}/{year}", method = RequestMethod.POST)
     @ResponseBody
@@ -148,4 +164,58 @@ public class PatientController {
         return medicalRecordService.getMedicalYear(patientId);
     }
 
+    @RequestMapping(value = "/illnessInfo/{patientId}/{year}", method = RequestMethod.POST)
+    @ResponseBody
+    public Map getIllnessInfo(@PathVariable String patientId, @PathVariable int year) {
+        return medicalRecordService.getIllnessInfo(patientId, year);
+    }
+
+    /////////////////////////////////健康建议///////////////////////////////////////////////////////
+    @RequestMapping(value = "/healthAdviceList/{patientId}/{currentPage}", method = RequestMethod.POST)
+    @ResponseBody
+    public List showHealthAdviceList(@PathVariable String patientId, @PathVariable int currentPage) {
+        List<PrecautionAdvice> list = healthAdviceService.getAllListOfSomeone(patientId, currentPage);
+        return list;
+    }
+
+    @RequestMapping(value = "/healAdviceListItemNumber/{patientId}", method = RequestMethod.POST)
+    @ResponseBody
+    public int showhealthAdviceListItemNumber(@PathVariable String patientId) {
+        return healthAdviceService.getListItemNumber(patientId);
+    }
+
+    @RequestMapping(value = "/healthAdviceDetails/{healthAdviceId}", method = RequestMethod.GET)
+    public String showHealthAdviceDetails(@PathVariable int healthAdviceId, Model model) {
+        PrecautionAdvice precautionAdvice = healthAdviceService.getOneById(healthAdviceId);
+        model.addAttribute("precautionAdvice", precautionAdvice);
+        return "healthAdviceDetails";
+    }
+    /////////////////////////////////饮食建议///////////////////////////////////////////////////////
+
+    @RequestMapping(value = "/dietAdviceList/{patientId}/{currentPage}", method = RequestMethod.POST)
+    @ResponseBody
+    public List showDietAdviceList(@PathVariable String patientId, @PathVariable int currentPage) {
+        List<DietAdvice> list = dietAdviceService.getAllListOfSomeone(patientId, currentPage);
+        return list;
+    }
+
+    @RequestMapping(value = "/dietAdviceListItemNumber/{patientId}", method = RequestMethod.POST)
+    @ResponseBody
+    public int showDietAdviceListItemNumber(@PathVariable String patientId) {
+        return dietAdviceService.getListItemNumber(patientId);
+    }
+
+    @RequestMapping(value = "/dietAdviceDetails/{dietAdviceId}", method = RequestMethod.GET)
+    public String showDietAdviceDetails(@PathVariable int dietAdviceId, Model model) {
+        DietAdvice dietAdvice = dietAdviceService.getOneById(dietAdviceId);
+        model.addAttribute("dietAdvice", dietAdvice);
+        return "dietAdviceDetails";
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    
+//    @RequestMapping(value="",method=RequestMethod.POST)
+//    @ResponseBody
+//    public List<MedicalRecord> showHospitalitalInfo(){
+//    }
+    
 }

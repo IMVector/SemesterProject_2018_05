@@ -18,11 +18,12 @@ public class CheckRecord implements java.io.Serializable {
     private Patient patient;
     private String paymentStatus;
     private Date checkDate;
+    private Integer isChecked;
 
     public CheckRecord() {
     }
 
-    public CheckRecord(int checkRecordId, Bill bill, CheckItem checkItem, CheckResult checkResult, Patient patient, String paymentStatus, Date checkDate) {
+    public CheckRecord(int checkRecordId, Bill bill, CheckItem checkItem, CheckResult checkResult, Patient patient, String paymentStatus, Date checkDate,Integer isChecked) {
         this.checkRecordId = checkRecordId;
         this.bill = bill;
         this.checkItem = checkItem;
@@ -30,6 +31,7 @@ public class CheckRecord implements java.io.Serializable {
         this.patient = patient;
         this.paymentStatus = paymentStatus;
         this.checkDate = checkDate;
+        this.isChecked=isChecked;
     }
 
     public int getCheckRecordId() {
@@ -86,6 +88,14 @@ public class CheckRecord implements java.io.Serializable {
 
     public void setCheckDate(Date checkDate) {
         this.checkDate = checkDate;
+    }
+
+    public Integer getIsChecked() {
+        return isChecked;
+    }
+
+    public void setIsChecked(Integer isChecked) {
+        this.isChecked = isChecked;
     }
 
 }

@@ -29,15 +29,19 @@ public class BillServiceImpl implements BillService {
     @Override
     public double[] getMedicalVisitsFee(Serializable patientId, Serializable year) {
 
-        double month[] = new double[12];
+        double fee[] = new double[12];
         for (int i = 0; i < 12; i++) {
-            month[i] = 0;
+            fee[i] = 0;
         }
         List<Bill> list = billDao.getBillOfPatientByYear(patientId, year);
         for (Bill b : list) {
-            month[b.getBillDate().getMonth()] = b.getTotalAmount();
+            fee[b.getBillDate().getMonth()]+= b.getTotalAmount();
         }
-        return null;
+        
+        for(int i=0;i<fee.length;i++){
+            System.out.println(fee[i]);
+        }
+        return fee;
     }
 
     @Transactional

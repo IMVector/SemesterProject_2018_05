@@ -17,40 +17,74 @@
         <%--<jsp:include page="persionalCenterTemplete.jsp"/>--%>
         <div class="container">
 
-            <table id="medicalRecordTable" class="ui red table">
-                <!--                        <thead>
-                                            <tr>
-                                                <th>病例编号</th>
-                                                <th>病人姓名</th>
-                                                <th>入院日期</th>
-                                                <th>入院诊断</th>
-                                                <th>诊查科室</th>
-                                                <th>诊查医生</th>
-                                                <th>诊查结果</th>
-                                                <th>是否住院</th>
-                                                <th>出院日期</th>
-                                                <th>出院诊断</th>
-                                                <th>查看详情</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td><a  class="ui button small" href="medicalRecordDetails\1">查看</a></td>
-                                            </tr>
-                                        </tbody>-->
+            <table id="hospitalRecordTable" class="ui red table">
+         
 
             </table>
+                <div>
+                <p id="pageText_hospitalRecord"></p>
+                <div id="hospitalRecordPageButtons" class="mini ui basic buttons">
+
+                </div>
+                <div>
+                    <label for="" class="ui label">跳转到：</label>
+                    <!--发送ajax请求-->
+                    <select id="pageSelecter_hospitalRecord" class="mini ui button basic dropdown">
+                        <option value="">页码</option>
+
+
+                    </select>
+                </div>
+            </div>
+            
+            
+            
         </div>
 
+        <script>
+            
+            $(document).ready(function () {
+                $("#record").click(function () {
+                    var url = 'medicalRecordList/${patient.patientId}/page_key_word';
+                    fillForm("hospitalRecordPageButtons", "pageText_hospitalRecord", "pageSelecter_hospitalRecord", currentPage = 1, url, showHospitalRecordTable, getHospitalRecordItemNum);
+                });
+
+                $("#pageSelecter_hospitalRecord").on("change", function () {
+                    var url = 'medicalRecordList/${patient.patientId}/page_key_word';
+                    goToThPage("hospitalRecordPageButtons", "pageText_hospitalRecord", "pageSelecter_hospitalRecord", url, showHospitalRecordTable, getHospitalRecordItemNum);
+                });
+            });
+
+            function showHospitalRecordTable(data) {
+                $("#hospitalRecordTable").empty();
+                $("#hospitalRecordTable").append("<thead><tr> <th>就医编号</th><th>病人姓名</th><th>就医日期</th><th>诊治医生</th><th>查看详情</th></tr></thead>");
+                $.each(data, function (index, hospitalRecord) {
+                    var str = "<tr id=" + hospitalRecord.medicalRecordId + ">\n\
+                    <td>" + hospitalRecord.medicalRecordId + "</td><td>${patient.patientName}</td>\n\
+                    <td>" + formatDatebox(hospitalRecord.inDate) + "</td>\n\
+                    <td>" + hospitalRecord.doctorName + "</td>\n\
+                    <td> <a  class='ui button small blue' href='hospitalRecordDetails/" + hospitalRecord.medicalRecordId + "'>查看</a> </td>\n\</tr>"
+
+                    $("#hospitalRecordTable").append(str);
+                });
+            }
+            function getHospitalRecordItemNum() {
+                var itemNum = 0;
+                $.ajax({
+                    url: "medicalRecordListItemNumber/${patient.patientId}",
+                    type: 'POST',
+                    async: false,
+                    data: {},
+                    success: function (data, textStatus, jqXHR) {
+                        //返回List项目总数量
+                        itemNum = data
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert("请求失败，请重试！");
+                    }
+                });
+                return itemNum;
+            }
+        </script>
     </body>
 </html>

@@ -17,40 +17,74 @@
         <%--<jsp:include page="persionalCenterTemplete.jsp"/>--%>
         <div class="container">
 
-            <table id="medicalRecordTable" class="ui green table">
-                <!--                        <thead>
-                                            <tr>
-                                                <th>病例编号</th>
-                                                <th>病人姓名</th>
-                                                <th>入院日期</th>
-                                                <th>入院诊断</th>
-                                                <th>诊查科室</th>
-                                                <th>诊查医生</th>
-                                                <th>诊查结果</th>
-                                                <th>是否住院</th>
-                                                <th>出院日期</th>
-                                                <th>出院诊断</th>
-                                                <th>查看详情</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td><a  class="ui button small" href="medicalRecordDetails\1">查看</a></td>
-                                            </tr>
-                                        </tbody>-->
+            <table id="healthAdviceTable" class="ui green table">
 
             </table>
+
+            <div>
+                <p id="pageText_healthAdvice"></p>
+                <div id="healthAdvicePageButtons" class="mini ui basic buttons">
+
+                </div>
+                <div>
+                    <label for="" class="ui label">跳转到：</label>
+                    <!--发送ajax请求-->
+                    <select id="pageSelecter_healthAdvice" class="mini ui button basic dropdown">
+                        <option value="">页码</option>
+
+
+                        <!--<option value="1">1</option>-->
+                    </select>
+                </div>
+            </div>
         </div>
+
+        <script>
+
+
+            $(document).ready(function () {
+                $("#healthAdvice").click(function () {
+                    var url = 'healthAdviceList/${patient.patientId}/page_key_word';
+                    fillForm("healthAdvicePageButtons", "pageText_healthAdvice", "pageSelecter_healthAdvice", currentPage = 1, url, showHealthAdviceTable, getHealthAdviceItemNum);
+                });
+
+                $("#pageSelecter_healthAdvice").on("change", function () {
+                    var url = 'healthAdviceList/${patient.patientId}/page_key_word';
+                    goToThPage("healthAdvicePageButtons", "pageText_healthAdvice", "pageSelecter_healthAdvice", url, showHealthAdviceTable, getHealthAdviceItemNum);
+                });
+            });
+            function showHealthAdviceTable(data) {
+                $("#healthAdviceTable").empty();
+                $("#healthAdviceTable").append("<thead><tr> <th>建议编号</th><th>病人姓名</th><th>建议日期</th><th>建议内容</th><th>查看详情</th></tr></thead>");
+                $.each(data, function (index, healthAdvice) {
+                    var str = "<tr id=" + healthAdvice.precautionAdviceId + ">\n\
+                    <td>" + healthAdvice.precautionAdviceId + "</td><td>${patient.patientName}</td>\n\
+                    <td>" + formatDatebox(healthAdvice.dietAdviceTime) + "</td>\n\
+                    <td>" + healthAdvice.precautionAdviceContent + "</td>\n\
+                    <td> <a  class='ui button small blue' href='healthAdviceDetails/" + healthAdvice.precautionAdviceId + "'>查看</a> </td>\n\</tr>"
+
+                    $("#healthAdviceTable").append(str);
+                });
+            }
+
+            function getHealthAdviceItemNum() {
+                var itemNum = 0;
+                $.ajax({
+                    url: "healAdviceListItemNumber/${patient.patientId}",
+                    type: 'POST',
+                    async: false,
+                    data: {},
+                    success: function (data, textStatus, jqXHR) {
+                        //返回List项目总数量
+                        itemNum = data
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert("请求失败，请重试！");
+                    }
+                });
+                return itemNum;
+            }
+        </script>
 
     </body>
 </html>

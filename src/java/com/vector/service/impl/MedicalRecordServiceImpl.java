@@ -10,8 +10,10 @@ import com.vector.pojo.MedicalRecord;
 import com.vector.service.MedicalRecordService;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class MedicalRecordServiceImpl implements MedicalRecordService {
 
     @Autowired
-    MedicalRecordDao medicalRecordDao;
+    private MedicalRecordDao medicalRecordDao;
 
     @Transactional
     @Override
@@ -83,6 +85,35 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
             yearSet.add(calendar.get(Calendar.YEAR));
         }
         return yearSet;
+    }
+
+    @Transactional
+    @Override
+    public Map getIllnessInfo(Serializable patientId, Serializable year) {
+        List<MedicalRecord> list = medicalRecordDao.getMedicalOfPatientByYear(patientId, year);
+
+        Map illnessMap = new HashMap();
+        for (MedicalRecord m : list) {
+            if (illnessMap.containsKey(m.getInDiagnosis())) {
+                int value = (int) illnessMap.get(m.getInDiagnosis());
+                value++;
+                illnessMap.replace(m.getInDiagnosis(), value);
+            } else {
+                illnessMap.put(m.getInDiagnosis(), 1);
+            }
+        }
+        //遍历map中的键  
+
+        for (Object key : illnessMap.keySet()) {
+
+            System.out.println("Key = " + key);
+        }
+        //遍历map中的值  
+        for (Object value : illnessMap.values()) {
+
+            System.out.println("Value = " + value);
+        }
+        return illnessMap;
     }
 
 }

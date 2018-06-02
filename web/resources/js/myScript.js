@@ -94,5 +94,22 @@ function formatDatebox(value) {
     } else {
         dt = new Date(value);
     }
-    return dt.format("yyyy-MM-dd"); 
+    return dt.format("yyyy-MM-dd");
+}
+
+
+/**
+ * 随机数生成函数
+ * @param {type} min
+ * @param {type} max
+ * @returns {Number}
+ */
+function myRandom(min, max) {
+    return parseInt(Math.random() * (min - max) + max);//生成min-max之间的随机数
+}
+
+
+function getRandomcolor(){
+    
+    return "rgb("+myRandom(0,255)+","+myRandom(0,255)+","+myRandom(0,255)+")";
 }
