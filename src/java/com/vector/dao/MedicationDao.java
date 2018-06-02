@@ -5,12 +5,15 @@
  */
 package com.vector.dao;
 
-import com.vector.pojo.DietAdvice;
+import com.vector.pojo.Medication;
+import java.io.Serializable;
 
 /**
  *
  * @author Vector
  */
-public interface DietAdviceDao extends BaseDao<DietAdvice>, PatientAbstractDao<DietAdvice> {
-    
+public interface MedicationDao extends BaseDao<Medication>, AdminAbstractDao<Medication> {
+
+    Medication getOneByName(Serializable name);
+
 }

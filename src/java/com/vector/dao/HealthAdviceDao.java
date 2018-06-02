@@ -11,6 +11,6 @@ import com.vector.pojo.PrecautionAdvice;
  *
  * @author Vector
  */
-public interface HealthAdviceDao extends BaseDao<PrecautionAdvice>,AbstractDao<PrecautionAdvice>{
+public interface HealthAdviceDao extends BaseDao<PrecautionAdvice>,PatientAbstractDao<PrecautionAdvice>{
     
 }

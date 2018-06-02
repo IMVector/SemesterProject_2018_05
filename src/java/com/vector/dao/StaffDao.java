@@ -5,6 +5,7 @@
  */
 package com.vector.dao;
 
+import com.vector.pojo.Staff;
 import java.io.Serializable;
 import java.util.List;
 
@@ -12,16 +13,12 @@ import java.util.List;
  *
  * @author Vector
  */
-public interface AbstractDao<T> extends BaseDao<T>{
+public interface StaffDao extends BaseDao<Staff>, AdminAbstractDao<Staff> {
 
-    List<T> getListById(Serializable id, Serializable currentPage);
+    Staff getStaffById(Serializable id);
 
-    List<T> getList(Serializable currentPage);
+    List<Staff> getStaffByName(Serializable name, Serializable currentPage);
 
-    T getOneOfSomeoneById(Serializable id);
-
-    int getItemNum();
-
-    int getItemNum(Serializable id);
+    List<Staff> getStaffByTitle(Serializable title, Serializable currentPage);
 
 }

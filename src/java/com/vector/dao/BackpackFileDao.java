@@ -5,16 +5,19 @@
  */
 package com.vector.dao;
 
-import com.vector.pojo.Bill;
-import java.io.Serializable;
+import com.vector.pojo.BackpackFile;
 import java.util.List;
 
 /**
  *
  * @author Vector
  */
-public interface BillDao extends PatientAbstractDao<Bill> {
-    
-    List<Bill>getBillOfPatientByYear(Serializable patientId, Serializable year);
-    
+public interface BackpackFileDao extends BaseDao<BackpackFile> {
+
+    boolean deleteFile(String fileId);
+
+    BackpackFile getFileById(Integer Id);
+
+    List<BackpackFile> getFileList();
+
 }

@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Vector
  */
-public interface PrescriptionDao extends BaseDao<Prescription>, AbstractDao<Prescription> {
+public interface PrescriptionDao extends BaseDao<Prescription>, PatientAbstractDao<Prescription> {
 //
 //    List<Prescription> getPrescriptionListByPatientId(Serializable patientId, Serializable currentPage);
 //

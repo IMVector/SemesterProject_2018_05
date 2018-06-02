@@ -5,7 +5,6 @@
  */
 package com.vector.dao;
 
-import com.vector.pojo.Bill;
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,8 +12,13 @@ import java.util.List;
  *
  * @author Vector
  */
-public interface BillDao extends PatientAbstractDao<Bill> {
-    
-    List<Bill>getBillOfPatientByYear(Serializable patientId, Serializable year);
-    
+public interface AdminAbstractDao<T> {
+
+    List<T> getListOfAllWithPagination(Serializable currentPage);
+
+    boolean addOne(T object);
+
+    boolean updateOne(T object);
+
+    boolean deleteOneById(Serializable id);
 }

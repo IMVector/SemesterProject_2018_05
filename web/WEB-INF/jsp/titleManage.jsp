@@ -15,12 +15,15 @@
             <div class="ui segment ">
 
                 <div class="ui grid">
+
                     <jsp:include page="adminMenuTemplete.jsp"/>
                     <div class="eleven wide column">
                         <div class="ui segment">
-                            <div class=""></div>
-                            
-                            
+                            <div class="ui header blue segment">
+                                职称管理
+                            </div>
+
+
                         </div>
                     </div>
                 </div>

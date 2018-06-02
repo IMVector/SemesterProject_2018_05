@@ -5,12 +5,12 @@
  */
 package com.vector.dao;
 
-import com.vector.pojo.DietAdvice;
+import com.vector.pojo.Title;
 
 /**
  *
  * @author Vector
  */
-public interface DietAdviceDao extends BaseDao<DietAdvice>, PatientAbstractDao<DietAdvice> {
+public interface TitleDao extends BaseDao<Title> ,AdminAbstractDao<Title> {
     
 }

@@ -24,6 +24,8 @@
     <mapping resource="com/vector/pojo/Image.hbm.xml"/>
     <mapping resource="com/vector/pojo/Medication.hbm.xml"/>
     <mapping resource="com/vector/pojo/PrecautionAdvice.hbm.xml"/>
-    <mapping resource="com/vector/pojo/CheckResult.hbm.xml"/>-->
+    <mapping resource="com/vector/pojo/CheckResult.hbm.xml"/>
+    <mapping resource="com/vector/pojo/BackpackFile.hbm.xml"/>
+    <mapping resource="com/vector/pojo/BackpackSetting.hbm.xml"/>-->
   </session-factory>
 </hibernate-configuration>

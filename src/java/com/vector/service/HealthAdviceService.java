@@ -5,8 +5,8 @@
  */
 package com.vector.service;
 
-import com.vector.dao.AbstractDao;
 import com.vector.pojo.PrecautionAdvice;
+import com.vector.dao.PatientAbstractDao;
 
 /**
  *

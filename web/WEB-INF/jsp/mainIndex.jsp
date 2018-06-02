@@ -67,7 +67,7 @@
                                 <ul class="links">
                                     <li class="l2">
                                         <p class="p">医生版</p>
-                                        <a class="link" href="patientIndex">进入</a>
+                                        <a class="link" href="staffIndex">进入</a>
                                     </li>
                                 </ul>
                             </div>
@@ -79,7 +79,7 @@
                                 <ul class="links">
                                     <li class="l3">
                                         <p class="p">管理版</p>
-                                        <a class="link" href="patientIndex">进入</a>
+                                        <a class="link" href="adminIndex">进入</a>
                                     </li>
                                 </ul>
                             </div>

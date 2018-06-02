@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-6-2 10:50:08 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.vector.pojo.BackpackSetting" table="BackpackSetting" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
+        <id name="backpackSettingId" type="int">
+            <column name="BackpackSettingId" />
+            <generator class="assigned" />
+        </id>
+        <property name="backpackSqlFile" type="serializable">
+            <column name="BackpackSqlFile" not-null="true" />
+        </property>
+        <property name="backpackBatFile" type="serializable">
+            <column name="BackpackBatFile" not-null="true" />
+        </property>
+        <property name="backpackToPath" type="serializable">
+            <column name="BackpackToPath" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

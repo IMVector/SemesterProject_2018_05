@@ -5,12 +5,12 @@
  */
 package com.vector.dao.impl;
 
-import com.vector.dao.AbstractDao;
 import com.vector.dao.PrescriptionDao;
 import com.vector.pojo.Prescription;
 import java.io.Serializable;
 import java.util.List;
 import org.springframework.stereotype.Repository;
+import com.vector.dao.PatientAbstractDao;
 
 /**
  *
