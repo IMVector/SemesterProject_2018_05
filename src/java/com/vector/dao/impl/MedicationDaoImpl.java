@@ -66,4 +66,10 @@ public class MedicationDaoImpl extends BaseDaoImpl<Medication> implements Medica
         return flag;
     }
 
+    @Override
+    public int getListItemNumber() {
+        String hql = "select count(*) from Medication";
+        return getListSize(hql);
+    }
+
 }

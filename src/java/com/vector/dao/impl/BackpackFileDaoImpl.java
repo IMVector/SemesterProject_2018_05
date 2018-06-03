@@ -19,10 +19,22 @@ import org.springframework.stereotype.Repository;
 public class BackpackFileDaoImpl extends BaseDaoImpl<BackpackFile> implements BackpackFileDao {
 
     @Override
-    public boolean deleteFile(String fileId) {
+    public List<BackpackFile> getListOfAllWithPagination(Serializable currentPage) {
+        String hql = "from BackpackFile";
+        return getListPaginationByQuery(hql, currentPage);
+    }
+
+    @Override
+    public int getListItemNumber() {
+        String hql = "select count(*)from BackpackFile";
+        return getListSize(hql);
+    }
+
+    @Override
+    public boolean addOne(BackpackFile object) {
         boolean bool = false;
         try {
-            delete(fileId);
+            insert(object);
             bool = true;
         } catch (Exception e) {
             bool = false;
@@ -31,14 +43,27 @@ public class BackpackFileDaoImpl extends BaseDaoImpl<BackpackFile> implements Ba
     }
 
     @Override
-    public BackpackFile getFileById(Integer Id) {
-        return getOneById(Id);
+    public boolean updateOne(BackpackFile object) {
+        boolean bool = false;
+        try {
+            update(object);
+            bool = true;
+        } catch (Exception e) {
+            bool = false;
+        }
+        return bool;
     }
 
     @Override
-    public List<BackpackFile> getFileList() {
-        String hql = "from BackpackFile";
-        return getListByQuery(hql);
+    public boolean deleteOneById(Serializable id) {
+        boolean bool = false;
+        try {
+            delete(id);
+            bool = true;
+        } catch (Exception e) {
+            bool = false;
+        }
+        return bool;
     }
 
 }

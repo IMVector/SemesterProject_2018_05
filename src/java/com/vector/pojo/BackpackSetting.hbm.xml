@@ -8,13 +8,13 @@
             <column name="BackpackSettingId" />
             <generator class="assigned" />
         </id>
-        <property name="backpackSqlFile" type="serializable">
+        <property name="backpackSqlFile" type="string">
             <column name="BackpackSqlFile" not-null="true" />
         </property>
-        <property name="backpackBatFile" type="serializable">
+        <property name="backpackBatFile" type="string">
             <column name="BackpackBatFile" not-null="true" />
         </property>
-        <property name="backpackToPath" type="serializable">
+        <property name="backpackToPath" type="string">
             <column name="BackpackToPath" not-null="true" />
         </property>
     </class>

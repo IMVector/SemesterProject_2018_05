@@ -2,32 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="098c8e8f-0843-44b7-a38f-d6e164b415e9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/Bill.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/BloodBank.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/BloodBank.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/CheckItem.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/CheckItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/Department.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/Department.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/DietAdvice.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/DietAdvice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/Image.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/Image.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/MedicalRecord.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/MedicalRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/Medication.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/Medication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/MedicationHistory.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/MedicationHistory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/PrecautionAdvice.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/PrecautionAdvice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/Staff.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/Staff.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/Title.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/Title.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/hibernate.reveng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/hibernate.reveng.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/dao/AdminAbstractDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/dao/AdminAbstractDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/dao/BackpackFileDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/dao/BackpackFileDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/dao/BackpackSettingDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/dao/BackpackSettingDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/dao/impl/BackpackFileDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/dao/impl/BackpackFileDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/dao/impl/BackpackSettingDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/dao/impl/BackpackSettingDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/dao/impl/DepartmetnDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/dao/impl/DepartmetnDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/dao/impl/ImageDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/dao/impl/ImageDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/dao/impl/MedicationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/dao/impl/MedicationDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/dao/impl/StaffDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/dao/impl/StaffDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/dao/impl/TitleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/dao/impl/TitleDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/BackpackFile.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/pojo/BackpackFile.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/BackpackFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/pojo/BackpackFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/BackpackSetting.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/pojo/BackpackSetting.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/pojo/BackpackSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/pojo/BackpackSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/service/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/service/PatientBaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/service/BillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/service/BillService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/service/CheckRecordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/service/CheckRecordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/service/DatabaseFileOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/service/DatabaseFileOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/service/DietAdviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/service/DietAdviceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/service/HealthAdviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/service/HealthAdviceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/service/MedicalRecordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/service/MedicalRecordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/service/PrescriptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/service/PrescriptionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/vector/service/impl/DatabaseFileOperationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/vector/service/impl/DatabaseFileOperationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/databaseManage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/databaseManage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/js/myScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/js/myScript.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -73,18 +72,16 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="107" />
-    <option name="y" value="101" />
-    <option name="width" value="1738" />
-    <option name="height" value="971" />
+    <option name="x" value="106" />
+    <option name="y" value="100" />
+    <option name="width" value="1740" />
+    <option name="height" value="972" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -129,6 +126,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,7 +333,7 @@
               </StagingTargetModelImpl>
             </list>
           </option>
-          <option name="transportHostId" />
+          <option name="transportHostId" value="" />
           <host-id />
         </data>
       </server-settings>
@@ -358,11 +357,12 @@
       <updated>1527750388445</updated>
       <workItem from="1527750389656" duration="192000" />
       <workItem from="1527750702921" duration="1732000" />
+      <workItem from="1527948677408" duration="179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1924000" />
+    <option name="totallyTimeSpent" value="2103000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -378,7 +378,6 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49966776" weight="0.32909605" />
-      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" sideWeight="0.49966776" weight="0.32909605" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50099665" side_tool="true" weight="0.32909605" />
@@ -389,21 +388,22 @@
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49966776" weight="0.32909605" />
       <window_info id="Persistence" order="2" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858758" visible="true" weight="0.22990033" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49858758" visible="true" weight="0.23322259" />
       <window_info id="Web" order="2" sideWeight="0.50141245" side_tool="true" weight="0.22990033" />
       <window_info anchor="right" id="Database" order="3" weight="0.32956812" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Application Servers" order="7" visible="true" weight="0.32934132" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Application Servers" order="7" visible="true" weight="0.32934132" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Messages" order="7" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">

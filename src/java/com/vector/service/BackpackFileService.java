@@ -5,12 +5,15 @@
  */
 package com.vector.service;
 
-import com.vector.pojo.DietAdvice;
+import com.vector.pojo.BackpackFile;
+import java.io.Serializable;
 
 /**
  *
  * @author Vector
  */
-public interface DietAdviceService extends PatientBaseService<DietAdvice> {
+public interface BackpackFileService extends AdminBaseService<BackpackFile>{
+    
+    BackpackFile getBackpackFileById(Serializable id);
     
 }

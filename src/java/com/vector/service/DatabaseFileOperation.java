@@ -6,24 +6,22 @@
 package com.vector.service;
 
 import com.vector.pojo.BackpackSetting;
-import java.util.List;
+import java.io.Serializable;
 
 /**
  *
  * @author Vector
  */
-public interface DatabaseFileOperation {
+public interface DatabaseFileOperation extends AdminBaseService<BackpackSetting>{
 
-    public List<BackpackSetting> getSettings();
 
-//    public void setting(BackpackSetting setting);
+    BackpackSetting getBackpackSettingById(Serializable id);
     
-    public void setBackpackPath(BackpackSetting setting);
+    public void setSettingPath(BackpackSetting setting);
 
-    public void backpack();
+    public boolean backpack();
 
-    public void restore(String fileName);
+    public boolean restore(String fileName);
 
-    public String getFilePath(Integer id);
 
 }

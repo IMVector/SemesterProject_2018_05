@@ -12,13 +12,13 @@ public class BackpackFile  implements java.io.Serializable {
 
 
      private int backpackFileId;
-     private Serializable backpackFilePath;
+     private String backpackFilePath;
      private Date backpackTime;
 
     public BackpackFile() {
     }
 
-    public BackpackFile(int backpackFileId, Serializable backpackFilePath, Date backpackTime) {
+    public BackpackFile(int backpackFileId, String backpackFilePath, Date backpackTime) {
        this.backpackFileId = backpackFileId;
        this.backpackFilePath = backpackFilePath;
        this.backpackTime = backpackTime;
@@ -31,11 +31,11 @@ public class BackpackFile  implements java.io.Serializable {
     public void setBackpackFileId(int backpackFileId) {
         this.backpackFileId = backpackFileId;
     }
-    public Serializable getBackpackFilePath() {
+    public String getBackpackFilePath() {
         return this.backpackFilePath;
     }
     
-    public void setBackpackFilePath(Serializable backpackFilePath) {
+    public void setBackpackFilePath(String backpackFilePath) {
         this.backpackFilePath = backpackFilePath;
     }
     public Date getBackpackTime() {

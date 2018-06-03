@@ -79,4 +79,10 @@ public class StaffDaoImpl extends BaseDaoImpl<Staff> implements StaffDao {
         return getListPaginationByQuery(hql, currentPage, title);
     }
 
+    @Override
+    public int getListItemNumber() {
+        String hql = "select count(*) from Staff";
+        return getListSize(hql);
+    }
+
 }

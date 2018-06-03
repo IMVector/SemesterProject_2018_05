@@ -29,7 +29,7 @@
         </div>
 
         <div id="databaseManage" class="ui header orange segment">
-            数据库管理
+            数据库设置管理
         </div>
 
         <div id="webManage" class="ui header violet segment">

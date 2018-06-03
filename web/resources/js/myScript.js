@@ -110,6 +110,5 @@ function myRandom(min, max) {
 
 
 function getRandomcolor(){
-    
     return "rgb("+myRandom(0,255)+","+myRandom(0,255)+","+myRandom(0,255)+")";
 }

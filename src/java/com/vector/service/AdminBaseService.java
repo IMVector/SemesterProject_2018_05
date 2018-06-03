@@ -5,12 +5,17 @@
  */
 package com.vector.service;
 
-import com.vector.pojo.DietAdvice;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  *
  * @author Vector
  */
-public interface DietAdviceService extends PatientBaseService<DietAdvice> {
-    
+public interface AdminBaseService<T> {
+
+    List<T> getAllList(Serializable currentPage);
+
+    int getListItemNumber();
+
 }

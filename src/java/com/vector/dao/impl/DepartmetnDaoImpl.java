@@ -21,6 +21,7 @@ public class DepartmetnDaoImpl extends BaseDaoImpl<Department> implements Depart
         String hql = "from Department";
         return getListPaginationByQuery(hql, currentPage);
     }
+
     @Override
     public boolean addOne(Department object) {
         boolean flag = false;
@@ -55,6 +56,12 @@ public class DepartmetnDaoImpl extends BaseDaoImpl<Department> implements Depart
             flag = false;
         }
         return flag;
+    }
+
+    @Override
+    public int getListItemNumber() {
+        String hql = "select count(*) from Department";
+        return getListSize(hql);
     }
 
 }

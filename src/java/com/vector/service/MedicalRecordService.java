@@ -14,7 +14,7 @@ import java.util.Set;
  *
  * @author Vector
  */
-public interface MedicalRecordService extends BaseService<MedicalRecord> {
+public interface MedicalRecordService extends PatientBaseService<MedicalRecord> {
 
     int[] getMedicalVisitsNum(Serializable patientId, Serializable year);
 

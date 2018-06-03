@@ -38,9 +38,9 @@ public class BillServiceImpl implements BillService {
             fee[b.getBillDate().getMonth()]+= b.getTotalAmount();
         }
         
-        for(int i=0;i<fee.length;i++){
-            System.out.println(fee[i]);
-        }
+//        for(int i=0;i<fee.length;i++){
+//            System.out.println(fee[i]);
+//        }
         return fee;
     }
 

@@ -11,6 +11,6 @@ import com.vector.pojo.Prescription;
  *
  * @author Vector
  */
-public interface PrescriptionService extends BaseService<Prescription> {
+public interface PrescriptionService extends PatientBaseService<Prescription> {
     
 }

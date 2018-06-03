@@ -12,12 +12,7 @@ import java.util.List;
  *
  * @author Vector
  */
-public interface BackpackFileDao extends BaseDao<BackpackFile> {
+public interface BackpackFileDao extends BaseDao<BackpackFile>,AdminAbstractDao<BackpackFile> {
 
-    boolean deleteFile(String fileId);
-
-    BackpackFile getFileById(Integer Id);
-
-    List<BackpackFile> getFileList();
 
 }

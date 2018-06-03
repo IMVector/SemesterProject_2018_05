@@ -60,4 +60,10 @@ public class TitleDaoImpl extends BaseDaoImpl<Title> implements TitleDao {
         return flag;
     }
 
+    @Override
+    public int getListItemNumber() {
+        String hql = "select count(*) from Title";
+        return getListSize(hql);
+    }
+
 }

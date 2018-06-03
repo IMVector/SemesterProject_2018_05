@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Vector
  */
-public interface CheckRecordService extends BaseService<CheckRecord> {
+public interface CheckRecordService extends PatientBaseService<CheckRecord> {
 //
 //    List<CheckRecord> getCheckRecordListByPatientId(String patientId, Integer currentPage);
 //

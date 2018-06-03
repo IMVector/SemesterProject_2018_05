@@ -12,6 +12,6 @@ import com.vector.dao.PatientAbstractDao;
  *
  * @author Vector
  */
-public interface HealthAdviceService extends BaseService<PrecautionAdvice>{
+public interface HealthAdviceService extends PatientBaseService<PrecautionAdvice>{
     
 }

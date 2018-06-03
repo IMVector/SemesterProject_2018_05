@@ -15,6 +15,8 @@ import java.util.List;
 public interface AdminAbstractDao<T> {
 
     List<T> getListOfAllWithPagination(Serializable currentPage);
+    
+    int getListItemNumber();
 
     boolean addOne(T object);
 

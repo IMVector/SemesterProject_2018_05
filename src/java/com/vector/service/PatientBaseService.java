@@ -16,7 +16,9 @@ import java.util.List;
  *
  * @author Vector
  */
-public interface BaseService<T> {
+
+
+public interface PatientBaseService<T> {
 
     T getOneById(Serializable id);
 

@@ -12,7 +12,7 @@ import java.io.Serializable;
  *
  * @author Vector
  */
-public interface BillService extends BaseService<Bill> {
+public interface BillService extends PatientBaseService<Bill> {
        
    double[] getMedicalVisitsFee(Serializable patientId, Serializable year);
 }

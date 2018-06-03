@@ -81,8 +81,9 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
         Calendar calendar = Calendar.getInstance();
         for (MedicalRecord m : list) {
             calendar.setTime(m.getInDate());
-            System.out.println(calendar.get(Calendar.YEAR));
             yearSet.add(calendar.get(Calendar.YEAR));
+            //System.out.println(calendar.get(Calendar.YEAR));
+
         }
         return yearSet;
     }
@@ -104,15 +105,15 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
         }
         //遍历map中的键  
 
-        for (Object key : illnessMap.keySet()) {
-
-            System.out.println("Key = " + key);
-        }
-        //遍历map中的值  
-        for (Object value : illnessMap.values()) {
-
-            System.out.println("Value = " + value);
-        }
+//        for (Object key : illnessMap.keySet()) {
+//
+//            System.out.println("Key = " + key);
+//        }
+//        //遍历map中的值  
+//        for (Object value : illnessMap.values()) {
+//
+//            System.out.println("Value = " + value);
+//        }
         return illnessMap;
     }
 
