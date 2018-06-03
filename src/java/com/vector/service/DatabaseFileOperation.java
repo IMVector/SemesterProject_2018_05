@@ -12,16 +12,14 @@ import java.io.Serializable;
  *
  * @author Vector
  */
-public interface DatabaseFileOperation extends AdminBaseService<BackpackSetting>{
-
+public interface DatabaseFileOperation extends AdminBaseService<BackpackSetting> {
 
     BackpackSetting getBackpackSettingById(Serializable id);
-    
+
     public void setSettingPath(BackpackSetting setting);
 
-    public boolean backpack();
+    public void backpack();
 
     public boolean restore(String fileName);
-
 
 }

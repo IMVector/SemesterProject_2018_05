@@ -37,6 +37,7 @@ public class BackpackFileDaoImpl extends BaseDaoImpl<BackpackFile> implements Ba
             insert(object);
             bool = true;
         } catch (Exception e) {
+            e.printStackTrace();
             bool = false;
         }
         return bool;
@@ -49,6 +50,7 @@ public class BackpackFileDaoImpl extends BaseDaoImpl<BackpackFile> implements Ba
             update(object);
             bool = true;
         } catch (Exception e) {
+            e.printStackTrace();
             bool = false;
         }
         return bool;
@@ -61,6 +63,7 @@ public class BackpackFileDaoImpl extends BaseDaoImpl<BackpackFile> implements Ba
             delete(id);
             bool = true;
         } catch (Exception e) {
+            e.printStackTrace();
             bool = false;
         }
         return bool;
