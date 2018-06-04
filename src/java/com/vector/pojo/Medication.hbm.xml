@@ -6,7 +6,7 @@
     <class name="com.vector.pojo.Medication" table="Medication" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
         <id name="medicationId" type="int">
             <column name="MedicationId" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <property name="medicationName" type="string">
             <column name="MedicationName" not-null="true" />

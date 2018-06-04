@@ -18,4 +18,10 @@ public interface AdminBaseService<T> {
 
     int getListItemNumber();
 
+    boolean addOne(T object);
+
+    boolean updateOne(T object);
+
+    boolean deleteOne(Serializable id);
+
 }

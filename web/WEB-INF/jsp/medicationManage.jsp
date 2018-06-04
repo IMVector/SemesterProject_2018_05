@@ -34,7 +34,7 @@
                                         <button class="ui basic button green">查询指定药品信息</button>
                                     </td>
                                     <td>
-                                        <button class="ui basic button green">查询所有药品信息</button>
+                                        <button id="getAllBtn" class="ui basic button green">查询所有药品信息</button>
                                     </td>
                                     <td>
                                         <button id="add" class="ui basic button green">添加药品</button>
@@ -42,13 +42,33 @@
                                 </tr>
                             </table>
 
-                            <table class="ui table green">
+                            <table id="medicationTable" class="ui table green">
                                 <thead>
                                     <tr></tr>
                                 </thead>
                                 <tbody><tr></tr></tbody>
                             </table>
+                            <div>
+                                <p id="pageText"></p>
+                                <div id="PageButtons" class="mini ui basic buttons">
 
+                                </div>
+                                <div>
+                                    <label for="" class="ui label">跳转到：</label>
+                                    <!--发送ajax请求-->
+                                    <select id="pageSelecter" class="mini ui button basic dropdown">
+                                        <option value="">页码</option>
+
+
+                                        <!--<option value="1">1</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="ui button green" onclick="selectAll()">全选</button>
+                                <button class="ui button green">全部更新</button>
+                                <button class="ui button green">全部删除</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -58,59 +78,62 @@
                 <div class="content" style="text-align:center">
                     <div class="ui segment" style="width: 50%;margin: 0 auto">
                         <div class="ui header blue segment">药品信息</div>
-                        <div class="field">
-                            <label for="">药品名称：</label>
-                            <div class="ui input ">
-                                <input placeholder="药品名称" type="text">
+                        <form id="myForm" action="addMedication">
+                            <div class="field">
+                                <label for="">药品名称：</label>
+                                <div class="ui input ">
+                                    <input id="medicationName" name="medicationName" placeholder="药品名称" type="text">
+                                </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div class="field">
-                            <label for="">药品说明：</label>
-                            <div class="ui input ">
-                                <input placeholder="药品说明" type="text">
+                            <br/>
+                            <div class="field">
+                                <label for="">药品说明：</label>
+                                <div class="ui input ">
+                                    <input id="medicationInstructions" name="medicationInstructions" placeholder="药品说明" type="text">
+                                </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div class="field">
-                            <label for="">药品功效：</label>
+                            <br/>
+                            <div class="field">
+                                <label for="">药品功效：</label>
 
-                            <div class="ui input ">
-                                <input placeholder="药品功效" type="text">
+                                <div class="ui input ">
+                                    <input id="medicationDescription"  name="medicationDescription" placeholder="药品功效" type="text">
+                                </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div class="field">
-                            <label for="">药品价格：</label>
-                            <div class="ui input ">
-                                <input placeholder="价格" type="text">
+                            <br/>
+                            <div class="field">
+                                <label for="">药品价格：</label>
+                                <div class="ui input ">
+                                    <input id="price" name="price" placeholder="价格" type="text">
+                                </div>
                             </div>
-                        </div>
 
-                        <br/>
-                        <div class="field">
-                            <label for="">有效期&nbsp&nbsp&nbsp&nbsp：</label>
-                            <div class="ui input ">
-                                <input placeholder="有效期" type="text">
+                            <br/>
+                            <div class="field">
+                                <label for="">有效期&nbsp&nbsp&nbsp&nbsp：</label>
+                                <div class="ui input ">
+                                    <input id="validityPeriod" name="validityPeriod" placeholder="有效期" type="text">
+                                </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div class="field">
-                            <label for="">生产日期：</label>
-                            <div class="ui input ">
-                                <input placeholder="生产日期" type="date">
+                            <br/>
+                            <div class="field">
+                                <label for="">生产日期：</label>
+                                <div class="ui input ">
+                                    <input id="productionDate" name="productionDate" placeholder="生产日期" type="date">
+                                </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div class="field">
-                            <label id="result" for=""></label>
-                        </div>
-
+                            <br/>
+                            <button type="reset" class="ui negative button">清空</button>
+                            <button type="button" id="addMedication" class="ui positive button">添加</button>
+                            <div class="field">
+                                <label id="result" class="ui header green"></label>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="actions">
-                    <div class="ui black deny button">取消 </div>
-                    <div class="ui positive right labeled icon button">添加 <i class="checkmark icon"></i> </div>
+                    <div class="ui black deny button">放弃</div>
+                    <div class="ui positive button">关闭</div>
                 </div>
             </div>
 
@@ -119,7 +142,20 @@
     </body>
 
     <script>
+
+
         $(document).ready(function () {
+
+            $("#getAllBtn").click(function () {
+                var url = 'medicationList/page_key_word';
+                fillForm("PageButtons", "pageText", "pageSelecter", currentPage = 1, url, medicationTableInfo, getMedicationItemNumber);
+            });
+
+            $("#pageSelecter").on("change", function () {
+                var url = 'medicationList/page_key_word';
+                goToThPage("PageButtons", "pageText", "pageSelecter", url, medicationTableInfo, getMedicationItemNumber);
+            });
+
 
             $("#add").click(function () {
                 $('#modeltest')
@@ -127,11 +163,13 @@
                             inverted: true,
                             closable: false,
                             onDeny: function () {
-//                            window.alert('Wait not yet!');
-                                return false;
+
+                                return true;
                             },
                             onApprove: function () {
-//                            window.alert('Approved!');
+                                $("input").each(function () {
+                                    $(this).val("");
+                                })
                             }
                         })
                         .modal('show')
@@ -139,6 +177,99 @@
             });
 
         });
+
+        $("#addMedication").on("click", function () {
+            $.ajax({
+                url: 'addMedication',
+                type: 'POST',
+                async: false,
+                data: $("#myForm").serialize(), //将表单的数据编码成一个字符串提交给服务器
+                success: function (data) {
+                    if (data) {
+                        $("#result").html("药品添加成功");
+                    } else {
+                        $("#result").removeClass("green");
+                        $("#result").addClass("red");
+                        $("#result").html("药品添加成功");
+                    }
+                },
+                error: function (req, status, error) {
+                    alert("Ajax请求失败!" + error);
+                }
+            });
+        });
+
+        function addSuccess(data) {
+            if (true == data) {
+                alert("成功")
+
+            } else {
+                alert("失败")
+            }
+        }
+
+        function medicationTableInfo(data) {
+            $("#medicationTable").empty();
+            $("#medicationTable").append("<thead><tr><th>选择</th><th>名称</th><th>适用症</th><th>说明</th><th>价格</th><th>生产日期</th><th>有效期</th><th style=\"padding-left: 10%\" colspan=\"2\">操作</th></tr></thead>");
+            $.each(data, function (index, metication) {
+                var str = " <tr id=" + metication.medicationId + "><td><div class=\"ui toggle checkbox\"><input name=\"public\" type=\"checkbox\"><label></label></div></td><td>\n\
+                                        <label class=\"mylabel table-label\" >" + metication.medicationName + "</label>\n\<div class=\"nonevisiual\" ><input value=" + metication.medicationName + " class=\"myInput\" style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                    <label class=\"mylabel table-label\" >" + metication.medicationDescription + "</label><div class=\"nonevisiual\" ><input value=" + metication.medicationDescription + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                     <label class=\"mylabel table-label\" >" + metication.medicationInstructions + "</label><div class=\"nonevisiual\"><input value=" + metication.medicationInstructions + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                        <label class=\"mylabel table-label\" >" + metication.price + "</label><div class=\"nonevisiual\"><input value=" + metication.price + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                        <label class=\"mylabel table-label\" >" + metication.productionDate + "</label><div class=\"nonevisiual\"><input value=" + metication.productionDate + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                        <label class=\"mylabel table-label\" >" + metication.validityPeriod + "</label><div class=\"nonevisiual\"><input value=" + metication.validityPeriod + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                        <button  class=\"ui button green updatebtn\" >修改</button></td><td><button class=\"ui button green\">删除</button></td></tr>";
+
+
+                $("#medicationTable").append(str);
+            });
+        }
+
+        function getMedicationItemNumber() {
+            var itemNum = 0;
+            $.ajax({
+                url: "medicationListItemNum/${patient.patientId}",
+                type: 'POST',
+                async: false,
+                data: {},
+                success: function (data, textStatus, jqXHR) {
+                    //返回List项目总数量
+                    itemNum = data
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("请求失败，请重试！");
+                }
+            });
+            return itemNum;
+        }
+        $(document).on('change', '.ui.toggle.checkbox', function () {
+            if ($(this).checkbox("is checked")) {
+                $(this).closest("tr").find(".nonevisiual").addClass("ui input");
+                $(this).closest("tr").find(".table-label").removeClass("mylabel");
+                $(this).closest("tr").find(".table-label").addClass("nonevisiual");
+            } else {
+                $(this).closest("tr").find(".table-label").removeClass("nonevisiual");
+                $(this).closest("tr").find(".table-label").addClass("mylabel");
+                $(this).closest("tr").find(".nonevisiual").removeClass("ui input");
+            }
+
+        })
+        $(document).on('click', '.updatebtn', function () {
+            $(this).closest("tr").find(".ui.toggle.checkbox").checkbox("toggle");
+            $(this).closest("tr").find(".myInput").each(function (index, element) {
+                //1、备份设置编号
+                //2、sql脚本路径
+                //3、bat脚本路径
+                //4、备份保存路径
+
+            });
+            //alert($(this).checkbox("is checked"))//是否checked
+        });
+        //全部选中函数
+        function selectAll() {
+            $(".ui.toggle.checkbox").checkbox("toggle");
+        }
 
     </script>
 
