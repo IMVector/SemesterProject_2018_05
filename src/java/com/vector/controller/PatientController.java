@@ -18,9 +18,11 @@ import com.vector.service.HealthAdviceService;
 import com.vector.service.MedicalRecordService;
 import com.vector.service.PatientSearchService;
 import com.vector.service.PrescriptionService;
+import com.vector.service.WeatherService;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,6 +59,9 @@ public class PatientController {
 
     @Autowired
     private DietAdviceService dietAdviceService;
+
+    @Autowired
+    private WeatherService weatherService;
 
     //////////////////////////////////////////病例报告//////////////////////////////////////////////
     @RequestMapping(value = "/medicalRecordDetails/{MdeicalRecordId}", method = RequestMethod.GET)
@@ -212,10 +217,16 @@ public class PatientController {
         return "dietAdviceDetails";
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    
-//    @RequestMapping(value="",method=RequestMethod.POST)
-//    @ResponseBody
-//    public List<MedicalRecord> showHospitalitalInfo(){
-//    }
-    
+
+    @RequestMapping(value = "weather", method = RequestMethod.POST)
+    @ResponseBody
+    public String showHospitalitalInfo(HttpServletRequest request) {
+        String city = weatherService.getCity(request);
+        System.out.println("controller   "+city);
+//        String city = "青岛";
+        String weather = weatherService.getWeather(city);
+        System.out.println(weather);
+        return weather;
+    }
+
 }
