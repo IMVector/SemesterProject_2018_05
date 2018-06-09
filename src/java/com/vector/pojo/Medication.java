@@ -16,7 +16,7 @@ public class Medication implements java.io.Serializable {
     private String medicationInstructions;
     private String medicationDescription;
     private Date productionDate;
-    private Integer validityPeriod;
+    private String validityPeriod;
     private float price;
     @JsonIgnore
     private Set<MedicationHistory> medicationHistories = new HashSet<MedicationHistory>(0);
@@ -31,7 +31,7 @@ public class Medication implements java.io.Serializable {
         this.medicationDescription = medicationDescription;
     }
 
-    public Medication(int medicationId, String medicationName, String medicationInstructions, String medicationDescription, Date productionDate, Integer validityPeriod, float price) {
+    public Medication(int medicationId, String medicationName, String medicationInstructions, String medicationDescription, Date productionDate, String validityPeriod, float price) {
         this.medicationId = medicationId;
         this.medicationName = medicationName;
         this.medicationInstructions = medicationInstructions;
@@ -42,7 +42,7 @@ public class Medication implements java.io.Serializable {
     }
     
 
-    public Medication(int medicationId, String medicationName, String medicationInstructions, String medicationDescription, Date productionDate, Integer validityPeriod, Float price) {
+    public Medication(int medicationId, String medicationName, String medicationInstructions, String medicationDescription, Date productionDate, String validityPeriod, Float price) {
         this.medicationId = medicationId;
         this.medicationName = medicationName;
         this.medicationInstructions = medicationInstructions;
@@ -52,7 +52,7 @@ public class Medication implements java.io.Serializable {
         this.price = price;
     }
 
-    public Medication(String medicationName, String medicationInstructions, String medicationDescription, Date productionDate, Integer validityPeriod, float price) {
+    public Medication(String medicationName, String medicationInstructions, String medicationDescription, Date productionDate, String validityPeriod, float price) {
         this.medicationName = medicationName;
         this.medicationInstructions = medicationInstructions;
         this.medicationDescription = medicationDescription;
@@ -61,7 +61,7 @@ public class Medication implements java.io.Serializable {
         this.price = price;
     }
 
-    public Medication(int medicationId, String medicationName, String medicationInstructions, String medicationDescription, Date productionDate, Integer validityPeriod) {
+    public Medication(int medicationId, String medicationName, String medicationInstructions, String medicationDescription, Date productionDate, String validityPeriod) {
         this.medicationId = medicationId;
         this.medicationName = medicationName;
         this.medicationInstructions = medicationInstructions;
@@ -126,11 +126,11 @@ public class Medication implements java.io.Serializable {
         this.productionDate = productionDate;
     }
 
-    public Integer getValidityPeriod() {
+    public String getValidityPeriod() {
         return validityPeriod;
     }
 
-    public void setValidityPeriod(Integer validityPeriod) {
+    public void setValidityPeriod(String validityPeriod) {
         this.validityPeriod = validityPeriod;
     }
 

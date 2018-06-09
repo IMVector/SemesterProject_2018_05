@@ -13,5 +13,6 @@ import com.vector.pojo.Medication;
  * @author Vector
  */
 public interface MedicationService extends AdminAbstractDao<Medication> {
-    
+
+    Medication getMedicationByName(String name);
 }

@@ -54,4 +54,10 @@ public class MedicationServiceImpl implements MedicationService {
         return medicationDao.deleteOneById(id);
     }
 
+    @Transactional
+    @Override
+    public Medication getMedicationByName(String name) {
+        return medicationDao.getOneByName(name);
+    }
+
 }

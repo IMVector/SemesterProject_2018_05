@@ -12,6 +12,7 @@ import com.vector.service.BackpackFileService;
 import com.vector.service.DatabaseFileOperation;
 import com.vector.service.MedicationService;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -132,5 +133,12 @@ public class AdminController {
         return medicationService.deleteOneById(medicationId);
     }
 
+    @RequestMapping(value = "/getMedicationByName/{name}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Medication> getMedicationByName(@PathVariable String name) {
+        List<Medication> list=new ArrayList();
+        list.add(medicationService.getMedicationByName(name));
+        return list;
+    }
 /////////////////////////////////////////////////////////////////////////////////////////
 }

@@ -49,6 +49,7 @@ public class MedicationDaoImpl extends BaseDaoImpl<Medication> implements Medica
             update(object);
             flag = true;
         } catch (Exception e) {
+            e.printStackTrace();
             flag = false;
         }
         return flag;
@@ -61,6 +62,7 @@ public class MedicationDaoImpl extends BaseDaoImpl<Medication> implements Medica
             delete(id);
             flag = true;
         } catch (Exception e) {
+            e.printStackTrace();
             flag = false;
         }
         return flag;

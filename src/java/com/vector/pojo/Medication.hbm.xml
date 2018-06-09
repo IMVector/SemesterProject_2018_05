@@ -17,7 +17,7 @@
         <property name="price" type="float">
             <column name="Price"  not-null="true" />
         </property>
-        <property name="validityPeriod" type="int">
+        <property name="validityPeriod" type="string">
             <column name="ValidityPeriod" not-null="true" />
         </property>
         <property name="medicationInstructions" type="string">
