@@ -5,17 +5,17 @@
  */
 package com.qdu.dao.impl;
 
-import com.qdu.dao.PatientDao;
 import com.vector.pojo.Patient;
 import java.util.List;
 import org.springframework.stereotype.Repository;
+import com.qdu.dao.LPatientDao;
 
 /**
  *
  * @author Dell
  */
 @Repository
-public class PatientDaoImpl extends BaseDaoImpl<Patient> implements PatientDao{
+public class LPatientDaoImpl extends BaseDaoImpl<Patient> implements LPatientDao{
 //public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao{
     @Override
     public List<Patient> getPatientList() {

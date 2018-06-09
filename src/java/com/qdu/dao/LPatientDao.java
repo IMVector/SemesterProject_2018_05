@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Dell
  */
-public interface PatientDao extends BaseDao<Patient>{
+public interface LPatientDao extends BaseDao<Patient>{
        List<Patient> getPatientList();
        String getPassword(String patientId,String answer);
        String getQuestion(String id);

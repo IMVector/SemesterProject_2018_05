@@ -12,7 +12,7 @@ import com.vector.pojo.Staff;
  *
  * @author Dell
  */
-public interface StaffDao extends BaseDao<Staff>{
+public interface LStaffDao extends BaseDao<Staff>{
     
     String getPassword(String StaffId,String answer);
     

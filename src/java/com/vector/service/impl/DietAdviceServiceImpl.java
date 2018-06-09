@@ -55,19 +55,4 @@ public class DietAdviceServiceImpl implements DietAdviceService {
         return dietAdviceDao.getItemNum(id);
     }
 
-    @Override
-    public void insertDietAdvice(DietAdvice dietAdvice) {
-        dietAdviceDao.insert(dietAdvice);
-    }
-
-    @Override
-    public void updateDietAdvice(DietAdvice dietAdvice) {
-        dietAdviceDao.update(dietAdvice);
-    }
-
-    @Override
-    public void deleteDietAdvice(String dietAdviceId) {
-        dietAdviceDao.delete(dietAdviceId);
-    }
-
 }

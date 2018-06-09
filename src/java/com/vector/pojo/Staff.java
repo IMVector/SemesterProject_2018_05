@@ -10,7 +10,6 @@ import java.util.Set;
  */
 public class Staff  implements java.io.Serializable {
 
-
      private String staffId;
      private Image image;
      private Title title;

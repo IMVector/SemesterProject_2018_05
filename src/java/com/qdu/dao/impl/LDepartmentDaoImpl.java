@@ -5,15 +5,15 @@
  */
 package com.qdu.dao.impl;
 
-import com.qdu.dao.DepartmentDao;
 import com.vector.pojo.Department;
 import org.springframework.stereotype.Repository;
+import com.qdu.dao.LDepartmentDao;
 
 /**
  *
  * @author 刘福港
  */
 @Repository
-public class DepartmentDaoImpl extends BaseDaoImpl<Department> implements DepartmentDao{
+public class LDepartmentDaoImpl extends BaseDaoImpl<Department> implements LDepartmentDao{
     
 }

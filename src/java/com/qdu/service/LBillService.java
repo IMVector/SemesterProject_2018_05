@@ -3,14 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.qdu.dao;
+package com.qdu.service;
 
-import com.vector.pojo.Department;
+import com.vector.pojo.Patient;
 
 /**
  *
- * @author 刘福港
+ * @author Vector
  */
-public interface DepartmentDao  extends BaseDao<Department>{
-    
+public interface LBillService {
+       
+  Double getTotalFee(Patient patient);
+  
+  void insertBill(Patient patient);
 }

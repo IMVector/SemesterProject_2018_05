@@ -5,17 +5,10 @@
  */
 package com.vector.dao.impl;
 
-import com.qdu.dao.CheckItemDao;
-import com.vector.dao.BillDao;
 import com.vector.dao.CheckRecordDao;
-import com.vector.pojo.Bill;
-import com.vector.pojo.CheckItem;
 import com.vector.pojo.CheckRecord;
-import com.vector.pojo.Patient;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -24,11 +17,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class CheckRecordDaoImpl extends BaseDaoImpl<CheckRecord> implements CheckRecordDao {
-    
-    @Autowired
-    private CheckItemDao checkItemDao;
-    @Autowired
-    private BillDao billDao;
 
     @Override
     public List<CheckRecord> getCheckRecordListByPatientId(Serializable patientId, Serializable currentPage) {
@@ -63,23 +51,6 @@ public class CheckRecordDaoImpl extends BaseDaoImpl<CheckRecord> implements Chec
         return getListSize(hql, isChecked);
     }
 
-    @Override
-    public void insertCheckRecord(Patient patient, Date checkDate,String checkItem) {
-        
-        CheckItem ci=checkItemDao.getListByQuery("from CheckItem where checkItemName=?", checkItem).get(0);
-        String paymentStatus="否";
-        Integer isChecked=0;
-        Bill b=billDao.getListByQuery("from Bill where Patient=?", patient).get(0);
-        CheckRecord cr=new CheckRecord();
-        cr.setBill(b);
-        cr.setCheckDate(checkDate);
-        cr.setCheckItem(ci);
-        cr.setCheckResult(null);
-        cr.setIsChecked(isChecked);
-        cr.setPatient(patient);
-        cr.setPaymentStatus(paymentStatus);
-        insert(cr);
-        
-    }
+  
 
 }

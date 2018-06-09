@@ -22,8 +22,4 @@ public interface CheckRecordService extends PatientBaseService<CheckRecord> {
 //
 //    int getCheckListItemNum();
     
-    String insertCheckRecord(CheckRecord cr);
-    String updateCheckRecord(CheckRecord cr);
-    String deleteCheckRecord(String Cid);
-
 }

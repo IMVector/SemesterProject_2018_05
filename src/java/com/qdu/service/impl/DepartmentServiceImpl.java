@@ -5,13 +5,13 @@
  */
 package com.qdu.service.impl;
 
-import com.qdu.dao.DepartmentDao;
 import com.qdu.service.DepartmentService;
 import com.vector.pojo.Department;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.qdu.dao.LDepartmentDao;
 
 /**
  *
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 public class DepartmentServiceImpl implements DepartmentService{
     
     @Autowired
-    private DepartmentDao departmentDao;
+    private LDepartmentDao departmentDao;
     
 
     @Override

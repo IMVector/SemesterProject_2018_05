@@ -5,8 +5,6 @@
  */
 package com.qdu.service.impl;
 
-import com.qdu.dao.DepartmentDao;
-import com.qdu.dao.StaffDao;
 import com.qdu.service.StaffService;
 import com.vector.pojo.Department;
 import com.vector.pojo.Staff;
@@ -14,6 +12,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.qdu.dao.LStaffDao;
+import com.qdu.dao.LDepartmentDao;
 
 /**
  *
@@ -26,9 +26,9 @@ public class StaffServiceImpl implements StaffService{
 
 
     @Autowired
-    private StaffDao staffDao;
+    private LStaffDao staffDao;
     @Autowired
-    private DepartmentDao departmentDao;
+    private LDepartmentDao departmentDao;
     
     @Override
     @Transactional

@@ -5,16 +5,16 @@
  */
 package com.qdu.dao.impl;
 
-import com.qdu.dao.CheckItemDao;
 import com.vector.pojo.CheckItem;
 import org.springframework.stereotype.Repository;
+import com.qdu.dao.LCheckItemDao;
 
 /**
  *
  * @author 刘福港
  */
 @Repository
-public class CheckItemDaoImpl extends BaseDaoImpl<CheckItem> implements CheckItemDao{
+public class LCheckItemDaoImpl extends BaseDaoImpl<CheckItem> implements LCheckItemDao{
 
     
 }

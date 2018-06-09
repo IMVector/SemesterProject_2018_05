@@ -5,13 +5,16 @@
  */
 package com.qdu.dao;
 
-import com.vector.pojo.CheckItem;
+import com.vector.pojo.Patient;
+import java.io.Serializable;
 
 /**
  *
- * @author 刘福港
+ * @author Vector
  */
-public interface CheckItemDao extends BaseDao<CheckItem>{
-    
-    
+public interface LBillDao {
+
+    Double getTotalAmount(Serializable patientId);
+
+    void insertBill(Patient patient);
 }

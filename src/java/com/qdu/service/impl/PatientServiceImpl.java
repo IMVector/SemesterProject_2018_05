@@ -5,13 +5,13 @@
  */
 package com.qdu.service.impl;
 
-import com.qdu.dao.PatientDao;
 import com.qdu.service.PatientService;
 import com.vector.pojo.Patient;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.qdu.dao.LPatientDao;
 
 /**
  *
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
     public class PatientServiceImpl implements PatientService{
 
     @Autowired
-    private PatientDao PatientDao;
+    private LPatientDao PatientDao;
     
     @Override
     @Transactional

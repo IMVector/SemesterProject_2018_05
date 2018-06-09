@@ -5,16 +5,16 @@
  */
 package com.qdu.dao.impl;
 
-import com.qdu.dao.StaffDao;
 import com.vector.pojo.Staff;
 import org.springframework.stereotype.Repository;
+import com.qdu.dao.LStaffDao;
 
 /**
  *
  * @author Dell
  */
 @Repository
-public class StaffDaoImpl extends BaseDaoImpl<Staff> implements StaffDao{
+public class LStaffDaoImpl extends BaseDaoImpl<Staff> implements LStaffDao{
 
     @Override
     public String getPassword(String StaffId, String answer) {

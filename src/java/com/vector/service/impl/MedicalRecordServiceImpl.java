@@ -117,19 +117,4 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
         return illnessMap;
     }
 
-    @Override
-    public void insertMedicalRecord(MedicalRecord mr) {
-        medicalRecordDao.insert(mr);
-    }
-
-    @Override
-    public void updateMedicalRecord(MedicalRecord mr) {
-        medicalRecordDao.update(mr);
-    }
-
-    @Override
-    public void deleteMedicalRecord(String id) {
-        medicalRecordDao.delete(id);
-    }
-
 }

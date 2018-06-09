@@ -3,13 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vector.service;
+package com.qdu.service;
 
 import com.vector.pojo.DietAdvice;
+
 /**
  *
  * @author Vector
  */
-public interface DietAdviceService extends PatientBaseService<DietAdvice> {
-
+public interface LDietAdviceService {
+        
+    void insertDietAdvice(DietAdvice dietAdvice );
+    void updateDietAdvice (DietAdvice dietAdvice );
+    void deleteDietAdvice(String dietAdviceId ); 
 }

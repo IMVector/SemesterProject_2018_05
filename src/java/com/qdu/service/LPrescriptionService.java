@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vector.service;
+package com.qdu.service;
 
 import com.vector.pojo.Prescription;
 
@@ -11,6 +11,11 @@ import com.vector.pojo.Prescription;
  *
  * @author Vector
  */
-public interface PrescriptionService extends PatientBaseService<Prescription> {
-    
+public interface LPrescriptionService {
+
+    void insertPrescription(Prescription prescription);
+
+    void updatePrescription(Prescription prescription);
+
+    void deletePrescription(String prescriptionId);
 }
