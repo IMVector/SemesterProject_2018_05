@@ -207,6 +207,12 @@ public class AdminController {
         return titleService.getListItemNumber();
     }
 
+    @RequestMapping(value = "/addTitle", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean adddeTitle(Title title) {
+        return titleService.addOne(title);
+    }
+
     @RequestMapping(value = "/updateTitle", method = RequestMethod.POST)
     @ResponseBody
     public boolean updateTitle(Title department) {
