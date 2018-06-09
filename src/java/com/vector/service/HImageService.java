@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.qdu.service;
+package com.vector.service;
 
-import com.vector.pojo.Department;
-import java.util.List;
+import com.vector.pojo.Image;
 
 /**
  *
- * @author 刘福港
+ * @author Vector
  */
-public interface DepartmentService  {
+public interface HImageService extends AdminBaseService<Image>{
     
-    List<Department> getDepartmentList();
 }

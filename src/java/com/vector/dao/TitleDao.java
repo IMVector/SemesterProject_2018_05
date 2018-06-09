@@ -6,11 +6,13 @@
 package com.vector.dao;
 
 import com.vector.pojo.Title;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  *
  * @author Vector
  */
 public interface TitleDao extends BaseDao<Title> ,AdminAbstractDao<Title> {
-    
+    List<Title> getOneByName(Serializable name);
 }

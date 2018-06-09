@@ -5,14 +5,16 @@
  */
 package com.vector.service;
 
-import com.vector.dao.AdminAbstractDao;
 import com.vector.pojo.Medication;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  *
  * @author Vector
  */
-public interface MedicationService extends AdminAbstractDao<Medication> {
+public interface MedicationService extends AdminBaseService<Medication> {
 
-    Medication getMedicationByName(String name);
+    List<Medication> getOneByName(Serializable name);
+
 }

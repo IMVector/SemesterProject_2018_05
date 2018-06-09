@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.qdu.service;
+package com.vector.service;
 
 import com.vector.pojo.Department;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
- * @author 刘福港
+ * @author Vector
  */
-public interface DepartmentService  {
-    
-    List<Department> getDepartmentList();
+public interface HDepartmentService extends AdminBaseService<Department> {
+
+    List<Department> getOneByName(Serializable name);
+
 }

@@ -25,9 +25,9 @@ public class MedicationDaoImpl extends BaseDaoImpl<Medication> implements Medica
     }
 
     @Override
-    public Medication getOneByName(Serializable name) {
+    public List<Medication> getOneByName(Serializable name) {
         String hql = "from Medication where medicationName=?";
-        return getListByQuery(hql, name).get(0);
+        return getListByQuery(hql, name);
     }
 
     @Override

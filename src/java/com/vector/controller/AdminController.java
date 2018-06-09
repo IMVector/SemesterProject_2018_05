@@ -7,12 +7,18 @@ package com.vector.controller;
 
 import com.vector.pojo.BackpackFile;
 import com.vector.pojo.BackpackSetting;
+import com.vector.pojo.Department;
+import com.vector.pojo.Image;
 import com.vector.pojo.Medication;
+import com.vector.pojo.Title;
 import com.vector.service.BackpackFileService;
 import com.vector.service.DatabaseFileOperation;
+import com.vector.service.HDepartmentService;
+import com.vector.service.HImageService;
+import com.vector.service.HStaffService;
+import com.vector.service.HTitleService;
 import com.vector.service.MedicationService;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +46,18 @@ public class AdminController {
 
     @Autowired
     private MedicationService medicationService;
+
+    @Autowired
+    private HDepartmentService departmentService;
+
+    @Autowired
+    private HTitleService titleService;
+
+    @Autowired
+    private HStaffService staffServcie;
+
+    @Autowired
+    private HImageService imageService;
 
     @InitBinder
     protected void initBinder(WebDataBinder binder) {
@@ -112,7 +130,7 @@ public class AdminController {
     @RequestMapping(value = "/medicationList/{currentPage}", method = RequestMethod.POST)
     @ResponseBody
     public List<Medication> getMedicationList(@PathVariable int currentPage) {
-        return medicationService.getListOfAllWithPagination(currentPage);
+        return medicationService.getAllList(currentPage);
     }
 
     @RequestMapping(value = "/medicationListItemNum", method = RequestMethod.POST)
@@ -130,15 +148,138 @@ public class AdminController {
     @RequestMapping(value = "/deleteMedication/{medicationId}", method = RequestMethod.POST)
     @ResponseBody
     public boolean deleteMedication(@PathVariable int medicationId) {
-        return medicationService.deleteOneById(medicationId);
+        return medicationService.deleteOne(medicationId);
     }
 
     @RequestMapping(value = "/getMedicationByName/{name}", method = RequestMethod.POST)
     @ResponseBody
     public List<Medication> getMedicationByName(@PathVariable String name) {
-        List<Medication> list=new ArrayList();
-        list.add(medicationService.getMedicationByName(name));
-        return list;
+        return medicationService.getOneByName(name);
     }
-/////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////部门管理/////////////////////////////////////////////////////
+
+    @RequestMapping(value = "/departmentList/{currentPage}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Department> getDepartmentList(@PathVariable int currentPage) {
+        return departmentService.getAllList(currentPage);
+    }
+
+    @RequestMapping(value = "/departmentListItemNum", method = RequestMethod.POST)
+    @ResponseBody
+    public int getDepartmentListItemNum() {
+        return departmentService.getListItemNumber();
+    }
+
+    @RequestMapping(value = "/addDepartment", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean adddePartment(Department departmetn) {
+        return departmentService.addOne(departmetn);
+    }
+
+    @RequestMapping(value = "/updateDepartment", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean updateDepartment(Department department) {
+        return departmentService.updateOne(department);
+    }
+
+    @RequestMapping(value = "/deleteDepartment/{departmentId}", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean deleteDepartment(@PathVariable int departmentId) {
+        return departmentService.deleteOne(departmentId);
+    }
+
+    @RequestMapping(value = "/getDepartmentByName/{name}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Department> getDepartmentByName(@PathVariable String name) {
+        return departmentService.getOneByName(name);
+    }
+
+    /////////////////////////////////职称管理///////////////////////////////////////////////////////
+    @RequestMapping(value = "/titleList/{currentPage}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Title> getTitleList(@PathVariable int currentPage) {
+        return titleService.getAllList(currentPage);
+    }
+
+    @RequestMapping(value = "/titleListItemNum", method = RequestMethod.POST)
+    @ResponseBody
+    public int getTitleListItemNum() {
+        return titleService.getListItemNumber();
+    }
+
+    @RequestMapping(value = "/updateTitle", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean updateTitle(Title department) {
+        return titleService.updateOne(department);
+    }
+
+    @RequestMapping(value = "/deleteTitle/{departmentId}", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean deleteTitle(@PathVariable int departmentId) {
+        return titleService.deleteOne(departmentId);
+    }
+
+    @RequestMapping(value = "/getTitleByName/{name}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Title> getTitleByName(@PathVariable String name) {
+        return titleService.getOneByName(name);
+    }
+
+    ////////////////////////////////////职工管理////////////////////////////////////////////////////
+    @RequestMapping(value = "/staffList/{currentPage}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Title> getStaffList(@PathVariable int currentPage) {
+        return titleService.getAllList(currentPage);
+    }
+
+    @RequestMapping(value = "/staffListItemNum", method = RequestMethod.POST)
+    @ResponseBody
+    public int getStaffListItemNum() {
+        return titleService.getListItemNumber();
+    }
+
+    @RequestMapping(value = "/updateStaff", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean updateStaff(Title department) {
+        return titleService.updateOne(department);
+    }
+
+    @RequestMapping(value = "/deleteStaff/{departmentId}", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean deleteStaff(@PathVariable int departmentId) {
+        return titleService.deleteOne(departmentId);
+    }
+
+    @RequestMapping(value = "/getStaffByName/{name}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Title> getStaffByName(@PathVariable String name) {
+        return titleService.getOneByName(name);
+    }
+
+    ///////////////////////////////////图像管理/////////////////////////////////////////////////////
+    @RequestMapping(value = "/imageList/{currentPage}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Image> getImageList(@PathVariable int currentPage) {
+        return imageService.getAllList(currentPage);
+    }
+
+    @RequestMapping(value = "/imageListItemNum", method = RequestMethod.POST)
+    @ResponseBody
+    public int getImageListItemNum() {
+        return imageService.getListItemNumber();
+    }
+
+    @RequestMapping(value = "/updateImage", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean updateImage(Image image) {
+        return imageService.updateOne(image);
+    }
+
+    @RequestMapping(value = "/deleteImage/{departmentId}", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean deleteImage(@PathVariable int imageId) {
+        return imageService.deleteOne(imageId);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////
 }

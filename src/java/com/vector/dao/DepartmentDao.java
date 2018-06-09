@@ -6,11 +6,14 @@
 package com.vector.dao;
 
 import com.vector.pojo.Department;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  *
  * @author Vector
  */
-public interface DepartmentDao extends BaseDao<Department>,AdminAbstractDao<Department>{
-    
+public interface DepartmentDao extends BaseDao<Department>, AdminAbstractDao<Department> {
+
+    List<Department> getOneByName(Serializable name);
 }

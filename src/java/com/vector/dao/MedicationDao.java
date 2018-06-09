@@ -7,6 +7,7 @@ package com.vector.dao;
 
 import com.vector.pojo.Medication;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -14,6 +15,6 @@ import java.io.Serializable;
  */
 public interface MedicationDao extends BaseDao<Medication>, AdminAbstractDao<Medication> {
 
-    Medication getOneByName(Serializable name);
+    List<Medication> getOneByName(Serializable name);
 
 }

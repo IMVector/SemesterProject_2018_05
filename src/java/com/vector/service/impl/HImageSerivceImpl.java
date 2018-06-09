@@ -5,9 +5,9 @@
  */
 package com.vector.service.impl;
 
-import com.vector.dao.MedicationDao;
-import com.vector.pojo.Medication;
-import com.vector.service.MedicationService;
+import com.vector.dao.ImageDao;
+import com.vector.pojo.Image;
+import com.vector.service.HImageService;
 import java.io.Serializable;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,45 +19,39 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Vector
  */
 @Service
-public class MedicationServiceImpl implements MedicationService {
+public class HImageSerivceImpl implements HImageService {
 
     @Autowired
-    private MedicationDao medicationDao;
+    private ImageDao imageDao;
 
     @Transactional
     @Override
-    public List<Medication> getAllList(Serializable currentPage) {
-        return medicationDao.getListOfAllWithPagination(currentPage);
+    public List<Image> getAllList(Serializable currentPage) {
+        return imageDao.getListOfAllWithPagination(currentPage);
     }
 
     @Transactional
     @Override
     public int getListItemNumber() {
-        return medicationDao.getListItemNumber();
+        return imageDao.getListItemNumber();
     }
 
     @Transactional
     @Override
-    public boolean addOne(Medication object) {
-        return medicationDao.addOne(object);
+    public boolean addOne(Image object) {
+        return imageDao.addOne(object);
     }
 
     @Transactional
     @Override
-    public boolean updateOne(Medication object) {
-        return medicationDao.updateOne(object);
+    public boolean updateOne(Image object) {
+        return imageDao.updateOne(object);
     }
 
     @Transactional
     @Override
     public boolean deleteOne(Serializable id) {
-        return medicationDao.deleteOneById(id);
-    }
-
-    @Transactional
-    @Override
-    public List<Medication> getOneByName(Serializable name) {
-        return medicationDao.getOneByName(name);
+        return imageDao.deleteOneById(id);
     }
 
 }

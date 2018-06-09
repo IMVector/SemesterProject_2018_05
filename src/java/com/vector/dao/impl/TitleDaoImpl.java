@@ -66,4 +66,10 @@ public class TitleDaoImpl extends BaseDaoImpl<Title> implements TitleDao {
         return getListSize(hql);
     }
 
+    @Override
+    public List<Title> getOneByName(Serializable name) {
+        String hql = "from Title where titleName=?";
+        return getListByQuery(hql, name);
+    }
+
 }
