@@ -21,5 +21,9 @@ public interface MedicalRecordService extends BaseService<MedicalRecord> {
     Set getMedicalYear(Serializable patientId);
     
     Map getIllnessInfo(Serializable patientId,Serializable year); 
+    
+    void insertMedicalRecord(MedicalRecord mr);
+    void updateMedicalRecord(MedicalRecord mr);
+    void deleteMedicalRecord(String id);
 
 }

@@ -35,6 +35,22 @@ public class Patient implements java.io.Serializable {
     public Patient() {
     }
 
+    public Patient(String patientName, String patientBirthday, String patientGender, Integer patientAge, String patientPhone, String patientAddress, String patientMstatus, String patientEmail, String patientQuestion, String patientAnswer, String patientPassword) {
+        this.patientName = patientName;
+        this.patientBirthday = patientBirthday;
+        this.patientGender = patientGender;
+        this.patientAge = patientAge;
+        this.patientPhone = patientPhone;
+        this.patientAddress = patientAddress;
+        this.patientMstatus = patientMstatus;
+        this.patientEmail = patientEmail;
+        this.patientQuestion = patientQuestion;
+        this.patientAnswer = patientAnswer;
+        this.patientPassword = patientPassword;
+    }
+    
+    
+
     public Patient(String patientId, String patientName, String patientBirthday, String patientGender, String patientPhone, String patientAddress, String patientMstatus, String patientEmail, String patientQuestion, String patientAnswer, String patientPassword) {
         this.patientId = patientId;
         this.patientName = patientName;

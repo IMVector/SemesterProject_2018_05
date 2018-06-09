@@ -6,7 +6,7 @@
     <class name="com.vector.pojo.Bill" table="Bill" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
         <id name="billId" type="int">
             <column name="BillId" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <many-to-one name="patient" class="com.vector.pojo.Patient" fetch="select">
             <column name="PatientId" not-null="true" />

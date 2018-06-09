@@ -13,4 +13,7 @@ import com.vector.pojo.Prescription;
  */
 public interface PrescriptionService extends BaseService<Prescription> {
     
+    void insertPrescription(Prescription prescription );
+    void updatePrescription (Prescription prescription );
+    void deletePrescription(String prescriptionId ); 
 }

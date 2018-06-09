@@ -6,6 +6,7 @@
 package com.vector.service;
 
 import com.vector.pojo.DietAdvice;
+import com.vector.pojo.Prescription;
 
 /**
  *
@@ -13,4 +14,7 @@ import com.vector.pojo.DietAdvice;
  */
 public interface DietAdviceService extends BaseService<DietAdvice> {
     
+    void insertDietAdvice(DietAdvice dietAdvice );
+    void updateDietAdvice (DietAdvice dietAdvice );
+    void deleteDietAdvice(String dietAdviceId ); 
 }

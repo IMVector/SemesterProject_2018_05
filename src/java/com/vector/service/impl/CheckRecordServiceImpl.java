@@ -7,9 +7,11 @@ package com.vector.service.impl;
 
 import com.vector.dao.CheckRecordDao;
 import com.vector.pojo.CheckRecord;
+import com.vector.pojo.Patient;
 import com.vector.service.CheckRecordService;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,8 @@ public class CheckRecordServiceImpl implements CheckRecordService {
 
     @Autowired
     private CheckRecordDao checkRecordDao;
+    @Autowired
+    private SessionFactory sessionFactory;
 
     @Transactional
     @Override
@@ -52,6 +56,28 @@ public class CheckRecordServiceImpl implements CheckRecordService {
     @Override
     public int getListItemNumber(Serializable id) {
         return checkRecordDao.getListItemNum(id);
+    }
+
+    @Override
+    public String insertCheckRecord(CheckRecord cr) {
+        checkRecordDao.insert(cr);
+        return "插入成功";
+    }
+
+    @Override
+    public String updateCheckRecord(CheckRecord cr) {
+        checkRecordDao.update(cr);
+        return "更新成功";
+    }
+
+    @Override
+    public String deleteCheckRecord(String Cid) {
+        CheckRecord cr= checkRecordDao.getOneById(Cid);
+        sessionFactory.getCurrentSession().delete(cr);
+        if(checkRecordDao.getOneById(Cid)==null)
+            return "删除成功";
+        else
+            return "删除失败";
     }
 
 }

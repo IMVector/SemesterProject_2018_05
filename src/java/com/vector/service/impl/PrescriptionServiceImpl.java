@@ -54,4 +54,19 @@ public class PrescriptionServiceImpl implements PrescriptionService {
         return prescriptionDao.getItemNum(id);
     }
 
+    @Override
+    public void insertPrescription(Prescription prescription) {
+        prescriptionDao.insert(prescription);
+    }
+
+    @Override
+    public void updatePrescription(Prescription prescription) {
+        prescriptionDao.update(prescription);
+    }
+
+    @Override
+    public void deletePrescription(String prescriptionId) {
+        prescriptionDao.delete(prescriptionId);
+    }
+
 }
