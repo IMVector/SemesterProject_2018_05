@@ -6,6 +6,7 @@
 package com.vector.service;
 
 import com.vector.pojo.Bill;
+import com.vector.pojo.Patient;
 import java.io.Serializable;
 
 /**
@@ -15,4 +16,8 @@ import java.io.Serializable;
 public interface BillService extends PatientBaseService<Bill> {
        
    double[] getMedicalVisitsFee(Serializable patientId, Serializable year);
+   
+  Double getTotalFee(Patient patient);
+  
+  void insertBill(Patient patient);
 }

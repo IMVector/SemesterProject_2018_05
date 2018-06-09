@@ -6,7 +6,7 @@
 package com.vector.service;
 
 import com.vector.pojo.CheckRecord;
-import java.util.List;
+import com.vector.pojo.Patient;
 
 /**
  *
@@ -21,5 +21,9 @@ public interface CheckRecordService extends PatientBaseService<CheckRecord> {
 //    int getCheckListItemNum(String patientId);
 //
 //    int getCheckListItemNum();
+    
+    String insertCheckRecord(CheckRecord cr);
+    String updateCheckRecord(CheckRecord cr);
+    String deleteCheckRecord(String Cid);
 
 }

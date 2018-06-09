@@ -14,6 +14,7 @@ public class Staff  implements java.io.Serializable {
      private String staffId;
      private Image image;
      private Title title;
+     private Integer titleId;
      private String staffName;
      private String staffQuestion;
      private String staffAnswer;
@@ -27,7 +28,27 @@ public class Staff  implements java.io.Serializable {
     public Staff() {
     }
 
-	
+    public Staff(String staffId,Integer titleId, String staffName, String staffQuestion, String staffAnswer, int departmentId, String staffPassword) {
+        this.staffId = staffId;
+        
+        this.titleId = titleId;
+        this.staffName = staffName;
+        this.staffQuestion = staffQuestion;
+        this.staffAnswer = staffAnswer;
+        this.departmentId = departmentId;
+        this.staffPassword = staffPassword;
+    }
+
+    public Integer getTitleId() {
+        return titleId;
+    }
+
+    public void setTitleId(Integer titleId) {
+        this.titleId = titleId;
+    }
+
+    
+    
     public Staff(String staffId, Title title, String staffName, String staffQuestion, String staffAnswer, int departmentId, String staffPassword) {
         this.staffId = staffId;
         this.title = title;

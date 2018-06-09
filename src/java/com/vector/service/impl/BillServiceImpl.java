@@ -8,6 +8,7 @@ package com.vector.service.impl;
 import com.vector.dao.BillDao;
 import com.vector.pojo.Bill;
 import com.vector.pojo.MedicalRecord;
+import com.vector.pojo.Patient;
 import com.vector.service.BillService;
 import java.io.Serializable;
 import java.util.List;
@@ -72,6 +73,16 @@ public class BillServiceImpl implements BillService {
     @Override
     public int getListItemNumber(Serializable id) {
         return billDao.getItemNum(id);
+    }
+
+    @Override
+    public Double getTotalFee(Patient patient) {
+        return billDao.getTotalAmount(patient.getPatientId());
+    }
+
+    @Override
+    public void insertBill(Patient patient) {
+        billDao.insertBill(patient);
     }
 
 }

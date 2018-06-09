@@ -6,7 +6,9 @@
 package com.vector.dao;
 
 import com.vector.pojo.CheckRecord;
+import com.vector.pojo.Patient;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,5 +26,7 @@ public interface CheckRecordDao extends BaseDao<CheckRecord> {
     int getListItemNum(Serializable patientId);
 
     int getListItemNum();
+    
+    void insertCheckRecord(Patient patient,Date checkDate,String checkItem);
 
 }
