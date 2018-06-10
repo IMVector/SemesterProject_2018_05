@@ -72,4 +72,10 @@ public class TitleDaoImpl extends BaseDaoImpl<Title> implements TitleDao {
         return getListByQuery(hql, name);
     }
 
+    @Override
+    public List<Title> getTitleList() {
+        String hql = "from Title";
+        return getListByQuery(hql);
+    }
+
 }

@@ -85,4 +85,16 @@ public class StaffDaoImpl extends BaseDaoImpl<Staff> implements StaffDao {
         return getListSize(hql);
     }
 
+    @Override
+    public Integer getStaffByNameItemNum(Serializable name) {
+        String hql = "select count(*) from Staff where staffName=?";
+        return getListSize(hql, name);
+    }
+
+    @Override
+    public Integer getStaffByTitleItemNum(Serializable titleName) {
+        String hql = "select count(*) from Staff where title.titleName=?";
+        return getListSize(hql, titleName);
+    }
+
 }

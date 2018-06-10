@@ -16,4 +16,6 @@ import java.util.List;
 public interface HTitleService extends AdminBaseService<Title> {
 
     List<Title> getOneByName(Serializable name);
+
+    List<Title> getTitleList();
 }

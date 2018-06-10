@@ -23,16 +23,119 @@
                                 网站图片管理
                             </div>
 
+                            <div class="ui link cards">
+                                <div class="card">
+                                    <div class="image">
+                                        <img src="resources/image/狗子.jpeg">
+                                    </div>
+                                    <div class="content">
+                                        <div class="header">Matt Giampietro</div>
+                                        <div class="meta">
+                                            <a>Friends</a>
+                                        </div>
+                                        <div class="description">
+                                            Matthew is an interior designer living in New York.
+                                        </div>
+                                    </div>
+                                    <div class="extra content">
+                                        <span class="right floated">
+                                            Joined in 2013
+                                        </span>
+                                        <span>
+                                            <i class="user icon"></i>
+                                            75 Friends
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="image">
+                                        <img src="resources/image/狗子.jpeg">
+                                    </div>
+                                    <div class="content">
+                                        <div class="header">Molly</div>
+                                        <div class="meta">
+                                            <span class="date">Coworker</span>
+                                        </div>
+                                        <div class="description">
+                                            Molly is a personal assistant living in Paris.
+                                        </div>
+                                    </div>
+                                    <div class="extra content">
+                                        <span class="right floated">
+                                            Joined in 2011
+                                        </span>
+                                        <span>
+                                            <i class="user icon"></i>
+                                            35 Friends
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="image">
+                                        <img src="resources/image/狗子.jpeg">
+                                    </div>
+                                    <div class="content">
+                                        <div class="header">Elyse</div>
+                                        <div class="meta">
+                                            <a>Coworker</a>
+                                        </div>
+                                        <div class="description">
+                                            Elyse is a copywriter working in New York.
+                                        </div>
+                                    </div>
+                                    <div class="extra content">
+                                        <span class="right floated">
+                                            Joined in 2014
+                                        </span>
+                                        <span>
+                                            <i class="user icon"></i>
+                                            151 Friends
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="image">
+                                        <img src="resources/image/狗子.jpeg">
+                                    </div>
+                                    <div class="content">
+                                        <div class="header">Elyse</div>
+                                        <div class="meta">
+                                            <a>Coworker</a>
+                                        </div>
+                                        <div class="description">
+                                            Elyse is a copywriter working in New York.
+                                        </div>
+                                    </div>
+                                    <div class="extra content">
+                                        <span class="right floated">
+                                            Joined in 2014
+                                        </span>
+                                        <span>
+                                            <i class="user icon"></i>
+                                            151 Friends
+                                        </span>
+                                    </div>
+                                </div>
+                                <form action="" method="post" enctype="multipart/form-data">
+                                    <div> ![](${path}/mall/image/load_image.png)
+                                        <input type="file" id="input-image" name="input-image"> 
+                                        <input id="input-relative-path" name="imgs" type="hidden" >
+                                        <input id="input-last-path" type="hidden"> 
+                                        <input type="submit" value="上传图片"> 
+                                    </div> 
+                                </form>
 
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+
+
             </div>
-
-
-        </div>
-        <!-- /container -->
-        <jsp:include page="footerTemplete.jsp" />
+            <!-- /container -->
+            <jsp:include page="footerTemplete.jsp" />
     </body>
 
 </html>

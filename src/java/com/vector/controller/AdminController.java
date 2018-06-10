@@ -10,6 +10,7 @@ import com.vector.pojo.BackpackSetting;
 import com.vector.pojo.Department;
 import com.vector.pojo.Image;
 import com.vector.pojo.Medication;
+import com.vector.pojo.Staff;
 import com.vector.pojo.Title;
 import com.vector.service.BackpackFileService;
 import com.vector.service.DatabaseFileOperation;
@@ -54,7 +55,7 @@ public class AdminController {
     private HTitleService titleService;
 
     @Autowired
-    private HStaffService staffServcie;
+    private HStaffService staffService;
 
     @Autowired
     private HImageService imageService;
@@ -158,6 +159,12 @@ public class AdminController {
     }
 ////////////////////////////////////部门管理/////////////////////////////////////////////////////
 
+    @RequestMapping(value = "/departmentList", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Department> getDepartmentList() {
+        return departmentService.getAllList();
+    }
+
     @RequestMapping(value = "/departmentList/{currentPage}", method = RequestMethod.POST)
     @ResponseBody
     public List<Department> getDepartmentList(@PathVariable int currentPage) {
@@ -195,6 +202,12 @@ public class AdminController {
     }
 
     /////////////////////////////////职称管理///////////////////////////////////////////////////////
+    @RequestMapping(value = "/titleList", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Title> getTitleList() {
+        return titleService.getTitleList();
+    }
+
     @RequestMapping(value = "/titleList/{currentPage}", method = RequestMethod.POST)
     @ResponseBody
     public List<Title> getTitleList(@PathVariable int currentPage) {
@@ -209,20 +222,20 @@ public class AdminController {
 
     @RequestMapping(value = "/addTitle", method = RequestMethod.POST)
     @ResponseBody
-    public boolean adddeTitle(Title title) {
+    public boolean addTitle(Title title) {
         return titleService.addOne(title);
     }
 
     @RequestMapping(value = "/updateTitle", method = RequestMethod.POST)
     @ResponseBody
-    public boolean updateTitle(Title department) {
-        return titleService.updateOne(department);
+    public boolean updateTitle(Title title) {
+        return titleService.updateOne(title);
     }
 
-    @RequestMapping(value = "/deleteTitle/{departmentId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteTitle/{titleId}", method = RequestMethod.POST)
     @ResponseBody
-    public boolean deleteTitle(@PathVariable int departmentId) {
-        return titleService.deleteOne(departmentId);
+    public boolean deleteTitle(@PathVariable int titleId) {
+        return titleService.deleteOne(titleId);
     }
 
     @RequestMapping(value = "/getTitleByName/{name}", method = RequestMethod.POST)
@@ -234,32 +247,61 @@ public class AdminController {
     ////////////////////////////////////职工管理////////////////////////////////////////////////////
     @RequestMapping(value = "/staffList/{currentPage}", method = RequestMethod.POST)
     @ResponseBody
-    public List<Title> getStaffList(@PathVariable int currentPage) {
-        return titleService.getAllList(currentPage);
+    public List<Staff> getStaffList(@PathVariable int currentPage) {
+        List<Staff> list = staffService.getAllList(currentPage);
+        return list;
     }
 
     @RequestMapping(value = "/staffListItemNum", method = RequestMethod.POST)
     @ResponseBody
     public int getStaffListItemNum() {
-        return titleService.getListItemNumber();
+        return staffService.getListItemNumber();
+    }
+
+    @RequestMapping(value = "/addStaff", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean addStaff(Staff staff) {
+        return staffService.addOne(staff);
     }
 
     @RequestMapping(value = "/updateStaff", method = RequestMethod.POST)
     @ResponseBody
-    public boolean updateStaff(Title department) {
-        return titleService.updateOne(department);
+    public boolean updateStaff(Staff staff) {
+        return staffService.updateOne(staff);
     }
 
-    @RequestMapping(value = "/deleteStaff/{departmentId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteStaff/{staffId}", method = RequestMethod.POST)
     @ResponseBody
-    public boolean deleteStaff(@PathVariable int departmentId) {
-        return titleService.deleteOne(departmentId);
+    public boolean deleteStaff(@PathVariable String staffId) {//外键约束在此抛出异常
+        try {
+            return staffService.deleteOne(staffId);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
-    @RequestMapping(value = "/getStaffByName/{name}", method = RequestMethod.POST)
+    @RequestMapping(value = "/getStaffByName/{name}/{page}", method = RequestMethod.POST)
     @ResponseBody
-    public List<Title> getStaffByName(@PathVariable String name) {
-        return titleService.getOneByName(name);
+    public List<Staff> getStaffByName(@PathVariable String name, @PathVariable int page) {
+        return staffService.getStaffByName(name, page);
+    }
+
+    @RequestMapping(value = "/getStaffByNameItemNum/{name}", method = RequestMethod.POST)
+    @ResponseBody
+    public int getStaffByNameItemNum(@PathVariable String name) {
+        return 0;
+    }
+
+    @RequestMapping(value = "/getStaffByTitle/{titleName}/{page}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Staff> getStaffBytitle(@PathVariable String titleName, @PathVariable int page) {
+        return staffService.getStaffByTitle(titleName, page);
+    }
+
+    @RequestMapping(value = "/getStaffBytitleItemNum/{titleName}", method = RequestMethod.POST)
+    @ResponseBody
+    public int getStaffByTitleItemNum(@PathVariable String titleName) {
+        return 0;
     }
 
     ///////////////////////////////////图像管理/////////////////////////////////////////////////////

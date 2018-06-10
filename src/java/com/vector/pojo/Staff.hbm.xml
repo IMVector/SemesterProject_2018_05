@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2018-5-26 16:13:07 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2018-6-10 9:29:46 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.vector.pojo.Staff" table="Staff" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
         <id name="staffId" type="string">
             <column name="StaffId" />
             <generator class="assigned" />
         </id>
+        <many-to-one name="department" class="com.vector.pojo.Department" lazy="false" fetch="join">
+            <column name="DepartmentId" not-null="true" />
+        </many-to-one>
         <many-to-one name="image" class="com.vector.pojo.Image" fetch="select">
             <column name="ImageId" />
         </many-to-one>
-        <many-to-one name="title" class="com.vector.pojo.Title" fetch="select">
+        <many-to-one name="title" class="com.vector.pojo.Title" lazy="false" fetch="join">
             <column name="TitleId" not-null="true" />
         </many-to-one>
         <property name="staffName" type="string">
@@ -23,23 +26,20 @@
         <property name="staffAnswer" type="string">
             <column name="StaffAnswer" not-null="true" />
         </property>
-        <property name="departmentId" type="int">
-            <column name="DepartmentId" not-null="true" />
-        </property>
         <property name="staffPassword" type="string">
             <column name="StaffPassword" not-null="true" />
         </property>
-        <set name="medicalRecords" table="MedicalRecord" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="StaffId" />
-            </key>
-            <one-to-many class="com.vector.pojo.MedicalRecord" />
-        </set>
         <set name="checkResults" table="CheckResult" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="StaffId" not-null="true" />
             </key>
             <one-to-many class="com.vector.pojo.CheckResult" />
+        </set>
+        <set name="medicalRecords" table="MedicalRecord" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="StaffId" />
+            </key>
+            <one-to-many class="com.vector.pojo.MedicalRecord" />
         </set>
         <set name="precautionAdvices" table="PrecautionAdvice" inverse="true" lazy="true" fetch="select">
             <key>

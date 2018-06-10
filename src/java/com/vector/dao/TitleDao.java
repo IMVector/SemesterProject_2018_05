@@ -15,4 +15,6 @@ import java.util.List;
  */
 public interface TitleDao extends BaseDao<Title> ,AdminAbstractDao<Title> {
     List<Title> getOneByName(Serializable name);
+
+    public List<Title> getTitleList();
 }

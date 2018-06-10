@@ -1,5 +1,5 @@
 package com.vector.pojo;
-// Generated 2018-5-26 16:13:05 by Hibernate Tools 4.3.1
+// Generated 2018-6-10 9:29:45 by Hibernate Tools 4.3.1
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
@@ -15,6 +15,8 @@ public class Department implements java.io.Serializable {
     private String departmentDescription;
     @JsonIgnore
     private Set<MedicalRecord> medicalRecords = new HashSet<MedicalRecord>(0);
+    @JsonIgnore
+    private Set<Staff> staffs = new HashSet<Staff>(0);
 
     public Department() {
     }
@@ -25,11 +27,12 @@ public class Department implements java.io.Serializable {
         this.departmentDescription = departmentDescription;
     }
 
-    public Department(int departmentId, String departmentName, String departmentDescription, Set<MedicalRecord> medicalRecords) {
+    public Department(int departmentId, String departmentName, String departmentDescription, Set<MedicalRecord> medicalRecords, Set<Staff> staffs) {
         this.departmentId = departmentId;
         this.departmentName = departmentName;
         this.departmentDescription = departmentDescription;
         this.medicalRecords = medicalRecords;
+        this.staffs = staffs;
     }
 
     public int getDepartmentId() {
@@ -62,6 +65,14 @@ public class Department implements java.io.Serializable {
 
     public void setMedicalRecords(Set<MedicalRecord> medicalRecords) {
         this.medicalRecords = medicalRecords;
+    }
+
+    public Set<Staff> getStaffs() {
+        return this.staffs;
+    }
+
+    public void setStaffs(Set<Staff> staffs) {
+        this.staffs = staffs;
     }
 
 }

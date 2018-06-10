@@ -60,4 +60,10 @@ public class HtitleServiceImpl implements HTitleService {
         return titleDao.deleteOneById(id);
     }
 
+    @Transactional
+    @Override
+    public List<Title> getTitleList() {
+        return titleDao.getTitleList();
+    }
+
 }

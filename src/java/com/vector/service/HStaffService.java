@@ -6,7 +6,6 @@
 package com.vector.service;
 
 import com.vector.pojo.Staff;
-import com.vector.service.AdminBaseService;
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,5 +19,9 @@ public interface HStaffService extends AdminBaseService<Staff> {
 
     List<Staff> getStaffByTitle(Serializable titleName, Serializable currentPage);
 
-    List<Staff> getStaffByName(Serializable titleName, Serializable currentPage);
+    List<Staff> getStaffByName(Serializable Name, Serializable currentPage);
+
+    Integer getStaffByNameItemNum(Serializable name);
+
+    Integer getStaffByTitleItemNum(Serializable titleName);
 }

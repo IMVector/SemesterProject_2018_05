@@ -60,4 +60,10 @@ public class HDepartmentServiceImpl implements HDepartmentService {
         return departmentDao.deleteOneById(id);
     }
 
+    @Transactional
+    @Override
+    public List<Department> getAllList() {
+        return departmentDao.getAllList();
+    }
+
 }

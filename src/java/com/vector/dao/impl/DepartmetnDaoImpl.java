@@ -72,4 +72,10 @@ public class DepartmetnDaoImpl extends BaseDaoImpl<Department> implements Depart
         return getListByQuery(hql, name);
     }
 
+    @Override
+    public List<Department> getAllList() {
+        String hql = "from Department";
+        return getListByQuery(hql);
+    }
+
 }

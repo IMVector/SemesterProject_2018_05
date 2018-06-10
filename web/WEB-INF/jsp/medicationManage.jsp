@@ -24,7 +24,6 @@
                             </div>
                             <table>
                                 <tr>
-
                                     <td>
                                         <div class="ui input focus">
                                             <input id="medicalName" placeholder="药品名称" type="text">

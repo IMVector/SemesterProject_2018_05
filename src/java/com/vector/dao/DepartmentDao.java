@@ -16,4 +16,6 @@ import java.util.List;
 public interface DepartmentDao extends BaseDao<Department>, AdminAbstractDao<Department> {
 
     List<Department> getOneByName(Serializable name);
+
+    public List<Department> getAllList();
 }

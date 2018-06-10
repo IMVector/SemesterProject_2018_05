@@ -17,4 +17,6 @@ public interface HDepartmentService extends AdminBaseService<Department> {
 
     List<Department> getOneByName(Serializable name);
 
+    public List<Department> getAllList();
+
 }
