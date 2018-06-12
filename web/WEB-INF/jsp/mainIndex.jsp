@@ -10,6 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="resourcesTemplete.jsp" />
+        <style>
+            #child {
+                display: flex;
+                /*实现垂直居中*/
+                /*align-items: center;*/
+                /*实现水平居中*/
+                justify-content: center;
+            }
+
+        </style>
     </head>
     <body id="bg_body">
 
@@ -104,11 +114,178 @@
                 </div>
                 <!--<div class="ui ignored divider"></div>-->
             </div>
+            <div class="ui segment">
+                <div class="ui header teal segment">
+                    名医风采
+                </div>
+                <div>
+                    <div id="child" class="ui link cards" >
+                        <div class="card">
+                            <div class="image">
+                                <img src="resources/image/狗子.jpeg">
+                            </div>
+                            <div class="content">
+                                <div class="header">Matt Giampietro</div>
+                                <div class="meta">
+                                    <a>Friends</a>
+                                </div>
+                                <div class="description">
+                                    Matthew is an interior designer living in New York.
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <span class="right floated">
+                                    Joined in 2013
+                                </span>
+                                <span>
+                                    <i class="user icon"></i>
+                                    75 Friends
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image">
+                                <img src="resources\image\20180612213438866.png">
+                            </div>
+                            <div class="content">
+                                <div class="header">Molly</div>
+                                <div class="meta">
+                                    <span class="date">Coworker</span>
+                                </div>
+                                <div class="description">
+                                    Molly is a personal assistant living in Paris.
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <span class="right floated">
+                                    Joined in 2011
+                                </span>
+                                <span>
+                                    <i class="user icon"></i>
+                                    35 Friends
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image">
+                                <img src="resources/image/狗子.jpeg">
+                            </div>
+                            <div class="content">
+                                <div class="header">Elyse</div>
+                                <div class="meta">
+                                    <a>Coworker</a>
+                                </div>
+                                <div class="description">
+                                    Elyse is a copywriter working in New York.
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <span class="right floated">
+                                    Joined in 2014
+                                </span>
+                                <span>
+                                    <i class="user icon"></i>
+                                    151 Friends
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image">
+                                <img src="resources/image/狗子.jpeg">
+                            </div>
+                            <div class="content">
+                                <div class="header">Elyse</div>
+                                <div class="meta">
+                                    <a>Coworker</a>
+                                </div>
+                                <div class="description">
+                                    Elyse is a copywriter working in New York.
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <span class="right floated">
+                                    Joined in 2014
+                                </span>
+                                <span>
+                                    <i class="user icon"></i>
+                                    151 Friends
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image">
+                                <img src="resources/image/水獭.jpg">
+                            </div>
+                            <div class="content">
+                                <div class="header">Elyse</div>
+                                <div class="meta">
+                                    <a>Coworker</a>
+                                </div>
+                                <div class="description">
+                                    Elyse is a copywriter working in New York.
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <span class="right floated">
+                                    Joined in 2014
+                                </span>
+                                <span>
+                                    <i class="user icon"></i>
+                                    151 Friends
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image">
+                                <img src="resources/image/狗子.jpeg">
+                            </div>
+                            <div class="content">
+                                <div class="header">Elyse</div>
+                                <div class="meta">
+                                    <a>Coworker</a>
+                                </div>
+                                <div class="description">
+                                    Elyse is a copywriter working in New York.
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <span class="right floated">
+                                    Joined in 2014
+                                </span>
+                                <span>
+                                    <i class="user icon"></i>
+                                    151 Friends
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
 
         <script>
             $(document).ready(function () {
 
+
+                $.ajax({
+                    url: "staffWithImage/"+1,
+                    type: 'POST',
+                    success: function (data, textStatus, jqXHR) {
+                        $("#child").empty();
+                        $.each(data, function (index, staff) {
+                            var str = '<div class="card"><div class="image" ><img src="' + staff.image.imagePath + '"></div><div class="content"><div class="header">'+staff.staffName+'</div><div class="meta"><a>Friends</a></div><div class="description">'+staff.motto+'</div></div><div class="extra content"><span class="right floated">Joined in 2013</span><span><i class="user icon"></i>75 Friends</span></div></div > '
+                            $("#child").append(str);
+
+                        })
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert("请求失败" + errorThrown);
+                    }
+                })
 
                 //        $("[data-animation='flip']").click(function () {
                 //            var animation = $(this).data('animation') || false;
@@ -218,7 +395,5 @@
         <div>
             <jsp:include page="footerTemplete.jsp"/>
         </div>
-
-
     </body>
 </html>

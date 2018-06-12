@@ -11,7 +11,7 @@
         <many-to-one name="department" class="com.vector.pojo.Department" lazy="false" fetch="join">
             <column name="DepartmentId" not-null="true" />
         </many-to-one>
-        <many-to-one name="image" class="com.vector.pojo.Image" fetch="select">
+        <many-to-one name="image" class="com.vector.pojo.Image" lazy="false" fetch="join">
             <column name="ImageId" />
         </many-to-one>
         <many-to-one name="title" class="com.vector.pojo.Title" lazy="false" fetch="join">
@@ -28,6 +28,9 @@
         </property>
         <property name="staffPassword" type="string">
             <column name="StaffPassword" not-null="true" />
+        </property>
+        <property name="motto" type="string">
+            <column name="Motto" not-null="false" />
         </property>
         <set name="checkResults" table="CheckResult" inverse="true" lazy="true" fetch="select">
             <key>

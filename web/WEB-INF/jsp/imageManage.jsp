@@ -116,15 +116,16 @@
                                         </span>
                                     </div>
                                 </div>
-                                <form action="" method="post" enctype="multipart/form-data">
-                                    <div> ![](${path}/mall/image/load_image.png)
+                                <form  id="imageForm" enctype="multipart/form-data">
+                                    <div> 
+                                        <!--![](${path}/mall/image/load_image.png)-->
                                         <input type="file" id="input-image" name="input-image"> 
-                                        <input id="input-relative-path" name="imgs" type="hidden" >
-                                        <input id="input-last-path" type="hidden"> 
-                                        <input type="submit" value="上传图片"> 
+                                        <!--<input id="input-relative-path" name="imgs" type="hidden" >-->
+                                        <!--<input id="input-last-path" type="hidden">--> 
+                                        <input type="button" onclick=" updateImage()" value="上传图片"> 
                                     </div> 
                                 </form>
-
+                                <img src="C:/Users/Vector/Documents/NetBeansProjects/SemesterProject/build/web/水獭.jpg">
                             </div>
                         </div>
                     </div>
@@ -137,5 +138,22 @@
             <!-- /container -->
             <jsp:include page="footerTemplete.jsp" />
     </body>
-
+    <script>
+        function updateImage() {
+            $.ajax({
+                url: "upload/uploadImage",
+                type: 'POST',
+                cache: false,
+                data: new FormData($("#imageForm")[0]),
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    alert("上传成功");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("请求失败" + errorThrown);
+                }
+            })
+        }
+    </script>
 </html>

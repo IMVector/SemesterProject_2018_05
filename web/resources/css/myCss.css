@@ -300,7 +300,7 @@ canvas{
     text-decoration: none;
 }
 #bg_body{
-    background-image: url('../../resources/image/bg.png');
+    background: url('../../resources/image/bg.png') fixed center top;
     background-repeat:no-repeat;
     background-size: 100% 100%;  
     -moz-background-size: 100% 100%;  

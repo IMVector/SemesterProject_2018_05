@@ -7,8 +7,12 @@ package com.vector.dao.impl;
 
 import com.vector.dao.StaffDao;
 import com.vector.pojo.Staff;
+import static com.vector.utils.CommonUtils.EVERY_PAGE_NUMBER;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -95,6 +99,12 @@ public class StaffDaoImpl extends BaseDaoImpl<Staff> implements StaffDao {
     public Integer getStaffByTitleItemNum(Serializable titleName) {
         String hql = "select count(*) from Staff where title.titleName=?";
         return getListSize(hql, titleName);
+    }
+
+    @Override
+    public List<Staff> getStaffWithImage(Serializable number) {
+        String hql = "from Staff where image.imagePath is not null";
+        return getListPaginationByQuery(hql, number);
     }
 
 }

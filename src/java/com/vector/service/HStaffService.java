@@ -21,6 +21,8 @@ public interface HStaffService extends AdminBaseService<Staff> {
 
     List<Staff> getStaffByName(Serializable Name, Serializable currentPage);
 
+    List<Staff> getStaffWithImage(Serializable number);
+
     Integer getStaffByNameItemNum(Serializable name);
 
     Integer getStaffByTitleItemNum(Serializable titleName);

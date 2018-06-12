@@ -104,5 +104,10 @@ public class HStaffServiceImpl implements HStaffService {
     public Integer getStaffByTitleItemNum(Serializable titleName) {
         return staffDao.getStaffByTitleItemNum(titleName);
     }
+    @Transactional
+    @Override
+    public List<Staff> getStaffWithImage(Serializable number) {
+        return staffDao.getStaffWithImage(number);
+    }
 
 }
