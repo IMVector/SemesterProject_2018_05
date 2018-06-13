@@ -25,4 +25,7 @@ public interface CheckRecordDao extends BaseDao<CheckRecord> {
 
     int getListItemNum();
 
+    List<CheckRecord> getCheckRecordWithNoCheck(Serializable patientId, Serializable currentPage);
+
+    int getListItemNumWithNoCheck(Serializable patientId);
 }

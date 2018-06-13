@@ -115,3 +115,23 @@ function goToThPage(pageContainerId, pageShowElementId, dropDownListElementId, r
     var pageTh = $("#" + dropDownListElementId).val();
     fillForm(pageContainerId, pageShowElementId, dropDownListElementId, currentPage = pageTh, reqUrl, showTableFun, totalItemFun);
 }
+/**
+ * 显示模态框，等待用户确认
+ * @param {type} title 模态框标题
+ * @param {type} content 模态框内容
+ * @returns {undefined}
+ */
+function showWarning(title, content,fun) {
+    $(".warning_model").find(".header").html(title);
+    $(".warning_model").find(".content").html("<p>" + content + "</p>");
+    var flag = $('.warning_model').modal({
+        closable: false,
+        onDeny: function () {
+            return false;
+        },
+        onApprove: function () {
+            fun();
+            return true;
+        }
+    }).modal('show');
+}

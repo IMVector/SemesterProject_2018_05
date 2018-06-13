@@ -216,6 +216,24 @@ public class PatientController {
         model.addAttribute("dietAdvice", dietAdvice);
         return "dietAdviceDetails";
     }
+    //////////////////////////////////////未检查的内容//////////////////////////////////////////////////////////
+    @RequestMapping(value = "getCheckRecordWithNoCheck/{patientId}/{currentPage}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<CheckRecord> getCheckRecordWithNoCheck(@PathVariable String patientId, @PathVariable int currentPage){
+        return checkRecordService.getCheckRecordWithNoCheck(patientId, currentPage);
+    }
+        @RequestMapping(value = "/checkRecordItemNumberWithNoCheck/{patientId}", method = RequestMethod.POST)
+    @ResponseBody
+    public int showCheckRecordItemNumberWithNoCheck(@PathVariable String patientId) {
+        return checkRecordService.getListItemNumWithNoCheck(patientId);
+    }
+
+    @RequestMapping(value = "/checkRecordDetailsWithNoCheck/{checkRecordId}", method = RequestMethod.GET)
+    public String showCheckRecordDetailsWithNoCheck(@PathVariable int checkRecordId, Model model) {
+        CheckRecord checkRecord = checkRecordService.getOneById(checkRecordId);
+        model.addAttribute("checkRecord", checkRecord);
+        return "checkRecordDetailsWithNoCheck";
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     @RequestMapping(value = "weather", method = RequestMethod.POST)

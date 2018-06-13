@@ -30,7 +30,7 @@
                                 <a id="healthAdvice" class="item" data-tab="healthAdvice">健康建议 </a>
                                 <a id="dietAdvice" class="item" data-tab="dietAdvice">饮食建议 </a>
                                 <a id="record" class="item" data-tab="record">查看检查安排 </a>
-                                <a id="graphy" class="item" data-tab="graphy">就医图表 </a>
+                                <a id="graphy" class="item" data-tab="graphy">就医大数据 </a>
                             </div>
                         </div>
 

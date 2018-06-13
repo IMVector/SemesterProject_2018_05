@@ -53,5 +53,15 @@ public class CheckRecordServiceImpl implements CheckRecordService {
     public int getListItemNumber(Serializable id) {
         return checkRecordDao.getListItemNum(id);
     }
+    @Transactional
+    @Override
+    public List<CheckRecord> getCheckRecordWithNoCheck(Serializable patientId, Serializable currentPage) {
+        return checkRecordDao.getCheckRecordWithNoCheck(patientId, currentPage);
+    }
+    @Transactional
+    @Override
+    public int getListItemNumWithNoCheck(Serializable patientId) {
+        return checkRecordDao.getListItemNumWithNoCheck(patientId);
+    }
 
 }

@@ -79,7 +79,7 @@
                     <td>${patient.patientName}</td>\n\
                     <td>" + checkRecord.checkItem.checkItemName + "</td>\n\
                     <td>" + formatDatebox(checkRecord.checkDate) + "</td>\n\
-                    <td> <a  class='ui button small blue' href='checkRecordDetails/" + checkRecord.checkRecordId + "'>查看</a> </td>\n\</tr>"
+                    <td> <a  class='ui button small blue' href='checkRecordDetails/" + checkRecord.checkRecordId + "'>查看</a> </td>\n\</tr>";
 
                 $("#checkRecordTable").append(str);
             });

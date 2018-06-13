@@ -55,7 +55,7 @@
         function billTableShow(data) {
 
             $("#billTable").empty();
-            $("#billTable").append("<thead><tr> <th>账单编号</th><th>病人姓名</th><th>账单金额</th><th>账单日期</th>th>是否支付</th><th>查看详情</th></tr></thead>");
+            $("#billTable").append("<thead><tr> <th>账单编号</th><th>病人姓名</th><th>账单金额</th><th>账单日期</th><th>是否支付</th><th>查看详情</th></tr></thead>");
             $.each(data, function (index, bill) {
                 var str = "<tr id=" + bill.billId + ">\n\
                   <td>" + bill.billId + "</td>\n\

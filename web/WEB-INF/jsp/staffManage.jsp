@@ -153,6 +153,7 @@
                 </div>
 
             </div>
+                         <jsp:include page="warningModel.jsp"/>
         </div>
         <!-- /container -->
         <jsp:include page="footerTemplete.jsp" />
@@ -448,14 +449,18 @@
             });
 
             $("#deleteAll").on("click", function () {
-                //发送ajax请求更新全部选中
-                $(".ui.toggle.checkbox").each(function (index, element) {
-                    if ($(this).checkbox("is checked")) {
-                        var id;
-                        id = $(this).closest("tr").attr("id");
-                        $("#" + id).find(".deleteBtn").click();
-                    }
+
+                showWarning("全部删除", "全部删本页选中？", function () {
+                    //发送ajax请求删除全部选中
+                    $(".ui.toggle.checkbox").each(function (index, element) {
+                        if ($(this).checkbox("is checked")) {
+                            var id;
+                            id = $(this).closest("tr").attr("id");
+                            $("#" + id).find(".deleteBtn").click();
+                        }
+                    });
                 });
+
             });
         });
 

@@ -52,3 +52,16 @@ public class UploadUtils {
         return showPath;
     }
 }
+
+//                // 获取图片的宽高 
+//                BufferedImage bufferedImage = ImageIO.read(new FileInputStream(new File(realPath)));
+//                int width = bufferedImage.getWidth();
+//                int height = bufferedImage.getHeight();
+//                // 获取文件大小
+//                long size = mf.getSize();
+//                System.out.println("上传");
+//                String path = req.getServletContext().getContextPath();
+//                System.out.println(path);
+//                //C:\Users\Vector\Documents\NetBeansProjects\SemesterProject\build\web\resources\image
+//                String myPath = req.getServletContext().getRealPath("")+"resources\\image";
+//                System.out.println(myPath);

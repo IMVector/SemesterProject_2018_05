@@ -45,33 +45,32 @@
 
             $(document).ready(function () {
                 $("#record").click(function () {
-                    var url = 'medicalRecordList/${patient.patientId}/page_key_word';
+                    var url = 'getCheckRecordWithNoCheck/${patient.patientId}/page_key_word';
                     fillForm("hospitalRecordPageButtons", "pageText_hospitalRecord", "pageSelecter_hospitalRecord", currentPage = 1, url, showHospitalRecordTable, getHospitalRecordItemNum);
                 });
 
                 $("#pageSelecter_hospitalRecord").on("change", function () {
-                    var url = 'medicalRecordList/${patient.patientId}/page_key_word';
+                    var url = 'getCheckRecordWithNoCheck/${patient.patientId}/page_key_word';
                     goToThPage("hospitalRecordPageButtons", "pageText_hospitalRecord", "pageSelecter_hospitalRecord", url, showHospitalRecordTable, getHospitalRecordItemNum);
                 });
             });
 
             function showHospitalRecordTable(data) {
                 $("#hospitalRecordTable").empty();
-                $("#hospitalRecordTable").append("<thead><tr> <th>就医编号</th><th>病人姓名</th><th>就医日期</th><th>诊治医生</th><th>查看详情</th></tr></thead>");
-                $.each(data, function (index, hospitalRecord) {
-                    var str = "<tr id=" + hospitalRecord.medicalRecordId + ">\n\
-                    <td>" + hospitalRecord.medicalRecordId + "</td><td>${patient.patientName}</td>\n\
-                    <td>" + formatDatebox(hospitalRecord.inDate) + "</td>\n\
-                    <td>" + hospitalRecord.doctorName + "</td>\n\
-                    <td> <a  class='ui button small blue' href='hospitalRecordDetails/" + hospitalRecord.medicalRecordId + "'>查看</a> </td>\n\</tr>"
-
+                $("#hospitalRecordTable").append("<thead><tr> <th>就医编号</th><th>病人姓名</th><th>就医日期</th><th>查看详情</th></tr></thead>");
+                $.each(data, function (index, checkRecord) {
+                var str = "<tr id=" + checkRecord.checkRecordId + ">\n\
+                   <td>"+checkRecord.checkRecordId+"</td>\n\
+                    <td>${patient.patientName}</td>\n\
+                    <td>" + formatDatebox(checkRecord.checkDate) + "</td>\n\
+                    <td> <a  class='ui button small blue' href='checkRecordDetailsWithNoCheck/" + checkRecord.checkRecordId + "'>查看</a> </td>\n\</tr>";
                     $("#hospitalRecordTable").append(str);
                 });
             }
             function getHospitalRecordItemNum() {
                 var itemNum = 0;
                 $.ajax({
-                    url: "medicalRecordListItemNumber/${patient.patientId}",
+                    url: "checkRecordItemNumberWithNoCheck/${patient.patientId}",
                     type: 'POST',
                     async: false,
                     data: {},

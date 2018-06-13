@@ -54,4 +54,15 @@ public class HImageSerivceImpl implements HImageService {
         return imageDao.deleteOneById(id);
     }
 
+    @Transactional
+    @Override
+    public List<Image> getFirstPageImage() {
+        return imageDao.getFirstPageImage();
+    }
+    @Transactional
+    @Override
+    public Image getImageById(Serializable id) {
+        return imageDao.getOneById(id);
+    }
+
 }

@@ -6,11 +6,14 @@
 package com.vector.dao;
 
 import com.vector.pojo.Image;
+import java.util.List;
 
 /**
  *
  * @author Vector
  */
 public interface ImageDao extends BaseDao<Image> ,AdminAbstractDao<Image> {
+
+    public List<Image> getFirstPageImage();
     
 }

@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="resourcesTemplete.jsp" />
         <style>
-            #child {
+            #card_parent {
                 display: flex;
                 /*实现垂直居中*/
                 /*align-items: center;*/
@@ -23,34 +23,6 @@
     </head>
     <body id="bg_body">
 
-        <!--                <div id="mybody" class="container">
-                            <div class="row">
-                                <div class="guide">
-                                    <ul class="links">
-                                        <li class="l1">
-                                            <span class="ico animated">
-                                                <img title="" alt="" src="resources/image/patient.png">
-                                            </span>
-                                            <p class="p">患者版</p>
-                                            <a class="link" href="patientIndex">进入</a></li>
-                                        <li class="l2">  
-                                            <span class="ico animated">
-                                                <img title="" alt="" src="resources/image/admin.png">
-                                            </span>
-                                            <p class="p">职工版</p>
-                                            <a class="link" href="staffIndex">进入</a></li>
-                                        <li class="l3"> 
-                                            <span class="ico animated">
-                                                <img title="" alt="" src="resources/image/staff.png">
-                                            </span>
-                                            <p class="p">管理版</p>
-                                            <a class="link" href="adminIndex">进入</a></li>
-                
-                                    </ul>
-                                </div>
-                
-                            </div>
-                        </div>-->
         <div class="ui container slideImage">
             <div class="ui segment">
                 <div class="ui header teal segment">
@@ -60,7 +32,7 @@
                 <div class="demo square ui shape">
                     <div class="sides">
                         <div class="active first side">
-                            <img  src="resources/image/bgfirst.png" class="ui fluid  image">
+                            <img id="image_1" src="resources/image/bgfirst.png" class="ui fluid  image">
                             <div class="guide">
                                 <ul class="links">
                                     <li class="l1">
@@ -73,7 +45,7 @@
                             <!--<div>患者版</div>-->
                         </div>
                         <div class="second side">
-                            <img  src="resources/image/bgsecond.png" class="ui fluid  image">
+                            <img id="image_2" src="resources/image/bgsecond.png" class="ui fluid  image">
                             <div class="guide">
                                 <ul class="links">
                                     <li class="l2">
@@ -86,7 +58,7 @@
                             <!--<div>医生版</div>-->
                         </div>
                         <div class="third side">
-                            <img src="resources/image/bgthird.png" class="ui fluid  image">
+                            <img id="image_3" src="resources/image/bgthird.png" class="ui fluid  image">
                             <div class="guide">
                                 <ul class="links">
                                     <li class="l3">
@@ -119,7 +91,7 @@
                     名医风采
                 </div>
                 <div>
-                    <div id="child" class="ui link cards" >
+                    <div id="card_parent" class="ui link cards" >
                         <!--显示有头像的医生-->
 
                     </div>
@@ -133,8 +105,31 @@
             <jsp:include page="footerTemplete.jsp"/>
         </div>
         <script>
+
             $(document).ready(function () {
 
+                $.ajax({
+                    url: "getFirstPageImage",
+                    type: 'POST',
+                    success: function (data, textStatus, jqXHR) {
+                        $.each(data, function (index, image) {
+                            switch (image.imageId) {
+                                case 1:
+                                    $("#image_1").attr("src", image.imagePath);
+                                    break;
+                                case 2:
+                                    $("#image_2").attr("src", image.imagePath);
+                                    break;
+                                case 3:
+                                    $("#image_3").attr("src", image.imagePath);
+                                    break;
+                            }
+                        });
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        toastError("请求失败" + errorThrown);
+                    }
+                });
 
                 $.ajax({
                     url: "staffWithImage/" + 1,
@@ -142,15 +137,15 @@
                     success: function (data, textStatus, jqXHR) {
                         $("#child").empty();
                         $.each(data, function (index, staff) {
-                            var str = '<div class="card"><div class="image" ><img src="' + staff.image.imagePath + '"></div><div class="content"><div class="header">' + staff.staffName + '</div><div class="meta"><a>Friends</a></div><div class="description">' + staff.motto + '</div></div><div class="extra content"><span class="right floated">Joined in 2013</span><span><i class="user icon"></i>75 Friends</span></div></div > '
-                            $("#child").append(str);
+                            var str = '<div class="card"><div class="image" ><img src="' + staff.image.imagePath + '"></div><div class="content"><div class="header">' + staff.staffName + '</div><div class="meta"><a>Friends</a></div><div class="description">' + staff.motto + '</div></div><div class="extra content"><span class="right floated">Joined in 2013</span><span><i class="user icon"></i>75 Friends</span></div></div > ';
+                            $("#card_parent").append(str);
 
-                        })
+                        });
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         toastError("请求失败" + errorThrown);
                     }
-                })
+                });
 
                 var
                         $demo = $('.demo'),

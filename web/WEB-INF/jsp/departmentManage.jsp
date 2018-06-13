@@ -111,6 +111,7 @@
                     <div class="ui positive button">关闭</div>
                 </div>
             </div>
+                         <jsp:include page="warningModel.jsp"/>
         </div>
         <!-- /container -->
         <jsp:include page="footerTemplete.jsp" />
@@ -313,78 +314,9 @@
                                 toastError("更新失败");
                             }
                         }, error: function (jqXHR, textStatus, errorThrown) {
-                             toastError("请求失败" + errorThrown);
+                            toastError("请求失败" + errorThrown);
                         }
                     });
-
-//                    var id, name, instructions, description, price, productionDate, validatePeriod;
-//                    id = $(this).closest("tr").attr("id")
-//                    $(this).closest("tr").find(".myInput").each(function (index, element) {
-//                        //1、药品名称
-//                        //2、适用症状
-//                        //3、说明
-//                        //4、价格
-//                        //5、生产日期
-//                        //6、有效期
-//                        //在这里发送ajax请求    
-//                        switch (index) {
-//                            case 0:
-//                                name = $(this).val();
-//                                break;
-//                            case 1:
-//                                description = $(this).val();
-//                                break;
-//                            case 2:
-//                                instructions = $(this).val();
-//                                break;
-//                            case 3:
-//                                price = $(this).val();
-//                                break;
-//                            case 4:
-//                                productionDate = $(this).val();
-//                                break;
-//                            case 5:
-//                                validatePeriod = $(this).val();
-//                                break;
-//                        }
-//                    });
-////                alert(id + ", " + name + ", " + instructions + ", " + description + ", " + price + ", " + productionDate + ", " + validatePeriod)
-//                    $.ajax({
-//                        url: "updateMedication",
-//                        type: 'POST',
-//                        data: {"medicationId": id, "medicationName": name, "medicationInstructions": instructions, "medicationDescription": description, "productionDate": productionDate, "validityPeriod": validatePeriod, "price": price},
-//                        success: function (data, textStatus, jqXHR) {
-//                            if (data) {
-//                                $("#" + id).find(".mylabel").each(function (index, element) {
-//                                    switch (index) {
-//                                        case 0:
-//                                            $(this).html(name);
-//                                            break;
-//                                        case 1:
-//                                            $(this).html(instructions);
-//                                            break;
-//                                        case 2:
-//                                            $(this).html(description);
-//                                            break;
-//                                        case 3:
-//                                            $(this).html(price);
-//                                            break;
-//                                        case 4:
-//                                            $(this).html(formatDatebox(productionDate));
-//                                            break;
-//                                        case 5:
-//                                            $(this).html(validatePeriod);
-//                                            break;
-//                                    }
-//                                })
-//                                alert('更新成功');
-//                            } else {
-//                                alert("更新失败");
-//                            }
-//                        }, error: function (jqXHR, textStatus, errorThrown) {
-//                            alert("请求失败" + errorThrown);
-//                        }
-//                    })
 
                 }
                 var checkBox = $(this).closest("tr").find(".ui.toggle.checkbox");
@@ -434,7 +366,7 @@
                             toastSuccess("删除成功");
                         } else {
 //                            alert("失败");
-                             toastError("删除失败");
+                            toastError("删除失败");
                         }
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
@@ -445,14 +377,18 @@
             });
 
             $("#deleteAll").on("click", function () {
-                //发送ajax请求更新全部选中
-                $(".ui.toggle.checkbox").each(function (index, element) {
-                    if ($(this).checkbox("is checked")) {
-                        var id;
-                        id = $(this).closest("tr").attr("id");
-                        $("#" + id).find(".deleteBtn").click();
-                    }
+
+                showWarning("全部删除", "全部删本页选中？", function () {
+                    //发送ajax请求删除全部选中
+                    $(".ui.toggle.checkbox").each(function (index, element) {
+                        if ($(this).checkbox("is checked")) {
+                            var id;
+                            id = $(this).closest("tr").attr("id");
+                            $("#" + id).find(".deleteBtn").click();
+                        }
+                    });
                 });
+
             });
         });
 

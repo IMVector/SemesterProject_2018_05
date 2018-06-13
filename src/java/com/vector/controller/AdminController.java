@@ -329,5 +329,17 @@ public class AdminController {
         return imageService.deleteOne(imageId);
     }
 
+    @RequestMapping(value = "/getFirstPageImage", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Image> getFirstPageImage() {
+        return imageService.getFirstPageImage();
+    }
+
+    @RequestMapping(value = "/getLogo", method = RequestMethod.POST)
+    @ResponseBody
+    public Image getLogo() {
+        return imageService.getImageById(4);
+    }
+
     /////////////////////////////////////////////////////////////////////////////////
 }

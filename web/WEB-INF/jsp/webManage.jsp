@@ -16,9 +16,9 @@
             }
             .mylabel:hover{
                 display: block;
-                text-overflow:auto;
+                text-overflow:clip;
                 overflow: auto;
-                white-space: initial;
+                white-space: normal;
                 width:100px;
             }
 

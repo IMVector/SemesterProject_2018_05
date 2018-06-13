@@ -6,6 +6,16 @@
 
     <head>
         <jsp:include page="resourcesTemplete.jsp" />
+        <style>
+            #card_parent {
+                display: flex;
+                /*实现垂直居中*/
+                /*align-items: center;*/
+                /*实现水平居中*/
+                justify-content: center;
+            }
+
+        </style>
     </head>
 
     <body>
@@ -23,121 +33,45 @@
                                 网站图片管理
                             </div>
 
-                            <div class="ui link cards">
-                                <div class="card">
-                                    <div class="image">
-                                        <img src="resources/image/狗子.jpeg">
-                                    </div>
-                                    <div class="content">
-                                        <div class="header">Matt Giampietro</div>
-                                        <div class="meta">
-                                            <a>Friends</a>
-                                        </div>
-                                        <div class="description">
-                                            Matthew is an interior designer living in New York.
-                                        </div>
-                                    </div>
-                                    <div class="extra content">
-                                        <span class="right floated">
-                                            Joined in 2013
-                                        </span>
-                                        <span>
-                                            <i class="user icon"></i>
-                                            75 Friends
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="image">
-                                        <img src="resources/image/狗子.jpeg">
-                                    </div>
-                                    <div class="content">
-                                        <div class="header">Molly</div>
-                                        <div class="meta">
-                                            <span class="date">Coworker</span>
-                                        </div>
-                                        <div class="description">
-                                            Molly is a personal assistant living in Paris.
-                                        </div>
-                                    </div>
-                                    <div class="extra content">
-                                        <span class="right floated">
-                                            Joined in 2011
-                                        </span>
-                                        <span>
-                                            <i class="user icon"></i>
-                                            35 Friends
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="image">
-                                        <img src="resources/image/狗子.jpeg">
-                                    </div>
-                                    <div class="content">
-                                        <div class="header">Elyse</div>
-                                        <div class="meta">
-                                            <a>Coworker</a>
-                                        </div>
-                                        <div class="description">
-                                            Elyse is a copywriter working in New York.
-                                        </div>
-                                    </div>
-                                    <div class="extra content">
-                                        <span class="right floated">
-                                            Joined in 2014
-                                        </span>
-                                        <span>
-                                            <i class="user icon"></i>
-                                            151 Friends
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="image">
-                                        <img src="resources/image/狗子.jpeg">
-                                    </div>
-                                    <div class="content">
-                                        <div class="header">Elyse</div>
-                                        <div class="meta">
-                                            <a>Coworker</a>
-                                        </div>
-                                        <div class="description">
-                                            Elyse is a copywriter working in New York.
-                                        </div>
-                                    </div>
-                                    <div class="extra content">
-                                        <span class="right floated">
-                                            Joined in 2014
-                                        </span>
-                                        <span>
-                                            <i class="user icon"></i>
-                                            151 Friends
-                                        </span>
-                                    </div>
-                                </div>
-                                <form  id="imageForm" enctype="multipart/form-data">
-                                    <div> 
-                                        <!--![](${path}/mall/image/load_image.png)-->
-                                        <input type="file" id="input-image" name="input-image"> 
-                                        <!--<input id="input-relative-path" name="imgs" type="hidden" >-->
-                                        <!--<input id="input-last-path" type="hidden">--> 
-                                        <input type="button" onclick=" updateImage()" value="上传图片"> 
-                                    </div> 
-                                </form>
-                            </div>
+                            <div id="card_parent" class="ui link cards">
+                                <!--显示图片--> 
+
+                            </div><!--card_parent-->
+
+
                         </div>
                     </div>
                 </div>
 
 
-
+                <form style="display: none"  id="imageForm" enctype="multipart/form-data">
+                    <div> 
+                        <input id="select_file"  type="file" id="input-image" name="input-image"> 
+                    </div> 
+                </form>
 
             </div>
             <!-- /container -->
             <jsp:include page="footerTemplete.jsp" />
     </body>
     <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "getFirstPageImage",
+                type: 'POST',
+                success: function (data, textStatus, jqXHR) {
+                    $("#card_parent").empty();
+                    $.each(data, function (index, image) {
+                        var str = '<div id="' + image.imageId + '" class="card"><div class="image" ><img src="' + image.imagePath + '"></div><div class="content"><div class="header">' + image.usePage + '</div><div class="description"></div></div>\n\
+                <div class="extra content"><span class="right floated"><button class="ui mini button blue myCelect">选择</button><button class="ui mini button blue myChange">更换</button></span></div></div > ';
+                        $("#card_parent").append(str);
+                    });
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    toastError("请求失败" + errorThrown);
+                }
+            });
+        });
         function updateImage() {
             $.ajax({
                 url: "upload/uploadImage",
@@ -147,14 +81,41 @@
                 processData: false,
                 contentType: false,
                 success: function (data) {
-//                    alert("上传成功");
-                    toastSuccess("上传成功")
+                    if (data)
+                        toastSuccess("上传成功");
+                    else
+                        toastError("上传失败");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-//                  toastError("请求失败" + errorThrown);
                     toastError("请求失败，请重试！" + errorThrown);
                 }
-            })
+            });
         }
+
+        $(document).on("click", ".myCelect", function () {
+            $("#select_file").click();
+        });
+        $(document).on("click", ".myChange", function () {
+            var id = $(this).closest(".card").attr("id");
+            $.ajax({
+                url: "upload/uploadImage/update/"+id,
+                type: 'POST',
+                cache: false,
+                data: new FormData($("#imageForm")[0]),
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data)
+                        toastSuccess("上传成功");
+                    else
+                        toastError("上传失败");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    toastError("请求失败，请重试！" + errorThrown);
+                }
+            });
+        });
+
+
     </script>
 </html>
