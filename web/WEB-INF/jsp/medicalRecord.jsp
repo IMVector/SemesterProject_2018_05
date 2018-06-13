@@ -31,8 +31,8 @@
                     <!--发送ajax请求-->
                     <select id="pageSelecter" class="mini ui button basic dropdown">
                         <option value="">页码</option>
-                        
-                        
+
+
                         <!--<option value="1">1</option>-->
                     </select>
                 </div>
@@ -85,7 +85,8 @@
                     itemNum = data
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！");
+//                    alert("请求失败，请重试！");
+                    toastError("请求失败，请重试！" + errorThrown);
                 }
             });
             return itemNum;

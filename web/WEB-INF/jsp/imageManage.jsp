@@ -125,7 +125,6 @@
                                         <input type="button" onclick=" updateImage()" value="上传图片"> 
                                     </div> 
                                 </form>
-                                <img src="C:/Users/Vector/Documents/NetBeansProjects/SemesterProject/build/web/水獭.jpg">
                             </div>
                         </div>
                     </div>
@@ -148,10 +147,12 @@
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    alert("上传成功");
+//                    alert("上传成功");
+                    toastSuccess("上传成功")
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败" + errorThrown);
+//                  toastError("请求失败" + errorThrown);
+                    toastError("请求失败，请重试！" + errorThrown);
                 }
             })
         }

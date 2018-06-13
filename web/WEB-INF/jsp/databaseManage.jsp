@@ -213,7 +213,7 @@
                     itemNum = data
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！");
+                    toastError("请求失败" + errorThrown);
                 }
             });
             return itemNum;

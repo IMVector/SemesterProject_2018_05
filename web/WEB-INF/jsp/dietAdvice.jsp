@@ -77,7 +77,8 @@
                         itemNum = data
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        alert("请求失败，请重试！");
+                        toastError("请求失败，请重试！"+errorThrown);
+                        //alert("请求失败，请重试！");
                     }
                 });
                 return itemNum;

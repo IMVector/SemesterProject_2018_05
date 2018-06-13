@@ -18,6 +18,7 @@
 <script type="text/javascript" src="resources/js/Chart.bundle.min.js"></script>
 <script type="text/javascript" src="resources/js/Chart.min.js"></script>
 <script type="text/javascript" src="resources/js/utils.js"></script>
+<script type="text/javascript" src="resources/js/toast.js"></script>
 <!--<link rel="stylesheet" href="resources/css/bootstrap-theme.css"/>
 <link rel="stylesheet" href="resources/css/bootstrap-theme.css.map"/>
 <link rel="stylesheet" href="resources/css/bootstrap.css"/>

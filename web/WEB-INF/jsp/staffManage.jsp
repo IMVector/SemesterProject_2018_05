@@ -169,7 +169,6 @@
             })
             $("#getByTitle").on("click", function () {
                 var title = $("#staffTitle").val();
-                alert(title)
                 var url = "getStaffByTitle/" + title + "/page_key_word";
                 fillForm("PageButtons", "pageText", "pageSelecter", currentPage = 1, url, staffTableInfo, staffByTitleItemNum);
             })
@@ -220,14 +219,14 @@
                                         break;
                                 }
                             });
-                            alert(id + ", " + name + ", " + titleId + "," + titleName + "," + departmentId + "," + departmentName)
+//                            alert(id + ", " + name + ", " + titleId + "," + titleName + "," + departmentId + "," + departmentName)
                             $.ajax({
                                 url: "updateStaff",
                                 type: 'POST',
                                 data: {"staffId": id, "staffName": name, "titleId": titleId, "departmentId": departmentId},
                                 success: function (data, textStatus, jqXHR) {
                                     if (data) {
-                                        alert(id);
+//                                        alert(id);
                                         $("#" + id).find(".mylabel").each(function (index, element) {
                                             switch (index) {
                                                 case 0:
@@ -244,12 +243,15 @@
                                                     break;
                                             }
                                         })
-                                        alert('更新成功');
+//                                        alert('更新成功');
+                                        toastSuccess("更新成功");
                                     } else {
-                                        alert("更新失败");
+//                                        alert("更新失败");
+                                        toastError("更新失败,请重试！");
                                     }
                                 }, error: function (jqXHR, textStatus, errorThrown) {
-                                    alert("请求失败" + errorThrown);
+//                                    alert("请求失败" + errorThrown);
+                                    toastError("请求失败,请重试！" + errorThrown);
                                 }
                             });
                         }
@@ -311,7 +313,8 @@
                         }
                     },
                     error: function (req, status, error) {
-                        alert("Ajax请求失败!" + error);
+//                        alert("Ajax请求失败!" + error);
+                        toastError("请求失败,请重试！" + error);
                     }
                 });
             });
@@ -350,7 +353,7 @@
                                 break;
                         }
                     });
-                    alert(id + ", " + name + ", " + titleId + "," + titleName + "," + departmentId + "," + departmentName)
+//                    alert(id + ", " + name + ", " + titleId + "," + titleName + "," + departmentId + "," + departmentName)
                     $.ajax({
                         url: "updateStaff",
                         type: 'POST',
@@ -373,12 +376,15 @@
                                             break;
                                     }
                                 })
-                                alert('更新成功');
+//                                alert('更新成功');
+                                toastSuccess("更新成功")
                             } else {
-                                alert("更新失败");
+//                                alert("更新失败");
+                                toastError("更新失败,请重试！");
                             }
                         }, error: function (jqXHR, textStatus, errorThrown) {
-                            alert("请求失败" + errorThrown);
+//                            alert("请求失败" + errorThrown);
+                            toastError("请求失败,请重试！" + errorThrown);
                         }
                     })
 
@@ -419,7 +425,7 @@
             //删除一行
             $(document).on('click', ".deleteBtn", function () {
                 var id = $(this).closest("tr").attr("id");
-                alert(id)
+//                alert(id)
                 $.ajax({
                     url: "deleteStaff/" + id,
                     type: 'POST',
@@ -427,12 +433,15 @@
                         if (data) {
                             $("#" + id).remove();
                             //alert("成功")
+                            toastSuccess("删除成功");
                         } else {
-                            alert("失败");
+//                            alert("失败");
+                            toastError("删除失败,请重试！");
                         }
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        alert("请求失败" + errorThrown)
+//                        alert("请求失败" + errorThrown)
+                        toastError("请求失败,请重试！" + errorThrown);
                     }
                 })
 
@@ -480,7 +489,8 @@
                     itemNum = data
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！");
+//                    alert("请求失败，请重试！");
+                    toastError("请求失败,请重试！" + errorThrown);
                 }
             });
             return itemNum;
@@ -499,7 +509,8 @@
                     itemNum = data
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！");
+//                    alert("请求失败，请重试！");
+                    toastError("请求失败,请重试！" + errorThrown);
                 }
             });
             return itemNum;
@@ -518,7 +529,8 @@
                     itemNum = data
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！");
+//                    alert("请求失败，请重试！");
+                    toastError("请求失败,请重试！" + errorThrown);
                 }
             });
             return itemNum;
@@ -536,7 +548,8 @@
                     });
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败" + errorThrown);
+//                    alert("请求失败" + errorThrown);
+                    toastError("请求失败,请重试！" + errorThrown);
                 }
             });
         }
@@ -554,7 +567,8 @@
                     });
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败" + errorThrown);
+//                    alert("请求失败" + errorThrown);
+                    toastError("请求失败,请重试！" + errorThrown);
                 }
             });
         }

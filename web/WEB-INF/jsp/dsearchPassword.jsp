@@ -41,7 +41,8 @@
                             $("#msg").html(s);
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
-                         alert("输入用户不存在"+errorThrown);
+                            toastError("输入用户不存在！"+errorThrown);
+//                         alert("输入用户不存在"+errorThrown);
                     }
                     });
                 }); 
@@ -72,7 +73,8 @@
                             $("#msg2").html("密码已修改为"+sh+"，请登陆后及时修改");
                         },
                         error: function(){
-                            alert("密保问题回答错误");
+                            toastError("密保问题回答错误");
+//                            alert("密保问题回答错误");
                         } //最后一个属性不要加逗号
                     });
                 }); 

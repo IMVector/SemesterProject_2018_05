@@ -18,10 +18,10 @@
         <div class="container">
 
             <table id="hospitalRecordTable" class="ui red table">
-         
+
 
             </table>
-                <div>
+            <div>
                 <p id="pageText_hospitalRecord"></p>
                 <div id="hospitalRecordPageButtons" class="mini ui basic buttons">
 
@@ -36,13 +36,13 @@
                     </select>
                 </div>
             </div>
-            
-            
-            
+
+
+
         </div>
 
         <script>
-            
+
             $(document).ready(function () {
                 $("#record").click(function () {
                     var url = 'medicalRecordList/${patient.patientId}/page_key_word';
@@ -80,7 +80,8 @@
                         itemNum = data
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        alert("请求失败，请重试！");
+//                        alert("请求失败，请重试！");
+                        toastError("请求失败，请重试！" + errorThrown);
                     }
                 });
                 return itemNum;

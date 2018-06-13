@@ -120,202 +120,47 @@
                 </div>
                 <div>
                     <div id="child" class="ui link cards" >
-                        <div class="card">
-                            <div class="image">
-                                <img src="resources/image/狗子.jpeg">
-                            </div>
-                            <div class="content">
-                                <div class="header">Matt Giampietro</div>
-                                <div class="meta">
-                                    <a>Friends</a>
-                                </div>
-                                <div class="description">
-                                    Matthew is an interior designer living in New York.
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <span class="right floated">
-                                    Joined in 2013
-                                </span>
-                                <span>
-                                    <i class="user icon"></i>
-                                    75 Friends
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="image">
-                                <img src="resources\image\20180612213438866.png">
-                            </div>
-                            <div class="content">
-                                <div class="header">Molly</div>
-                                <div class="meta">
-                                    <span class="date">Coworker</span>
-                                </div>
-                                <div class="description">
-                                    Molly is a personal assistant living in Paris.
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <span class="right floated">
-                                    Joined in 2011
-                                </span>
-                                <span>
-                                    <i class="user icon"></i>
-                                    35 Friends
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="image">
-                                <img src="resources/image/狗子.jpeg">
-                            </div>
-                            <div class="content">
-                                <div class="header">Elyse</div>
-                                <div class="meta">
-                                    <a>Coworker</a>
-                                </div>
-                                <div class="description">
-                                    Elyse is a copywriter working in New York.
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <span class="right floated">
-                                    Joined in 2014
-                                </span>
-                                <span>
-                                    <i class="user icon"></i>
-                                    151 Friends
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="image">
-                                <img src="resources/image/狗子.jpeg">
-                            </div>
-                            <div class="content">
-                                <div class="header">Elyse</div>
-                                <div class="meta">
-                                    <a>Coworker</a>
-                                </div>
-                                <div class="description">
-                                    Elyse is a copywriter working in New York.
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <span class="right floated">
-                                    Joined in 2014
-                                </span>
-                                <span>
-                                    <i class="user icon"></i>
-                                    151 Friends
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="image">
-                                <img src="resources/image/水獭.jpg">
-                            </div>
-                            <div class="content">
-                                <div class="header">Elyse</div>
-                                <div class="meta">
-                                    <a>Coworker</a>
-                                </div>
-                                <div class="description">
-                                    Elyse is a copywriter working in New York.
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <span class="right floated">
-                                    Joined in 2014
-                                </span>
-                                <span>
-                                    <i class="user icon"></i>
-                                    151 Friends
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="image">
-                                <img src="resources/image/狗子.jpeg">
-                            </div>
-                            <div class="content">
-                                <div class="header">Elyse</div>
-                                <div class="meta">
-                                    <a>Coworker</a>
-                                </div>
-                                <div class="description">
-                                    Elyse is a copywriter working in New York.
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <span class="right floated">
-                                    Joined in 2014
-                                </span>
-                                <span>
-                                    <i class="user icon"></i>
-                                    151 Friends
-                                </span>
-                            </div>
-                        </div>
+                        <!--显示有头像的医生-->
 
                     </div>
                 </div>
 
             </div>
 
-
         </div>
 
+        <div>
+            <jsp:include page="footerTemplete.jsp"/>
+        </div>
         <script>
             $(document).ready(function () {
 
 
                 $.ajax({
-                    url: "staffWithImage/"+1,
+                    url: "staffWithImage/" + 1,
                     type: 'POST',
                     success: function (data, textStatus, jqXHR) {
                         $("#child").empty();
                         $.each(data, function (index, staff) {
-                            var str = '<div class="card"><div class="image" ><img src="' + staff.image.imagePath + '"></div><div class="content"><div class="header">'+staff.staffName+'</div><div class="meta"><a>Friends</a></div><div class="description">'+staff.motto+'</div></div><div class="extra content"><span class="right floated">Joined in 2013</span><span><i class="user icon"></i>75 Friends</span></div></div > '
+                            var str = '<div class="card"><div class="image" ><img src="' + staff.image.imagePath + '"></div><div class="content"><div class="header">' + staff.staffName + '</div><div class="meta"><a>Friends</a></div><div class="description">' + staff.motto + '</div></div><div class="extra content"><span class="right floated">Joined in 2013</span><span><i class="user icon"></i>75 Friends</span></div></div > '
                             $("#child").append(str);
 
                         })
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        alert("请求失败" + errorThrown);
+                        toastError("请求失败" + errorThrown);
                     }
                 })
-
-                //        $("[data-animation='flip']").click(function () {
-                //            var animation = $(this).data('animation') || false;
-                //            var direction = $(this).data('direction') || false;
-                //
-                //            var $shape = $(this).closest('.example').find('.ui.shape');
-                //
-                //
-                ////            alert( $shape.siblings());
-                ////            alert( $shape.data('shape'))
-                //
-                //            if (direction && animation) {
-                //                $shape.shape(animation + '.' + direction);
-                //            }
-                //        });
-
-
-
-
 
                 var
                         $demo = $('.demo'),
                         $dogDemo = $('.dog.shape'),
                         $directionButton = $('.direction .button'),
                         $shapeButton = $('.type.buttons .button'),
-                        // alias
                         handler
                         ;
 
-                // event handlers
+                // 事件处理程序
                 handler = {
                     rotate: function () {
                         var
@@ -347,7 +192,7 @@
                     }
                 };
 
-                // attach events
+                // 事件绑定
                 $demo.shape();
                 $directionButton.on('click', handler.rotate).popup({
                     delay: 0,
@@ -357,7 +202,18 @@
 
                 $dogDemo.shape();
 
-                setInterval(autoClick, 10000)
+                //进入时自动播放
+                var timer = setInterval(autoClick, 5000);
+                //鼠标放上时停止播放
+                $(".demo.square.ui.shape").on("mouseover", function () {
+                    clearInterval(timer);
+                });
+                //鼠标移出时开始计时播放
+                $(".demo.square.ui.shape").on("mouseout", function () {
+                    timer = setInterval(autoClick, 5000);
+                });
+
+
             });
 
             function autoClick() {
@@ -365,35 +221,5 @@
             }
 
         </script>
-        <!--</div>-->
-        <!--        <div class="ui container" id="mybody">
-                 
-                    <div class="row">
-                        <img src="resources/image/狗子.jpeg" class="img-circle img-thumbnail" style="height: 50px" alt="logo">
-                    </div>
-                    <div class="row">
-                        <div class="pull-left">
-                            <ul class="list-group">
-                                <li class="list-group-item">    
-                                    <p class="p">患者版</p>
-                                    <a class="link" href="patientIndex">进入</a></li>
-                                <li class="list-group-item">   
-                                    <p class="p">职工版</p>
-                                    <a class="link" href="staffIndex">进入</a></li>
-                                <li class="list-group-item">      
-                                    <p class="p">管理版</p>
-                                    <a class="link" href="adminIndex">进入</a></li>
-        
-                            </ul>
-                        </div>
-        
-                        <div class="pull-right">
-                            医院介绍
-                        </div>
-                    </div>
-                </div>-->
-        <div>
-            <jsp:include page="footerTemplete.jsp"/>
-        </div>
     </body>
 </html>

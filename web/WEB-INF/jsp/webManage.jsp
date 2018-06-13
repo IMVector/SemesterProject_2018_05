@@ -245,20 +245,24 @@
                     itemNum = data
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！");
+//                    alert("请求失败，请重试！");
+                    toastError("请求失败,请重试！" + errorThrown);
                 }
             });
             return itemNum;
         }
         function setting(data) {
 
-            alert("设置成功！可以进行还原！");
+//            alert("设置成功！可以进行还原！");
+            toastSuccess("设置成功！可以进行还原");
         }
         function restore(data) {
             if (data == true) {
-                alert("还原成功！");
+//                alert("还原成功！");
+                toastSuccess("还原成功");
             } else {
-                alert("还原失败！");
+//                alert("还原失败！");
+                toastError("还原失败");
             }
 
         }
@@ -267,10 +271,12 @@
             if (data >= 0) {
 
                 $("#file" + data).remove();
-                alert("删除成功"+data);
+//                alert("删除成功" + data);
+                toastSuccess("删除成功");
 
             } else {
-                alert("删除失败");
+//                alert("删除失败");
+                toastError("删除失败,请重试！");
             }
         }
         function getBackpackFileItemNum() {
@@ -285,7 +291,8 @@
                     itemNum = data
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！");
+//                    alert("请求失败，请重试！");
+                    toastError("请求失败,请重试！" + errorThrown);
                 }
             });
             return itemNum;

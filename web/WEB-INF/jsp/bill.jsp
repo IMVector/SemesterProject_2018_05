@@ -18,7 +18,7 @@
         <div class="container">
 
             <table id="billTable" class="ui orange table">
-            
+
 
             </table>
             <div>
@@ -42,11 +42,11 @@
 
         $(document).ready(function () {
             $("#bill").click(function () {
-                 var url = 'billList/${patient.patientId}/page_key_word';
+                var url = 'billList/${patient.patientId}/page_key_word';
                 fillForm("billButtons", "pageText_3", "pageSelecter_3", currentPage = 1, url, billTableShow, getbillItemNumber);
             });
             $("#pageSelecter_3").on("change", function () {
-                 var url = 'checkRecordList/${patient.patientId}/page_key_word';
+                var url = 'checkRecordList/${patient.patientId}/page_key_word';
                 goToThPage("billButtons", "pageText_3", "pageSelecter_3", url, billTableShow, getbillItemNumber);
             });
         });
@@ -74,7 +74,7 @@
         function getbillItemNumber() {
             var itemNum = 0;
             $.ajax({
-                 url: "billListItemNumber/${patient.patientId}",
+                url: "billListItemNumber/${patient.patientId}",
                 type: 'POST',
                 async: false,
                 data: {},
@@ -83,7 +83,7 @@
                     itemNum = data
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！错误码:1_1");
+                    toastError("请求失败" + errorThrown);
                 }
             });
             return itemNum;

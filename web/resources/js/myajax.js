@@ -24,7 +24,7 @@ function getSomethingByAjax(url, successFun, async, reqType, reqData) {
         async: async,
         success: successFun,
         error: function (req, status, error) {
-            alert("请求失败，请重试！ajax封装器BUG请检查");
+            toastError("请求失败，请重试！ajax封装器BUG请检查");
         }
     });
 }

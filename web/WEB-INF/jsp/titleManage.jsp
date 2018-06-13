@@ -166,14 +166,14 @@
                                         description = $(this).val();
                                 }
                             });
-                            alert(id + ", " + name + "," + description)
+//                            alert(id + ", " + name + "," + description)
                             $.ajax({
                                 url: "updateTitle",
                                 type: 'POST',
                                 data: {"titleId": id, "titleName": name, "titleDescription": description},
                                 success: function (data, textStatus, jqXHR) {
                                     if (data) {
-                                        alert(id);
+//                                        alert(id);
                                         $("#" + id).find(".mylabel").each(function (index, element) {
                                             switch (index) {
                                                 case 0:
@@ -187,12 +187,15 @@
                                                     break;
                                             }
                                         })
-                                        alert('更新成功');
+//                                        alert('更新成功');
+                                        toastSuccess("更新成功");
                                     } else {
-                                        alert("更新失败");
+//                                        alert("更新失败");
+                                        toastError("更新失败");
                                     }
                                 }, error: function (jqXHR, textStatus, errorThrown) {
-                                    alert("请求失败" + errorThrown);
+//                                    alert("请求失败" + errorThrown);
+                                    toastError("请求失败,请重试！" + errorThrown);
                                 }
                             });
                         }
@@ -251,7 +254,8 @@
                         }
                     },
                     error: function (req, status, error) {
-                        alert("Ajax请求失败!" + error);
+//                        alert("Ajax请求失败!" + error);
+                        toastError("请求失败,请重试！" + errorThrown);
                     }
                 });
             });
@@ -304,12 +308,15 @@
                                             break;
                                     }
                                 })
-                                alert('更新成功');
+//                                alert('更新成功');
+                                toastSuccess("更新成功")
                             } else {
-                                alert("更新失败");
+//                                alert("更新失败");
+                                toastError("更新失败")
                             }
                         }, error: function (jqXHR, textStatus, errorThrown) {
-                            alert("请求失败" + errorThrown);
+//                            alert("请求失败" + errorThrown);
+                            toastError("请求失败,请重试！" + errorThrown);
                         }
                     })
 
@@ -350,7 +357,7 @@
             //删除一行
             $(document).on('click', ".deleteBtn", function () {
                 var id = $(this).closest("tr").attr("id");
-                alert(id)
+//                alert(id)
                 $.ajax({
                     url: "deleteTitle/" + id,
                     type: 'POST',
@@ -358,12 +365,15 @@
                         if (data) {
                             $("#" + id).remove();
                             //alert("成功")
+                            toastSuccess("删除成功")
                         } else {
-                            alert("失败");
+                            toastError("删除失败,请重试！");
+//                            alert("失败");
                         }
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        alert("请求失败" + errorThrown)
+//                        alert("请求失败" + errorThrown)
+                        toastError("请求失败,请重试！" + errorThrown);
                     }
                 })
 
@@ -419,7 +429,8 @@
                     itemNum = data
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！");
+//                    alert("请求失败，请重试！");
+                    toastError("请求失败,请重试！" + errorThrown);
                 }
             });
             return itemNum;
