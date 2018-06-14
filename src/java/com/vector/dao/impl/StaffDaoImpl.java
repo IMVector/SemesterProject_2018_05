@@ -107,4 +107,10 @@ public class StaffDaoImpl extends BaseDaoImpl<Staff> implements StaffDao {
         return getListPaginationByQuery(hql, number);
     }
 
+    @Override
+    public int getStaffNumWithImage() {
+        String hql = "select count(*) from Staff where image.imagePath is not null";
+        return getListSize(hql);
+    }
+
 }

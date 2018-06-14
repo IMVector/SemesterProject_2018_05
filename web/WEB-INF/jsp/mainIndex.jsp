@@ -97,6 +97,23 @@
                     </div>
                 </div>
 
+                <div>
+                    <p id="pageText"></p>
+                    <div id="PageButtons" class="mini ui basic buttons">
+
+                    </div>
+
+                    <label for="" class="ui label">跳转到：</label>
+                    <!--发送ajax请求-->
+                    <select id="pageSelecter" class="mini ui button basic dropdown">
+                        <option value="">页码</option>
+
+                        <!--<option value="1">1</option>-->
+                    </select>
+                </div>
+
+
+
             </div>
 
         </div>
@@ -107,6 +124,15 @@
         <script>
 
             $(document).ready(function () {
+
+                var url = 'staffWithImage/page_key_word';
+                fillForm("PageButtons", "pageText", "pageSelecter", currentPage = 1, url, getStaffWithImage, staffItemNumWithImage);
+
+                $("#pageSelecter").on("change", function () {
+                    var url = 'staffWithImage/page_key_word';
+                    goToThPage("PageButtons", "pageText", "pageSelecter", url, getStaffWithImage, staffItemNumWithImage);
+                });
+
 
                 $.ajax({
                     url: "getFirstPageImage",
@@ -131,21 +157,16 @@
                     }
                 });
 
-                $.ajax({
-                    url: "staffWithImage/" + 1,
-                    type: 'POST',
-                    success: function (data, textStatus, jqXHR) {
-                        $("#child").empty();
-                        $.each(data, function (index, staff) {
-                            var str = '<div class="card"><div class="image" ><img src="' + staff.image.imagePath + '"></div><div class="content"><div class="header">' + staff.staffName + '</div><div class="meta"><a>Friends</a></div><div class="description">' + staff.motto + '</div></div><div class="extra content"><span class="right floated">Joined in 2013</span><span><i class="user icon"></i>75 Friends</span></div></div > ';
-                            $("#card_parent").append(str);
-
-                        });
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        toastError("请求失败" + errorThrown);
-                    }
-                });
+//                $.ajax({
+//                    url: "staffWithImage/" + 1,
+//                    type: 'POST',
+//                    success: function (data, textStatus, jqXHR) {
+//                       
+//                    },
+//                    error: function (jqXHR, textStatus, errorThrown) {
+//                        toastError("请求失败" + errorThrown);
+//                    }
+//                });
 
                 var
                         $demo = $('.demo'),
@@ -213,6 +234,35 @@
 
             function autoClick() {
                 $("[title='向右翻页']").trigger("click");
+            }
+            function staffItemNumWithImage() {
+                var itemNum = 0;
+
+                $.ajax({
+                    url: "getStaffWithImageItemNum/",
+                    type: 'POST',
+                    async: false,
+                    data: {},
+                    success: function (data, textStatus, jqXHR) {
+                        //返回List项目总数量
+                        itemNum = data
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        toastError("请求失败,请重试！" + errorThrown);
+                    }
+                });
+                return itemNum;
+            }
+            function getStaffWithImage(data) {
+                $("#card_parent").empty();
+                $.each(data, function (index, staff) {
+                    var str = '<div class="card"><div class="image" ><img src="' + staff.image.imagePath + '"></div>\n\
+                     <div class="content"><div class="header">' + staff.staffName + '</div>\n\
+                    <div class="meta">座右铭</div><div class="description">' + staff.motto + '</div></div>\n\
+                    <div class="extra content"><span class="right floated">' + staff.department.departmentName + '</span><span><i class="user icon"></i>' + staff.title.titleName + '</span></div></div > ';
+                    $("#card_parent").append(str);
+
+                });
             }
 
         </script>

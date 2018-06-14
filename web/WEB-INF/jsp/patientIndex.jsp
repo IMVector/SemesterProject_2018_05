@@ -13,12 +13,19 @@
         <jsp:include page="patientHeaderTemplete.jsp" />
 
         <div class="ui container body-under-header">
-
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12" style="background-color: lightblue;height: 900px;">
+            <div class="ui segment">
+                <div class="ui header blue segment">医院内部导航</div>
+                <div class="ui segment">
+                    <div class="ui menu">
+                        <div class="ui item">一楼</div>
+                        <div class="ui item">二楼</div>
+                        <div class="ui item">三楼</div>
+                        <div class="ui item">三楼</div>
+                        <div class="ui item">四楼</div>
+                        <div class="ui item">五楼</div>
+                    </div>
                 </div>
             </div>
-
 
         </div>
 

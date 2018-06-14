@@ -53,16 +53,16 @@
                                 <div id="PageButtons" class="mini ui basic buttons">
 
                                 </div>
-                                <div>
-                                    <label for="" class="ui label">跳转到：</label>
-                                    <!--发送ajax请求-->
-                                    <select id="pageSelecter" class="mini ui button basic dropdown">
-                                        <option value="">页码</option>
+                                <!--<div>-->
+                                <label for="" class="ui label">跳转到：</label>
+                                <!--发送ajax请求-->
+                                <select id="pageSelecter" class="mini ui button basic dropdown">
+                                    <option value="">页码</option>
 
 
-                                        <!--<option value="1">1</option>-->
-                                    </select>
-                                </div>
+                                    <!--<option value="1">1</option>-->
+                                </select>
+                                <!--</div>-->
                             </div>
                             <div>
                                 <button id="selectAll" class="ui button teal">全选</button>
@@ -111,7 +111,7 @@
                     <div class="ui positive button">关闭</div>
                 </div>
             </div>
-                         <jsp:include page="warningModel.jsp"/>
+            <jsp:include page="warningModel.jsp"/>
         </div>
         <!-- /container -->
         <jsp:include page="footerTemplete.jsp" />

@@ -127,7 +127,7 @@ function showWarning(title, content,fun) {
     var flag = $('.warning_model').modal({
         closable: false,
         onDeny: function () {
-            return false;
+            return true;
         },
         onApprove: function () {
             fun();

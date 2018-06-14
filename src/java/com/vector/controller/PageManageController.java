@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -24,9 +25,16 @@ public class PageManageController {
     @Autowired
     private HStaffService staffService;
 
-    @RequestMapping("/staffWithImage/{pageNum}")
+    @RequestMapping(value = "/staffWithImage/{pageNum}")
     @ResponseBody
     public List<Staff> getStaffWithImage(@PathVariable int pageNum) {
         return staffService.getStaffWithImage(pageNum);
     }
+
+    @RequestMapping(value = "/getStaffWithImageItemNum", method = RequestMethod.POST)
+    @ResponseBody
+    public int getStaffWithImageItemNum(){
+        return staffService.getStaffNumWithImage();
+    }
+
 }

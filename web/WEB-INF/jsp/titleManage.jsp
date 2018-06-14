@@ -52,7 +52,7 @@
                                 <div id="PageButtons" class="mini ui basic buttons">
 
                                 </div>
-                                <div>
+                                <!--<div>-->
                                     <label for="" class="ui label">跳转到：</label>
                                     <!--发送ajax请求-->
                                     <select id="pageSelecter" class="mini ui button basic dropdown">
@@ -61,7 +61,7 @@
 
                                         <!--<option value="1">1</option>-->
                                     </select>
-                                </div>
+                                <!--</div>-->
                             </div>
                             <div>
                                 <button id="selectAll" class="ui button blue">全选</button>
