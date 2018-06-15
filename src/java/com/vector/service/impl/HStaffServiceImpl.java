@@ -21,43 +21,38 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Vector
  */
+@Transactional
 @Service
 public class HStaffServiceImpl implements HStaffService {
 
     @Autowired
     private StaffDao staffDao;
 
-    @Transactional
     @Override
     public Staff getOneById(Serializable id) {
         return staffDao.getOneById(id);
     }
 
-    @Transactional
     @Override
     public List<Staff> getStaffByTitle(Serializable titleName, Serializable currentPage) {
         return staffDao.getStaffByTitle(titleName, currentPage);
     }
 
-    @Transactional
     @Override
     public List<Staff> getStaffByName(Serializable name, Serializable currentPage) {
         return staffDao.getStaffByName(name, currentPage);
     }
 
-    @Transactional
     @Override
     public List<Staff> getAllList(Serializable currentPage) {
         return staffDao.getListOfAllWithPagination(currentPage);
     }
 
-    @Transactional
     @Override
     public int getListItemNumber() {
         return staffDao.getListItemNumber();
     }
 
-    @Transactional
     @Override
     public boolean addOne(Staff object) {
         Title title = new Title();
@@ -72,7 +67,6 @@ public class HStaffServiceImpl implements HStaffService {
         return staffDao.addOne(object);
     }
 
-    @Transactional
     @Override
     public boolean updateOne(Staff object) {
         Staff oldStaff = staffDao.getStaffById(object.getStaffId());
@@ -87,34 +81,39 @@ public class HStaffServiceImpl implements HStaffService {
         return staffDao.updateOne(oldStaff);
     }
 
-    @Transactional
     @Override
     public boolean deleteOne(Serializable id) {
         return staffDao.deleteOneById(id);
     }
 
-    @Transactional
     @Override
     public Integer getStaffByNameItemNum(Serializable name) {
         return staffDao.getStaffByNameItemNum(name);
     }
 
-    @Transactional
     @Override
     public Integer getStaffByTitleItemNum(Serializable titleName) {
         return staffDao.getStaffByTitleItemNum(titleName);
     }
 
-    @Transactional
     @Override
     public List<Staff> getStaffWithImage(Serializable number) {
         return staffDao.getStaffWithImage(number);
     }
 
-    @Transactional
     @Override
     public int getStaffNumWithImage() {
         return staffDao.getStaffNumWithImage();
+    }
+
+    @Override
+    public List<Staff> getStaffByDepartmentName(Serializable departmentName, Serializable currentPage) {
+        return staffDao.getStaffByDepartmentName(departmentName, currentPage);
+    }
+
+    @Override
+    public int getStaffByDepartmentNameItemNum(Serializable departmentName) {
+        return staffDao.getStaffByDepartmentNameItemNum(departmentName);
     }
 
 }

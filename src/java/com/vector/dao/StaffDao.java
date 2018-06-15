@@ -28,4 +28,8 @@ public interface StaffDao extends BaseDao<Staff>, AdminAbstractDao<Staff> {
     Integer getStaffByTitleItemNum(Serializable titleName);
 
     public int getStaffNumWithImage();
+
+    public List<Staff> getStaffByDepartmentName(Serializable departmentName, Serializable currentPage);
+
+    public int getStaffByDepartmentNameItemNum(Serializable departmentName);
 }

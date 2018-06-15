@@ -6,11 +6,14 @@
 package com.vector.controller;
 
 import com.qdu.service.DepartmentService;
+import com.qdu.service.LMedicalRecordService;
 import com.qdu.service.TitleService;
 import com.vector.pojo.Department;
+import com.vector.pojo.MedicalRecord;
 import com.vector.pojo.Patient;
 import com.vector.pojo.Title;
 import com.vector.service.PatientSearchService;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,43 +41,46 @@ public class NextPage {
     public String index() {
         return "mainIndex";
     }
-    
+
     @RequestMapping({"patient/signup"})
     public String signupIndex() {
         return "signup";
     }
-    
+
     @RequestMapping({"patient/searchPassword"})
     public String searchPasswordIndex() {
         return "searchPassword";
     }
-    
+
     @RequestMapping({"patient/register"})
     public String registerIndex() {
         return "register";
     }
-    
-     @RequestMapping({"doctor/signup"})
+
+    @RequestMapping({"doctor/signup"})
     public String signupDoctorIndex() {
         return "dsignup";
     }
-    
+
     @RequestMapping({"doctor/searchPassword"})
     public String searchPasswordDoctorIndex() {
         return "dsearchPassword";
     }
-    
+
     @RequestMapping({"doctor/register"})
     public String registerDoctorIndex(Model model) {
-        List<Department> list=departmentService.getDepartmentList();
-        List<Title> titleList=titleService.getAllTitle();
+        List<Department> list = departmentService.getDepartmentList();
+        List<Title> titleList = titleService.getAllTitle();
         model.addAttribute("department", list);
         model.addAttribute("title", titleList);
         return "dregister";
     }
 
     @RequestMapping("/patientIndex")
-    public String patientIndex() {
+    public String patientIndex(HttpSession session) {
+
+        Patient p = patientSearchService.searchPatient("p001");
+        session.setAttribute("patient", p);
         return "patientIndex";
     }
 
@@ -91,9 +97,11 @@ public class NextPage {
     @RequestMapping("/personalCenter")
     public String personalCenter(HttpSession session) {
 
-        Patient p = patientSearchService.searchPatient("p001");
-        session.setAttribute("patient", p);
-        return "personalCenter";
+        if (null != session.getAttribute("patient")) {
+            return "personalCenter";
+        } else {
+            return "signup";
+        }
     }
 
     @RequestMapping("/medicalRecord")
@@ -106,14 +114,16 @@ public class NextPage {
         return "billReport";
     }
 
-    @RequestMapping(value="/admin/{page}",method=RequestMethod.GET)
+    @RequestMapping(value = "/admin/{page}", method = RequestMethod.GET)
     public String changePage(@PathVariable String page) {
         System.out.println(page);
         return page;
     }
-    
-    
-    
-    
-    
+
+    @RequestMapping(value = "/about/{departmentName}", method = RequestMethod.GET)
+    public String aboutPage(@PathVariable String departmentName, Model model) {
+        model.addAttribute("departmentName", departmentName);
+        return "about";
+    }
+
 }

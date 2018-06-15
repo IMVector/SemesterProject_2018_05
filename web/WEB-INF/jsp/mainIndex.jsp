@@ -245,7 +245,7 @@
                     data: {},
                     success: function (data, textStatus, jqXHR) {
                         //返回List项目总数量
-                        itemNum = data
+                        itemNum = data;
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         toastError("请求失败,请重试！" + errorThrown);

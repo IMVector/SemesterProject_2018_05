@@ -79,7 +79,9 @@ public class MedicalRecord implements java.io.Serializable {
 
     public void setStaff(Staff staff) {
         this.staff = staff;
-        this.doctorName = staff.getStaffName();
+        if (null != staff) {
+            this.doctorName = staff.getStaffName();
+        }
     }
 
     public Date getInDate() {

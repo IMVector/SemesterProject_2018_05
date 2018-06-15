@@ -7,6 +7,7 @@ package com.vector.controller;
 
 import com.vector.pojo.Staff;
 import com.vector.service.HStaffService;
+import java.io.Serializable;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,8 +34,20 @@ public class PageManageController {
 
     @RequestMapping(value = "/getStaffWithImageItemNum", method = RequestMethod.POST)
     @ResponseBody
-    public int getStaffWithImageItemNum(){
+    public int getStaffWithImageItemNum() {
         return staffService.getStaffNumWithImage();
+    }
+
+    @RequestMapping(value = "/getStaffByDepartment/{departmentName}/{currentPage}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Staff> getStaffByDepartmentName(@PathVariable String departmentName, @PathVariable int currentPage) {
+        return staffService.getStaffByDepartmentName(departmentName, currentPage);
+    }
+
+    @RequestMapping(value = "/getStaffByDepartmentItemNum/{departmentName}", method = RequestMethod.POST)
+    @ResponseBody
+    public int getStaffByDepartmentNameItemNum(@PathVariable String departmentName) {
+        return staffService.getStaffByDepartmentNameItemNum(departmentName);
     }
 
 }
