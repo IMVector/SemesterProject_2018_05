@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <div class="ui container">
 
-        <div class="ui relaxed divided items"  style="background: url(resources/image/bg_change.png) no-repeat center">
+        <div class="ui relaxed divided items">
             <div class="ui divider"></div>
             <div class="item">
                 <div class="ui small image">

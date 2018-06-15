@@ -15,11 +15,12 @@
     <body>
         <jsp:include page="patientHeaderTemplete.jsp"/>
         <%--<jsp:include page="persionalCenterTemplete.jsp"/>--%>
-        <div class="container">
-
+        <div class="container container-outer">
+        <div class="container-inner">
             <table id="dietAdviceTable" class="ui purple table">
 
             </table>
+        </div>
             <div>
                 <p id="pageText_dietAdvice"></p>
                 <div id="dietAdvicePageButtons" class="mini ui basic buttons">
@@ -58,13 +59,18 @@
                 $.each(data, function (index, dietAdvice) {
                     var str = "<tr id=" + dietAdvice.dietAdviceId + ">\n\
                     <td>" + dietAdvice.dietAdviceId + "</td><td>${patient.patientName}</td>\n\
-                    <td>" + formatDatebox(dietAdvice.dietAdviceTime) + "</td>\n\
-                    <td>" + dietAdvice.dietAdviceContent + "</td>\n\
+                    <td><label class=\"mylabel\" data-content=\"" + dietAdvice.dietAdviceContent + "\" data-position=\"right center\">" + formatDatebox(dietAdvice.dietAdviceTime) + "</label></td>\n\
+                    <td><label class=\"mylabel\" data-content=\"" + dietAdvice.dietAdviceContent + "\" data-position=\"right center\">" + dietAdvice.dietAdviceContent + "</label></td>\n\
                     <td> <a  class='ui button small blue' href='dietAdviceDetails/" + dietAdvice.dietAdviceId + "'>查看</a> </td>\n\</tr>"
 
                     $("#dietAdviceTable").append(str);
                 });
             }
+            
+                        
+            $(document).on("mouseover", ".mylabel", function () {
+                $(this).popup("show");
+            });
             function getdietAdviceItemNum() {
                 var itemNum = 0;
                 $.ajax({

@@ -69,7 +69,7 @@
                                 <jsp:include page="hospitalRecord.jsp"/>
                             </div>
                             <div class="ui tab attached segment " data-tab="graphy">
-                                <div class="ui header blue segment">    ${patient.patientName}的健康可视化</div>
+                                <div class="ui header blue segment">    ${patient.patientName}就医大数据</div>
                                 <jsp:include page="healthGraphy.jsp"/>
                             </div>
                         </div>

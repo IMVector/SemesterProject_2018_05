@@ -55,7 +55,7 @@
             var year = $("#yearSelecter_1").val();
             var url = "graphy_times/${patient.patientId}/" + year;
             getSomethingByAjax(url, changeMedicalTimesChart);
-        })
+        });
 
         $("#showFeeChart").click(function () {
             var year = $("#yearSelecter_2").val();
@@ -161,7 +161,7 @@
             var i = 0;
             config.data.datasets.forEach(function (dataset) {
                 dataset.data = dataset.data.map(function () {
-                    console.log(data[i]);
+//                    console.log(data[i]);
                     return data[i++];
 
                 });
@@ -212,7 +212,7 @@
             var i = 0;
             config.data.datasets.forEach(function (dataset) {
                 dataset.data = dataset.data.map(function () {
-                    console.log(data[i]);
+//                    console.log(data[i]);
                     return data[i++];
 
                 });

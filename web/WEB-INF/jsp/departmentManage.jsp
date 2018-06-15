@@ -18,7 +18,7 @@
 
                     <jsp:include page="adminMenuTemplete.jsp"/>
                     <div class="eleven wide column">
-                        <div class="ui segment">
+                        <div class="ui segment container-admin-outer">
                             <div class="ui header teal segment">
                                 部门管理
                             </div>
@@ -41,13 +41,10 @@
                                     </td>
                                 </tr>
                             </table>
-
-                            <table id="departmentTable" class="ui table teal">
-                                <thead>
-                                    <tr></tr>
-                                </thead>
-                                <tbody><tr></tr></tbody>
-                            </table>
+                            <div class="container-admin-inner">
+                                <table id="departmentTable" class="ui table teal">
+                                </table>
+                            </div>
                             <div>
                                 <p id="pageText"></p>
                                 <div id="PageButtons" class="mini ui basic buttons">
@@ -409,8 +406,8 @@
             $.each(data, function (index, department) {
                 var str = " <tr id=" + department.departmentId + "><td><div class=\"ui toggle checkbox\"><input name=\"public\" type=\"checkbox\"><label></label></div></td><td>\n\
                                         <label class=\"mylabel table-label\" >" + department.departmentId + "</label>\n\<div class=\"nonevisiual\" ><input value=" + department.departmentId + " class=\"myInput\" style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                    <label class=\"mylabel table-label\"  data-content=\"" + department.departmentName  + "\" data-position=\"right center\" >" + department.departmentName + "</label><div class=\"nonevisiual\" ><input value=" + department.departmentName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                     <label class=\"mylabel table-label\" data-content=\"" + department.departmentDescription   + "\" data-position=\"right center\" >" + department.departmentDescription + "</label><div class=\"nonevisiual\"><input value=" + department.departmentDescription + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                    <label class=\"mylabel table-label\"  data-content=\"" + department.departmentName + "\" data-position=\"right center\" >" + department.departmentName + "</label><div class=\"nonevisiual\" ><input value=" + department.departmentName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                     <label class=\"mylabel table-label\" data-content=\"" + department.departmentDescription + "\" data-position=\"right center\" >" + department.departmentDescription + "</label><div class=\"nonevisiual\"><input value=" + department.departmentDescription + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
                                         <button  class=\"ui button teal updatebtn\" >修改</button></td><td><button class=\"ui button teal deleteBtn\">删除</button></td></tr>";
 
 

@@ -18,7 +18,7 @@
 
                     <jsp:include page="adminMenuTemplete.jsp"/>
                     <div class="eleven wide column">
-                        <div class="ui segment">
+                        <div class="ui segment container-admin-outer">
                             <div class="ui header blue segment">
                                 职称管理
                             </div>
@@ -41,12 +41,10 @@
                                     </td>
                                 </tr>
                             </table>
-                            <table id="titleTable" class="ui table blue">
-                                <thead>
-                                    <tr></tr>
-                                </thead>
-                                <tbody><tr></tr></tbody>
-                            </table>
+                            <div class="container-admin-inner">
+                                <table id="titleTable" class="ui table blue">
+                                </table>
+                            </div>
                             <div>
                                 <p id="pageText"></p>
                                 <div id="PageButtons" class="mini ui basic buttons">
@@ -411,8 +409,8 @@
             $.each(data, function (index, title) {
                 var str = " <tr id=" + title.titleId + "><td><div class=\"ui toggle checkbox\"><input name=\"public\" type=\"checkbox\"><label></label></div></td><td>\n\
                                         <label class=\"mylabel table-label\" >" + title.titleId + "</label>\n\<div class=\"nonevisiual\" ><input value=" + title.titleId + " class=\"myInput\" style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                    <label class=\"mylabel table-label\" data-content=\"" + title.titleName  + "\" data-position=\"right center\">" + title.titleName + "</label><div class=\"nonevisiual\" ><input value=" + title.titleName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                     <label class=\"mylabel table-label\"  data-content=\"" + title.titleDescription  + "\" data-position=\"right center\">" + title.titleDescription + "</label><div class=\"nonevisiual\"><input value=" + title.titleDescription + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                    <label class=\"mylabel table-label\" data-content=\"" + title.titleName + "\" data-position=\"right center\">" + title.titleName + "</label><div class=\"nonevisiual\" ><input value=" + title.titleName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                     <label class=\"mylabel table-label\"  data-content=\"" + title.titleDescription + "\" data-position=\"right center\">" + title.titleDescription + "</label><div class=\"nonevisiual\"><input value=" + title.titleDescription + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
                                         <button  class=\"ui button blue updatebtn\" >修改</button></td><td><button class=\"ui button blue deleteBtn\">删除</button></td></tr>";
 
 

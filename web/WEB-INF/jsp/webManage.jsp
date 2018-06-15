@@ -40,20 +40,11 @@
                                 数据库备份设置
                             </div>
                             <button id="getSettingList" class="ui basic button violet">查询所有设置</button>
-                            <table id="databaseSettingTable" class="ui table violet">
-                                <!--                                <thead>
-                                                                    <tr>
-                                                                        <th>选择</th>
-                                                                        <th>备份设置编号</th>
-                                                                        <th>sql脚本路径</th>
-                                                                        <th>bat脚本路径</th>
-                                                                        <th>备份保存路径</th>
-                                                                        <th style="padding-left: 10%" colspan="2">操作</th>
-                                                                    </tr>
-                                                                </thead>-->
+                            <div class="container-admin-inner">
+                                <table id="databaseSettingTable" class="ui table violet">
 
-
-                            </table>
+                                </table>
+                            </div>
                             <div>
                                 <p id="pageText"></p>
                                 <div id="pageButtons" class="mini ui basic buttons">
@@ -75,19 +66,11 @@
                             </div>
 
                             <button id="getbackpackFile" class="ui basic button violet">查询所有数据库备份</button>
-                            <table id="databaseBackpackFileTable" class="ui table violet">
-                                <!--                                <thead>
-                                                                    <tr>
-                                                                        <th>选择</th>
-                                                                        <th>备份设置编号</th>
-                                                                        <th>sql脚本路径</th>
-                                                                        <th>bat脚本路径</th>
-                                                                        <th>备份保存路径</th>
-                                                                        <th style="padding-left: 10%" colspan="2">操作</th>
-                                                                    </tr>
-                                                                </thead>-->
+                            <div class="container-admin-inner">
+                                <table id="databaseBackpackFileTable" class="ui table violet">
 
-                            </table>
+                                </table>
+                            </div>
                             <div>
                                 <p id="pageText_1"></p>
                                 <div id="pageButtons_1" class="mini ui basic buttons">
@@ -211,9 +194,9 @@
                 //var str = '<tr><td><div class="ui toggle checkbox"><input name="public" type="checkbox"><label></label></div></td><td> <label class="mylabel">编号1</label><div class="nonevisiual" ><input  class="myInput" style="width: 80%;" type="text"></div></td><td><label  class="mylabel" for="">编号2</label><div class="nonevisiual" ><input  class="myInput" style="width: 80%;" type="text"></div></td><td><label  class="mylabel" for="">编号3</label><div class="nonevisiual"><input  class="myInput" style="width: 80%;" type="text"></div></td><td><label class="mylabel" for="">编号4</label><div class="nonevisiual"><input  class="myInput" style="width: 80%;" type="text"></div></td><td> <button class="ui button orange updatebtn">修改</button></td> <td> <button class="ui button orange deleteBtn">删除</button> </td> </tr>'
                 var str = " <tr id=setting" + detabaseSetting.backpackSettingId + "><td>\n\
                                         <label class=\"mylabel table-label\" >" + detabaseSetting.backpackSettingId + "</label>\n\<div class=\"nonevisiual\" ><input value=" + detabaseSetting.backpackSettingId + " class=\"myInput\" style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                    <label class=\"mylabel table-label\" data-content=\"" + detabaseSetting.backpackSqlFile   + "\" data-position=\"right center\">" + detabaseSetting.backpackSqlFile + "</label><div class=\"nonevisiual\" ><input value=" + detabaseSetting.backpackSqlFile + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
-                                     <label class=\"mylabel table-label\" data-content=\"" + detabaseSetting.backpackBatFile  + "\" data-position=\"right center\">" + detabaseSetting.backpackBatFile + "</label><div class=\"nonevisiual\"><input value=" + detabaseSetting.backpackBatFile + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
-                                        <label class=\"mylabel table-label\" data-content=\"" +detabaseSetting.backpackToPath   + "\" data-position=\"right center\">" + detabaseSetting.backpackToPath + "</label><div class=\"nonevisiual\"><input value=" + detabaseSetting.backpackToPath + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
+                                    <label class=\"mylabel table-label\" data-content=\"" + detabaseSetting.backpackSqlFile + "\" data-position=\"right center\">" + detabaseSetting.backpackSqlFile + "</label><div class=\"nonevisiual\" ><input value=" + detabaseSetting.backpackSqlFile + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
+                                     <label class=\"mylabel table-label\" data-content=\"" + detabaseSetting.backpackBatFile + "\" data-position=\"right center\">" + detabaseSetting.backpackBatFile + "</label><div class=\"nonevisiual\"><input value=" + detabaseSetting.backpackBatFile + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
+                                        <label class=\"mylabel table-label\" data-content=\"" + detabaseSetting.backpackToPath + "\" data-position=\"right center\">" + detabaseSetting.backpackToPath + "</label><div class=\"nonevisiual\"><input value=" + detabaseSetting.backpackToPath + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
                                         <button  class=\"ui button violet settingBtn\" >使用设置</button></tr>";
                 //$("#databaseSettingTable").append(str);
                 $("#databaseSettingTable").append(str);
@@ -226,7 +209,7 @@
                 //                var str = '<tr><td><div class="ui toggle checkbox"><input name="public" type="checkbox"><label></label></div></td><td> <label class="mylabel">编号1</label><div class="nonevisiual" ><input  class="myInput" style="width: 80%;" type="text"></div></td><td><label  class="mylabel" for="">编号2</label><div class="nonevisiual" ><input  class="myInput" style="width: 80%;" type="text"></div></td><td><label  class="mylabel" for="">编号3</label><div class="nonevisiual"><input  class="myInput" style="width: 80%;" type="text"></div></td><td><label class="mylabel" for="">编号4</label><div class="nonevisiual"><input  class="myInput" style="width: 80%;" type="text"></div></td><td> <button class="ui button orange updatebtn">修改</button></td> <td> <button class="ui button orange deleteBtn">删除</button> </td> </tr>'
                 var str = " <tr id=file" + backpack.backpackFileId + "><td><div class=\"ui toggle checkbox\"><input name=\"public\" type=\"checkbox\"><label></label></div></td><td>\n\
                                         <label class=\"mylabel table-label\" >" + backpack.backpackFileId + "</label>\n\<div class=\"nonevisiual\" ></td><td>\n\
-                                    <label class=\"mylabel table-label\" data-content=\"" + backpack.backpackFilePath  + "\" data-position=\"right center\">" + backpack.backpackFilePath + "</label><div class=\"nonevisiual\" ></td><td>\n\
+                                    <label class=\"mylabel table-label\" data-content=\"" + backpack.backpackFilePath + "\" data-position=\"right center\">" + backpack.backpackFilePath + "</label><div class=\"nonevisiual\" ></td><td>\n\
                                      <label class=\"mylabel table-label\" data-content=\"" + formatDateboxDetails(backpack.backpackTime) + "\" data-position=\"right center\">" + formatDateboxDetails(backpack.backpackTime) + "</label><div class=\"nonevisiual\"></td><td>\n\
                                         <button  class=\"ui button violet restoreBtn\" >还原</button></td><td><button class=\"ui button violet deleteBtn\">删除</button></td></tr>";
                 //                $("#databaseSettingTable").append(str);
@@ -237,7 +220,7 @@
         $(document).on("mouseover", ".mylabel", function () {
             $(this).popup("show");
         });
-        
+
         function getDatabaseSettingItemNum() {
             var itemNum = 0;
             $.ajax({

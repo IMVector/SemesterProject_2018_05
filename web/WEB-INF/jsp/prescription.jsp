@@ -14,42 +14,13 @@
     </head>
     <body>
         <jsp:include page="patientHeaderTemplete.jsp"/>
-        <%--<jsp:include page="persionalCenterTemplete.jsp"/>--%>
-        <div class="container">
-
+        <div class="container container-outer">
+        <div class="container-inner">
             <table id="prescriptionTable" class="ui olive table">
-                <!--                        <thead>
-                                            <tr>
-                                                <th>病例编号</th>
-                                                <th>病人姓名</th>
-                                                <th>入院日期</th>
-                                                <th>入院诊断</th>
-                                                <th>诊查科室</th>
-                                                <th>诊查医生</th>
-                                                <th>诊查结果</th>
-                                                <th>是否住院</th>
-                                                <th>出院日期</th>
-                                                <th>出院诊断</th>
-                                                <th>查看详情</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td><a  class="ui button small" href="medicalRecordDetails\1">查看</a></td>
-                                            </tr>
-                                        </tbody>-->
+
 
             </table>
+        </div>
 
             <div>
                 <p id="pageText_2"></p>
@@ -89,14 +60,17 @@
             $.each(data, function (index, prescription) {
                 var str = "<tr id=" + prescription.prescriptionId + ">\n\
                     <td>" + prescription.prescriptionId + "</td><td>${patient.patientName}</td>\n\
-                    <td>" + formatDatebox(prescription.prescriptionDate) + "</td>\n\
-                    <td>" + prescription.prescriptionContent + "</td>\n\
-                    <td>" + prescription.prescriptionPrecautions + "</td>\n\
+                    <td><label class=\"mylabel\" data-content=\"" +  formatDatebox(prescription.prescriptionDate) + "\" data-position=\"right center\">" + formatDatebox(prescription.prescriptionDate) + "</label></td>\n\
+                    <td><label class=\"mylabel\" data-content=\"" +  prescription.prescriptionContent + "\" data-position=\"right center\">" + prescription.prescriptionContent + "</label></td>\n\
+                    <td><label class=\"mylabel\" data-content=\"" +  prescription.prescriptionPrecautions + "\" data-position=\"right center\">" + prescription.prescriptionPrecautions + "</label></td>\n\
                     <td> <a  class='ui button small blue' href='prescriptionDetails/" + prescription.prescriptionId + "'>查看</a> </td>\n\</tr>"
 
                 $("#prescriptionTable").append(str);
             });
         }
+        $(document).on("mouseover", ".mylabel", function () {
+            $(this).popup("show");
+        });
         function getPrescriptionListItemNum() {
             var itemNum = 0;
             $.ajax({

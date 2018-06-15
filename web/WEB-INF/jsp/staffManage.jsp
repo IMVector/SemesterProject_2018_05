@@ -70,12 +70,10 @@
                                     </td>
                                 </tr>
                             </table>
-                            <table id="staffTable" class="ui table yellow">
-                                <thead>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
+                            <div class="container-admin-inner">
+                                <table id="staffTable" class="ui table yellow">
+                                </table>
+                            </div>
                             <div>
                                 <p id="pageText"></p>
                                 <div id="PageButtons" class="mini ui basic buttons">
@@ -471,9 +469,9 @@
             $.each(data, function (index, staff) {
                 var str = " <tr id=" + staff.staffId + "><td><div class=\"ui toggle checkbox\"><input name=\"public\" type=\"checkbox\"><label></label></div></td><td>\n\
                                         <label class=\"mylabel table-label\" >" + staff.staffId + "</label>\n\<div class=\"nonevisiual\" ><input value=" + staff.staffId + " class=\"myInput\" style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                    <label class=\"mylabel table-label\" data-content=\"" + staff.staffName  + "\" data-position=\"right center\">" + staff.staffName + "</label><div class=\"nonevisiual\" ><input value=" + staff.staffName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                     <label class=\"mylabel table-label\" data-content=\"" + staff.title.titleName+ "\" data-position=\"right center\">" + staff.title.titleName + "</label><div class=\"nonevisiual\"  style=\"width: 80%;\" ><select class=\"myInput mselect title_select\" value=" + staff.title.titleId + "><option value=" + staff.title.titleId + ">" + staff.title.titleName + "</option></select></div></td><td>\n\
-                                        <label class=\"mylabel table-label\" data-content=\"" + staff.department.departmentName   + "\" data-position=\"right center\">" + staff.department.departmentName + "</label><div class=\"nonevisiual\"><select class=\"myInput mselect department_select\" value=" + staff.department.departmentId + "><option value=" + staff.department.departmentId + ">" + staff.department.departmentName + "</option></select></div></td><td>\n\
+                                    <label class=\"mylabel table-label\" data-content=\"" + staff.staffName + "\" data-position=\"right center\">" + staff.staffName + "</label><div class=\"nonevisiual\" ><input value=" + staff.staffName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                     <label class=\"mylabel table-label\" data-content=\"" + staff.title.titleName + "\" data-position=\"right center\">" + staff.title.titleName + "</label><div class=\"nonevisiual\"  style=\"width: 80%;\" ><select class=\"myInput mselect title_select\" value=" + staff.title.titleId + "><option value=" + staff.title.titleId + ">" + staff.title.titleName + "</option></select></div></td><td>\n\
+                                        <label class=\"mylabel table-label\" data-content=\"" + staff.department.departmentName + "\" data-position=\"right center\">" + staff.department.departmentName + "</label><div class=\"nonevisiual\"><select class=\"myInput mselect department_select\" value=" + staff.department.departmentId + "><option value=" + staff.department.departmentId + ">" + staff.department.departmentName + "</option></select></div></td><td>\n\
                                         <button  class=\"ui button yellow updatebtn\" >修改</button></td><td><button class=\"ui button yellow deleteBtn\">删除</button></td></tr>";
 
                 $("#staffTable").append(str);
@@ -481,7 +479,7 @@
             requestTitleList(".title_select");
             requestDepartmentList(".department_select");
         }
-        
+
         $(document).on("mouseover", ".mylabel", function () {
             $(this).popup("show");
         });

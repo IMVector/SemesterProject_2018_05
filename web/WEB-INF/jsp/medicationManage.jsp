@@ -18,7 +18,7 @@
 
                     <jsp:include page="adminMenuTemplete.jsp"/>
                     <div class="eleven wide column">
-                        <div class="ui segment">
+                        <div class="ui segment container-admin-outer">
                             <div class="ui header green segment">
                                 药品信息管理
                             </div>
@@ -40,13 +40,10 @@
                                     </td>
                                 </tr>
                             </table>
-
-                            <table id="medicationTable" class="ui table green">
-                                <thead>
-                                    <tr></tr>
-                                </thead>
-                                <tbody><tr></tr></tbody>
-                            </table>
+                            <div class="container-admin-inner">
+                                <table id="medicationTable" class="ui table green">
+                                </table>
+                            </div>
                             <div>
                                 <p id="pageText"></p>
                                 <div id="PageButtons" class="mini ui basic buttons">

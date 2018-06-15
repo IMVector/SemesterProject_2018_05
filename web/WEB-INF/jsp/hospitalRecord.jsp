@@ -15,12 +15,13 @@
     <body>
         <jsp:include page="patientHeaderTemplete.jsp"/>
         <%--<jsp:include page="persionalCenterTemplete.jsp"/>--%>
-        <div class="container">
-
+        <div class="container container-outer">
+        <div class="container-inner">
             <table id="hospitalRecordTable" class="ui red table">
 
 
             </table>
+        </div>
             <div>
                 <p id="pageText_hospitalRecord"></p>
                 <div id="hospitalRecordPageButtons" class="mini ui basic buttons">

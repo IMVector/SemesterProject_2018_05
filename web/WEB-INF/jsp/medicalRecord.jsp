@@ -15,11 +15,11 @@
     </head>
 
     <body>
-        <%--<jsp:include page="patientHeaderTemplete.jsp" />--%>
-        <%--<jsp:include page="persionalCenterTemplete.jsp"/>--%>
-        <div class="container">
-            <table id="medicalRecordTable" class="ui blue table">
-            </table>
+        <div class="container container-my">
+            <div class="container-inner">
+                <table id="medicalRecordTable" class="ui blue table">
+                </table>
+            </div>
 
             <div>
                 <p id="pageText"></p>
@@ -61,14 +61,19 @@
             $.each(data, function (index, medicalRecord) {
                 var str = "<tr id=" + medicalRecord.medicalRecordId + ">\n\
                     <td>" + medicalRecord.medicalRecordId + "</td><td>${patient.patientName}</td>\n\
-                    <td>" + formatDatebox(medicalRecord.inDate) + "</td>\n\
-                    <td>" + medicalRecord.inDiagnosis + "</td>\n\
+                    <td><label class=\"mylabel\" data-content=\"" + medicalRecord.doctorName + "\" data-position=\"right center\">" + formatDatebox(medicalRecord.inDate) + "</label></td>\n\
+                    <td><label class=\"mylabel\" data-content=\"" + medicalRecord.doctorName + "\" data-position=\"right center\">" + medicalRecord.inDiagnosis + "</label></td>\n\
                     <td>" + medicalRecord.doctorName + "</td>\n\
                     <td> <a  class='ui button small blue' href='medicalRecordDetails/" + medicalRecord.medicalRecordId + "'>查看</a> </td>\n\</tr>"
 
                 $("#medicalRecordTable").append(str);
             });
         }
+
+        $(document).on("mouseover", ".mylabel", function () {
+            $(this).popup("show");
+        });
+
         /**
          * 查询数据库中当前病人的所有病例数量 这是一个同步请求
          * @returns {data|Number} 返回病例数量

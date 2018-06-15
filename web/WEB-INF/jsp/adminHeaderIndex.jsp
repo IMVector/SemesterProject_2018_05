@@ -17,7 +17,7 @@
                 <a href="index" class="active item">
                     InstalHMS 医院系统
                 </a>
-                <a href="patientIndex" class="item">
+                <a href="adminIndex" class="item">
                     管理员主页
                 </a>
 
@@ -38,7 +38,7 @@
                 <a class="active item">
                     InstalHMS 医院系统
                 </a>
-                <a href="patientIndex" class="item">
+                <a href="adminIndex" class="item">
                     管理员主页
                 </a>
 

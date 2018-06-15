@@ -1,6 +1,18 @@
 .body-under-header{
     margin-top: 60px;
 }
+.container-admin-outer{
+    min-height: 630px;
+}
+.container-admin-inner{
+    min-height: 380px;
+}
+.container-outer{
+    min-height: 420px;
+}
+.container-inner{
+    min-height: 360px;
+}
 canvas{
     -moz-user-select: none;
     -webkit-user-select: none;
