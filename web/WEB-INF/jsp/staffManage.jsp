@@ -158,19 +158,34 @@
     </body>
 
     <script>
-
+        $(document).on("change", "#staffId", function () {
+            $.ajax({
+                url: "isExistStaff/" + $("#staffId").val(),
+                type: 'POST',
+                success: function (data, textStatus, jqXHR) {
+                    if (data) {
+                        toastError("该用户Id已存在，请更换其他");
+                    } else {
+                        toastSuccess("该用户Id可用");
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    toastError("请求失败！" + errorThrown);
+                }
+            });
+        });
 
         $(document).ready(function () {
             $("#getByName").on("click", function () {
                 var name = $("#staffName").val();
                 var url = "getStaffByName/" + name + "/page_key_word";
-                fillForm("PageButtons", "pageText", "pageSelecter", currentPage = 1, url, staffTableInfo, staffByNameItemNum)
-            })
+                fillForm("PageButtons", "pageText", "pageSelecter", currentPage = 1, url, staffTableInfo, staffByNameItemNum);
+            });
             $("#getByTitle").on("click", function () {
                 var title = $("#staffTitle").val();
                 var url = "getStaffByTitle/" + title + "/page_key_word";
                 fillForm("PageButtons", "pageText", "pageSelecter", currentPage = 1, url, staffTableInfo, staffByTitleItemNum);
-            })
+            });
 
             $("#getAllBtn").click(function () {
                 var url = 'staffList/page_key_word';
@@ -295,7 +310,7 @@
                         ;
             });
 
-            //添加一个medication
+            //添加一个staff
             $("#addStaff").on("click", function () {
                 $.ajax({
                     url: 'addStaff',
@@ -304,11 +319,9 @@
                     data: $("#myForm").serialize(), //将表单的数据编码成一个字符串提交给服务器
                     success: function (data) {
                         if (data) {
-                            $("#result").html("添加成功");
+                            toastSuccess("添加成功");
                         } else {
-                            $("#result").removeClass("green");
-                            $("#result").addClass("red");
-                            $("#result").html("添加成功");
+                            toastError("添加失败");
                         }
                     },
                     error: function (req, status, error) {

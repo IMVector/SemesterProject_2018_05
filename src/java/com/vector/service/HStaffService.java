@@ -32,4 +32,6 @@ public interface HStaffService extends AdminBaseService<Staff> {
     public List<Staff> getStaffByDepartmentName(Serializable departmentName, Serializable currentPage);
 
     public int getStaffByDepartmentNameItemNum(Serializable departmentName);
+
+    public boolean isExistStaff(String staffId);
 }

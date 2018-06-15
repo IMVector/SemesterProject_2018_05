@@ -116,4 +116,14 @@ public class HStaffServiceImpl implements HStaffService {
         return staffDao.getStaffByDepartmentNameItemNum(departmentName);
     }
 
+    @Override
+    public boolean isExistStaff(String staffId) {
+        Staff staff = staffDao.getStaffById(staffId);
+        if (null == staff) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }

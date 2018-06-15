@@ -245,6 +245,13 @@ public class AdminController {
     }
 
     ////////////////////////////////////职工管理////////////////////////////////////////////////////
+    @RequestMapping(value = "/isExistStaff/{staffId}", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean isExistStaff(@PathVariable String staffId) {
+
+        return staffService.isExistStaff(staffId);
+    }
+
     @RequestMapping(value = "/staffList/{currentPage}", method = RequestMethod.POST)
     @ResponseBody
     public List<Staff> getStaffList(@PathVariable int currentPage) {

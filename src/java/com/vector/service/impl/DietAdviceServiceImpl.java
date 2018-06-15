@@ -18,38 +18,34 @@ import org.springframework.stereotype.Service;
  *
  * @author Vector
  */
+@Transactional
 @Service
 public class DietAdviceServiceImpl implements DietAdviceService {
 
     @Autowired
     private DietAdviceDao dietAdviceDao;
 
-    @Transactional
     @Override
     public DietAdvice getOneById(Serializable id) {
         return dietAdviceDao.getOneById(id);
     }
 
-    @Transactional
     @Override
     public List<DietAdvice> getAllList(Serializable currentPage) {
         return dietAdviceDao.getList(currentPage);
     }
 
-    @Transactional
     @Override
     public List<DietAdvice> getAllListOfSomeone(Serializable id, Serializable currentPage) {
 
         return dietAdviceDao.getListById(id, currentPage);
     }
 
-    @Transactional
     @Override
     public int getListItemNumber() {
         return dietAdviceDao.getItemNum();
     }
 
-    @Transactional
     @Override
     public int getListItemNumber(Serializable id) {
         return dietAdviceDao.getItemNum(id);

@@ -18,49 +18,43 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Vector
  */
+@Transactional
 @Service
 public class HDepartmentServiceImpl implements HDepartmentService {
 
     @Autowired
     private DepartmentDao departmentDao;
 
-    @Transactional
     @Override
     public List<Department> getAllList(Serializable currentPage) {
         return departmentDao.getListOfAllWithPagination(currentPage);
     }
 
-    @Transactional
     @Override
     public List<Department> getOneByName(Serializable name) {
         return departmentDao.getOneByName(name);
     }
 
-    @Transactional
     @Override
     public int getListItemNumber() {
         return departmentDao.getListItemNumber();
     }
 
-    @Transactional
     @Override
     public boolean addOne(Department object) {
         return departmentDao.addOne(object);
     }
 
-    @Transactional
     @Override
     public boolean updateOne(Department object) {
         return departmentDao.updateOne(object);
     }
 
-    @Transactional
     @Override
     public boolean deleteOne(Serializable id) {
         return departmentDao.deleteOneById(id);
     }
 
-    @Transactional
     @Override
     public List<Department> getAllList() {
         return departmentDao.getAllList();

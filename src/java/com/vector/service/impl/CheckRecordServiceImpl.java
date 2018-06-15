@@ -18,47 +18,43 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Vector
  */
+@Transactional
 @Service
 public class CheckRecordServiceImpl implements CheckRecordService {
 
     @Autowired
     private CheckRecordDao checkRecordDao;
 
-    @Transactional
     @Override
     public CheckRecord getOneById(Serializable id) {
         return checkRecordDao.getOneById(id);
     }
 
-    @Transactional
     @Override
     public List<CheckRecord> getAllList(Serializable currentPage) {
         return checkRecordDao.getCheckRecordList(currentPage);
     }
 
-    @Transactional
     @Override
     public List<CheckRecord> getAllListOfSomeone(Serializable id, Serializable currentPage) {
         return checkRecordDao.getCheckRecordListByPatientId(id, currentPage);
     }
 
-    @Transactional
     @Override
     public int getListItemNumber() {
         return checkRecordDao.getListItemNum();
     }
 
-    @Transactional
     @Override
     public int getListItemNumber(Serializable id) {
         return checkRecordDao.getListItemNum(id);
     }
-    @Transactional
+
     @Override
     public List<CheckRecord> getCheckRecordWithNoCheck(Serializable patientId, Serializable currentPage) {
         return checkRecordDao.getCheckRecordWithNoCheck(patientId, currentPage);
     }
-    @Transactional
+
     @Override
     public int getListItemNumWithNoCheck(Serializable patientId) {
         return checkRecordDao.getListItemNumWithNoCheck(patientId);

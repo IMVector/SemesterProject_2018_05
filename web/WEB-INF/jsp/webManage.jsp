@@ -6,23 +6,6 @@
 
     <head>
         <jsp:include page="resourcesTemplete.jsp" />
-        <style>
-            /*            .mylabel{
-                            display: block;
-                            text-overflow:ellipsis;
-                            overflow: hidden;
-                            white-space: nowrap;
-                            width:60px;
-                        }
-                        .mylabel:hover{
-                            display: block;
-                            text-overflow:clip;
-                            overflow: auto;
-                            white-space: normal;
-                            width:100px;
-                        }*/
-
-        </style>
     </head>
 
     <body>
