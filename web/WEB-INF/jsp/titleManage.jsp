@@ -53,14 +53,14 @@
 
                                 </div>
                                 <!--<div>-->
-                                    <label for="" class="ui label">跳转到：</label>
-                                    <!--发送ajax请求-->
-                                    <select id="pageSelecter" class="mini ui button basic dropdown">
-                                        <option value="">页码</option>
+                                <label for="" class="ui label">跳转到：</label>
+                                <!--发送ajax请求-->
+                                <select id="pageSelecter" class="mini ui button basic dropdown">
+                                    <option value="">页码</option>
 
 
-                                        <!--<option value="1">1</option>-->
-                                    </select>
+                                    <!--<option value="1">1</option>-->
+                                </select>
                                 <!--</div>-->
                             </div>
                             <div>
@@ -108,7 +108,7 @@
                     <div class="ui positive button">关闭</div>
                 </div>
             </div>
-     <jsp:include page="warningModel.jsp"/>
+            <jsp:include page="warningModel.jsp"/>
         </div>
         <!-- /container -->
         <jsp:include page="footerTemplete.jsp" />
@@ -411,14 +411,17 @@
             $.each(data, function (index, title) {
                 var str = " <tr id=" + title.titleId + "><td><div class=\"ui toggle checkbox\"><input name=\"public\" type=\"checkbox\"><label></label></div></td><td>\n\
                                         <label class=\"mylabel table-label\" >" + title.titleId + "</label>\n\<div class=\"nonevisiual\" ><input value=" + title.titleId + " class=\"myInput\" style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                    <label class=\"mylabel table-label\" >" + title.titleName + "</label><div class=\"nonevisiual\" ><input value=" + title.titleName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                     <label class=\"mylabel table-label\" >" + title.titleDescription + "</label><div class=\"nonevisiual\"><input value=" + title.titleDescription + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                    <label class=\"mylabel table-label\" data-content=\"" + title.titleName  + "\" data-position=\"right center\">" + title.titleName + "</label><div class=\"nonevisiual\" ><input value=" + title.titleName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                     <label class=\"mylabel table-label\"  data-content=\"" + title.titleDescription  + "\" data-position=\"right center\">" + title.titleDescription + "</label><div class=\"nonevisiual\"><input value=" + title.titleDescription + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
                                         <button  class=\"ui button blue updatebtn\" >修改</button></td><td><button class=\"ui button blue deleteBtn\">删除</button></td></tr>";
 
 
                 $("#titleTable").append(str);
             });
         }
+        $(document).on("mouseover", ".mylabel", function () {
+            $(this).popup("show");
+        });
 
         function getMedicationItemNumber() {
             var itemNum = 0;

@@ -81,6 +81,7 @@ public class NextPage {
 
         Patient p = patientSearchService.searchPatient("p001");
         session.setAttribute("patient", p);
+        
         return "patientIndex";
     }
 

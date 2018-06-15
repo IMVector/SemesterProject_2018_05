@@ -96,6 +96,18 @@ function formatDatebox(value) {
     }
     return dt.format("yyyy-MM-dd");
 }
+function formatDateboxDetails(value) {
+    if (value == null || value == '') {
+        return '';
+    }
+    var dt;
+    if (value instanceof Date) {
+        dt = value;
+    } else {
+        dt = new Date(value);
+    }
+    return dt.format("yyyy-MM-dd hh:mm:ss");
+}
 
 
 /**

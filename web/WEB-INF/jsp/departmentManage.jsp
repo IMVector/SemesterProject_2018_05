@@ -409,14 +409,17 @@
             $.each(data, function (index, department) {
                 var str = " <tr id=" + department.departmentId + "><td><div class=\"ui toggle checkbox\"><input name=\"public\" type=\"checkbox\"><label></label></div></td><td>\n\
                                         <label class=\"mylabel table-label\" >" + department.departmentId + "</label>\n\<div class=\"nonevisiual\" ><input value=" + department.departmentId + " class=\"myInput\" style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                    <label class=\"mylabel table-label\" >" + department.departmentName + "</label><div class=\"nonevisiual\" ><input value=" + department.departmentName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                     <label class=\"mylabel table-label\" >" + department.departmentDescription + "</label><div class=\"nonevisiual\"><input value=" + department.departmentDescription + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                    <label class=\"mylabel table-label\"  data-content=\"" + department.departmentName  + "\" data-position=\"right center\" >" + department.departmentName + "</label><div class=\"nonevisiual\" ><input value=" + department.departmentName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                     <label class=\"mylabel table-label\" data-content=\"" + department.departmentDescription   + "\" data-position=\"right center\" >" + department.departmentDescription + "</label><div class=\"nonevisiual\"><input value=" + department.departmentDescription + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
                                         <button  class=\"ui button teal updatebtn\" >修改</button></td><td><button class=\"ui button teal deleteBtn\">删除</button></td></tr>";
 
 
                 $("#departmentTable").append(str);
             });
         }
+        $(document).on("mouseover", ".mylabel", function () {
+            $(this).popup("show");
+        });
 
         function getMedicationItemNumber() {
             var itemNum = 0;

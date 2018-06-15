@@ -82,14 +82,14 @@
 
                                 </div>
                                 <!--<div>-->
-                                    <label for="" class="ui label">跳转到：</label>
-                                    <!--发送ajax请求-->
-                                    <select id="pageSelecter" class="mini ui button basic dropdown">
-                                        <option value="">页码</option>
+                                <label for="" class="ui label">跳转到：</label>
+                                <!--发送ajax请求-->
+                                <select id="pageSelecter" class="mini ui button basic dropdown">
+                                    <option value="">页码</option>
 
 
-                                        <!--<option value="1">1</option>-->
-                                    </select>
+                                    <!--<option value="1">1</option>-->
+                                </select>
                                 <!--</div>-->
                             </div>
                             <div>
@@ -153,7 +153,7 @@
                 </div>
 
             </div>
-                         <jsp:include page="warningModel.jsp"/>
+            <jsp:include page="warningModel.jsp"/>
         </div>
         <!-- /container -->
         <jsp:include page="footerTemplete.jsp" />
@@ -471,9 +471,9 @@
             $.each(data, function (index, staff) {
                 var str = " <tr id=" + staff.staffId + "><td><div class=\"ui toggle checkbox\"><input name=\"public\" type=\"checkbox\"><label></label></div></td><td>\n\
                                         <label class=\"mylabel table-label\" >" + staff.staffId + "</label>\n\<div class=\"nonevisiual\" ><input value=" + staff.staffId + " class=\"myInput\" style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                    <label class=\"mylabel table-label\" >" + staff.staffName + "</label><div class=\"nonevisiual\" ><input value=" + staff.staffName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                     <label class=\"mylabel table-label\" >" + staff.title.titleName + "</label><div class=\"nonevisiual\"  style=\"width: 80%;\" ><select class=\"myInput mselect title_select\" value=" + staff.title.titleId + "><option value=" + staff.title.titleId + ">" + staff.title.titleName + "</option></select></div></td><td>\n\
-                                        <label class=\"mylabel table-label\" >" + staff.department.departmentName + "</label><div class=\"nonevisiual\"><select class=\"myInput mselect department_select\" value=" + staff.department.departmentId + "><option value=" + staff.department.departmentId + ">" + staff.department.departmentName + "</option></select></div></td><td>\n\
+                                    <label class=\"mylabel table-label\" data-content=\"" + staff.staffName  + "\" data-position=\"right center\">" + staff.staffName + "</label><div class=\"nonevisiual\" ><input value=" + staff.staffName + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                     <label class=\"mylabel table-label\" data-content=\"" + staff.title.titleName+ "\" data-position=\"right center\">" + staff.title.titleName + "</label><div class=\"nonevisiual\"  style=\"width: 80%;\" ><select class=\"myInput mselect title_select\" value=" + staff.title.titleId + "><option value=" + staff.title.titleId + ">" + staff.title.titleName + "</option></select></div></td><td>\n\
+                                        <label class=\"mylabel table-label\" data-content=\"" + staff.department.departmentName   + "\" data-position=\"right center\">" + staff.department.departmentName + "</label><div class=\"nonevisiual\"><select class=\"myInput mselect department_select\" value=" + staff.department.departmentId + "><option value=" + staff.department.departmentId + ">" + staff.department.departmentName + "</option></select></div></td><td>\n\
                                         <button  class=\"ui button yellow updatebtn\" >修改</button></td><td><button class=\"ui button yellow deleteBtn\">删除</button></td></tr>";
 
                 $("#staffTable").append(str);
@@ -481,6 +481,10 @@
             requestTitleList(".title_select");
             requestDepartmentList(".department_select");
         }
+        
+        $(document).on("mouseover", ".mylabel", function () {
+            $(this).popup("show");
+        });
 
         function staffItemNum() {
             var itemNum = 0;

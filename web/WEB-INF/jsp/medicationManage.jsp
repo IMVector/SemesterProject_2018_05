@@ -53,14 +53,14 @@
 
                                 </div>
                                 <!--<div>-->
-                                    <label for="" class="ui label">跳转到：</label>
-                                    <!--发送ajax请求-->
-                                    <select id="pageSelecter" class="mini ui button basic dropdown">
-                                        <option value="">页码</option>
+                                <label for="" class="ui label">跳转到：</label>
+                                <!--发送ajax请求-->
+                                <select id="pageSelecter" class="mini ui button basic dropdown">
+                                    <option value="">页码</option>
 
 
-                                        <!--<option value="1">1</option>-->
-                                    </select>
+                                    <!--<option value="1">1</option>-->
+                                </select>
                                 <!--</div>-->
                             </div>
                             <div>
@@ -475,11 +475,11 @@
             $("#medicationTable").append("<thead><tr><th>选择</th><th>名称</th><th>适用症</th><th>说明</th><th>价格</th><th>生产日期</th><th>有效期</th><th style=\"padding-left: 10%\" colspan=\"2\">操作</th></tr></thead>");
             $.each(data, function (index, metication) {
                 var str = " <tr id=" + metication.medicationId + "><td><div class=\"ui toggle checkbox\"><input name=\"public\" type=\"checkbox\"><label></label></div></td><td>\n\
-                                        <label class=\"mylabel table-label\" >" + metication.medicationName + "</label>\n\<div class=\"nonevisiual\" ><input value=" + metication.medicationName + " class=\"myInput\" style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                    <label class=\"mylabel table-label\" >" + metication.medicationDescription + "</label><div class=\"nonevisiual\" ><input value=" + metication.medicationDescription + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                     <label class=\"mylabel table-label\" >" + metication.medicationInstructions + "</label><div class=\"nonevisiual\"><input value=" + metication.medicationInstructions + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                        <label class=\"mylabel table-label\" data-content=\"" + metication.medicationName + "\" data-position=\"right center\"  >" + metication.medicationName + "</label>\n\<div class=\"nonevisiual\" ><input value=" + metication.medicationName + " class=\"myInput\" style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                    <label class=\"mylabel table-label\" data-content=\"" + metication.medicationDescription + "\" data-position=\"right center\" >" + metication.medicationDescription + "</label><div class=\"nonevisiual\" ><input value=" + metication.medicationDescription + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                     <label class=\"mylabel table-label\" data-content=\"" + metication.medicationInstructions + "\" data-position=\"right center\"   >" + metication.medicationInstructions + "</label><div class=\"nonevisiual\"><input value=" + metication.medicationInstructions + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
                                         <label class=\"mylabel table-label\" >" + metication.price + "</label><div class=\"nonevisiual\"><input value=" + metication.price + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                        <label class=\"mylabel table-label\" >" + formatDatebox(metication.productionDate) + "</label><div class=\"nonevisiual\"><input value=" + formatDatebox(metication.productionDate) + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
+                                        <label class=\"mylabel table-label\" data-content=\"" + formatDatebox(metication.productionDate) + "\" data-position=\"right center\">" + formatDatebox(metication.productionDate) + "</label><div class=\"nonevisiual\"><input value=" + formatDatebox(metication.productionDate) + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
                                         <label class=\"mylabel table-label\" >" + metication.validityPeriod + "</label><div class=\"nonevisiual\"><input value=" + metication.validityPeriod + " class=\"myInput\"  style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
                                         <button  class=\"ui button green updatebtn\" >修改</button></td><td><button class=\"ui button green deleteBtn\">删除</button></td></tr>";
 
@@ -487,6 +487,12 @@
                 $("#medicationTable").append(str);
             });
         }
+
+
+        $(document).on("mouseover", ".mylabel", function () {
+            $(this).popup("show");
+        });
+
 
         function getMedicationItemNumber() {
             var itemNum = 0;
