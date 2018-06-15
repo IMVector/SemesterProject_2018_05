@@ -122,7 +122,7 @@
                 fillForm("PageButtons", "pageText", "pageSelecter", currentPage = 1, url, titleTableInfo, function () {
                     return 1
                 });
-            })
+            });
 
             $("#getAllBtn").click(function () {
                 var url = 'titleList/page_key_word';
@@ -235,7 +235,7 @@
                         ;
             });
 
-            //添加一个medication
+            //添加一个
             $("#addTitle").on("click", function () {
                 $.ajax({
                     url: 'addTitle',
@@ -244,11 +244,9 @@
                     data: $("#myForm").serialize(), //将表单的数据编码成一个字符串提交给服务器
                     success: function (data) {
                         if (data) {
-                            $("#result").html("添加成功");
+                            toastSuccess("添加成功");
                         } else {
-                            $("#result").removeClass("blue");
-                            $("#result").addClass("red");
-                            $("#result").html("添加失败");
+                            toastError("添加失败");
                         }
                     },
                     error: function (req, status, error) {

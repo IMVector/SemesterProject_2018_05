@@ -289,12 +289,11 @@
                     data: $("#myForm").serialize(), //将表单的数据编码成一个字符串提交给服务器
                     success: function (data) {
                         if (data) {
-                            $("#result").html("药品添加成功");
+                            toastSuccess("添加成功");
                         } else {
-                            $("#result").removeClass("green");
-                            $("#result").addClass("red");
-                            $("#result").html("药品添加成功");
+                            toastError("添加失败");
                         }
+
                     },
                     error: function (req, status, error) {
 //                        alert("Ajax请求失败!" + error);

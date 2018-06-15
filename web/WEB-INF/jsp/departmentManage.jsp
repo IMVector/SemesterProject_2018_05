@@ -235,7 +235,7 @@
                         ;
             });
 
-            //添加一个medication
+            //添加一个
             $("#addDepartment").on("click", function () {
                 $.ajax({
                     url: 'addDepartment',
@@ -244,11 +244,9 @@
                     data: $("#myForm").serialize(), //将表单的数据编码成一个字符串提交给服务器
                     success: function (data) {
                         if (data) {
-                            $("#result").html("添加成功");
+                            toastSuccess("添加成功");
                         } else {
-                            $("#result").removeClass("teal");
-                            $("#result").addClass("red");
-                            $("#result").html("添加失败");
+                            toastError("添加失败");
                         }
                     },
                     error: function (req, status, error) {
