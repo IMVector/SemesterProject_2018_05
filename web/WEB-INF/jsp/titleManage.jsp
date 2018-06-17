@@ -260,8 +260,26 @@
             $(document).on('click', '.updatebtn', function () {
                 if ($(this).text() == "修改") {
                     $(this).text("保存");
+                    var checkBox = $(this).closest("tr").find(".ui.toggle.checkbox");
+                    $(this).closest("tr").find(".ui.toggle.checkbox").checkbox("check");
+                    if (checkBox.checkbox("is checked")) {
+                        //选中
+                        $(this).closest("tr").find(".nonevisiual").addClass("ui input");
+                        $(this).closest("tr").find(".table-label").removeClass("mylabel");
+                        $(this).closest("tr").find(".table-label").addClass("nonevisiual");
+                    }
+
+
                 } else {
                     $(this).text("修改");
+                    var checkBox = $(this).closest("tr").find(".ui.toggle.checkbox");
+                    $(this).closest("tr").find(".ui.toggle.checkbox").checkbox("uncheck");
+                    if (!checkBox.checkbox("is checked")) {
+                        //去除选中状态
+                        $(this).closest("tr").find(".table-label").removeClass("nonevisiual");
+                        $(this).closest("tr").find(".table-label").addClass("mylabel");
+                        $(this).closest("tr").find(".nonevisiual").removeClass("ui input");
+                    }
                     //发送ajax请求更新当前
                     var id, name, description;
                     $(this).closest("tr").find(".myInput").each(function (index, element) {
@@ -314,21 +332,9 @@
 //                            alert("请求失败" + errorThrown);
                             toastError("请求失败,请重试！" + errorThrown);
                         }
-                    })
+                    });
 
                 }
-                var checkBox = $(this).closest("tr").find(".ui.toggle.checkbox");
-                $(this).closest("tr").find(".ui.toggle.checkbox").checkbox("toggle");
-                if (checkBox.checkbox("is checked")) {
-                    $(this).closest("tr").find(".nonevisiual").addClass("ui input");
-                    $(this).closest("tr").find(".table-label").removeClass("mylabel");
-                    $(this).closest("tr").find(".table-label").addClass("nonevisiual");
-                } else {
-                    $(this).closest("tr").find(".table-label").removeClass("nonevisiual");
-                    $(this).closest("tr").find(".table-label").addClass("mylabel");
-                    $(this).closest("tr").find(".nonevisiual").removeClass("ui input");
-                }
-                //alert($(this).checkbox("is checked"))//是否checked
             });
 
             //全部选中按钮事件

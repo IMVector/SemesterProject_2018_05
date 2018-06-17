@@ -157,7 +157,7 @@
                 $(this).closest("tr").find(".nonevisiual").removeClass("ui input");
             }
 
-        })
+        });
         $(document).ready(function () {
 
             $("#getList").click(function () {
@@ -205,7 +205,7 @@
                 data: {},
                 success: function (data, textStatus, jqXHR) {
                     //返回List项目总数量
-                    itemNum = data
+                    itemNum = data;
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toastError("请求失败" + errorThrown);

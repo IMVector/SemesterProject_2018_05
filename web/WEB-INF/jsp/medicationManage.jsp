@@ -146,9 +146,9 @@
                 var name = $("#medicalName").val();
                 var url = "getMedicationByName/" + name;
                 fillForm("PageButtons", "pageText", "pageSelecter", currentPage = 1, url, medicationTableInfo, function () {
-                    return 1
+                    return 1;
                 });
-            })
+            });
 
             $("#getAllBtn").click(function () {
                 var url = 'medicationList/page_key_word';
@@ -229,11 +229,11 @@
                                                     $(this).html(validatePeriod);
                                                     break;
                                             }
-                                        })
-                                        alert('更新成功');
+                                        });
+//                                        alert('更新成功');
                                         toastSuccess("更新成功");
                                     } else {
-                                        alert("更新失败");
+//                                        alert("更新失败");
                                         toastError("更新失败！");
                                     }
                                 }, error: function (jqXHR, textStatus, errorThrown) {
@@ -273,7 +273,7 @@
                             onApprove: function () {
                                 $("input").each(function () {
                                     $(this).val("");
-                                })
+                                });
                             }
                         })
                         .modal('show')
@@ -306,11 +306,33 @@
             $(document).on('click', '.updatebtn', function () {
                 if ($(this).text() == "修改") {
                     $(this).text("保存");
+
+                    var checkBox = $(this).closest("tr").find(".ui.toggle.checkbox");
+                    $(this).closest("tr").find(".ui.toggle.checkbox").checkbox("check");
+                    if (checkBox.checkbox("is checked")) {
+                        //选中
+                        $(this).closest("tr").find(".nonevisiual").addClass("ui input");
+                        $(this).closest("tr").find(".table-label").removeClass("mylabel");
+                        $(this).closest("tr").find(".table-label").addClass("nonevisiual");
+                    }
+
                 } else {
                     $(this).text("修改");
+                    
+                    var checkBox = $(this).closest("tr").find(".ui.toggle.checkbox");
+                    $(this).closest("tr").find(".ui.toggle.checkbox").checkbox("uncheck");
+                    if (!checkBox.checkbox("is checked")) {
+                        //去除选中状态
+                        $(this).closest("tr").find(".table-label").removeClass("nonevisiual");
+                        $(this).closest("tr").find(".table-label").addClass("mylabel");
+                        $(this).closest("tr").find(".nonevisiual").removeClass("ui input");
+                    }
+
+
+
                     //发送ajax请求更新当前
                     var id, name, instructions, description, price, productionDate, validatePeriod;
-                    id = $(this).closest("tr").attr("id")
+                    id = $(this).closest("tr").attr("id");
                     $(this).closest("tr").find(".myInput").each(function (index, element) {
                         //1、药品名称
                         //2、适用症状
@@ -368,9 +390,9 @@
                                             $(this).html(validatePeriod);
                                             break;
                                     }
-                                })
+                                });
 //                                alert('更新成功');
-                                toastSuccess("更新成功")
+                                toastSuccess("更新成功");
                             } else {
 //                                alert("更新失败");
                                 toastError("更新失败");
@@ -379,21 +401,9 @@
                             toastError("请求失败,请重试！" + errorThrown);
 //                            alert("请求失败" + errorThrown);
                         }
-                    })
+                    });
 
                 }
-                var checkBox = $(this).closest("tr").find(".ui.toggle.checkbox");
-                $(this).closest("tr").find(".ui.toggle.checkbox").checkbox("toggle");
-                if (checkBox.checkbox("is checked")) {
-                    $(this).closest("tr").find(".nonevisiual").addClass("ui input");
-                    $(this).closest("tr").find(".table-label").removeClass("mylabel");
-                    $(this).closest("tr").find(".table-label").addClass("nonevisiual");
-                } else {
-                    $(this).closest("tr").find(".table-label").removeClass("nonevisiual");
-                    $(this).closest("tr").find(".table-label").addClass("mylabel");
-                    $(this).closest("tr").find(".nonevisiual").removeClass("ui input");
-                }
-                //alert($(this).checkbox("is checked"))//是否checked
             });
 
             //全部选中按钮事件
@@ -436,7 +446,7 @@
 //                        alert("请求失败" + errorThrown)
                         toastError("请求失败,请重试！" + errorThrown);
                     }
-                })
+                });
 
             });
 
@@ -499,7 +509,7 @@
                 data: {},
                 success: function (data, textStatus, jqXHR) {
                     //返回List项目总数量
-                    itemNum = data
+                    itemNum = data;
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
 //                    alert("请求失败，请重试！");
