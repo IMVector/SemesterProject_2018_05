@@ -46,8 +46,13 @@
                         <a href="getStaffDetail" style="color: white">修改信息</a>
                         <i class="right chevron icon"></i>
                     </div>
+                    
                     <div class="ui right floated primary button">
                         <a href="bloodBank" style="color: white">查看血库信息</a>
+                        <i class="right chevron icon"></i>
+                    </div>
+                    <div class="ui right floated primary button">
+                        <a href="insertBloodBank" style="color: white">增加血库信息</a>
                         <i class="right chevron icon"></i>
                     </div>
                 </div>
