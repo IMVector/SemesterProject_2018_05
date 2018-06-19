@@ -17,5 +17,7 @@ public interface HImageService extends AdminBaseService<Image> {
 
     List<Image> getFirstPageImage();
 
+    public Image getImageByPath(Serializable path);
+
     public Image getImageById(Serializable id);
 }

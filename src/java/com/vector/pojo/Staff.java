@@ -21,6 +21,7 @@ public class Staff implements java.io.Serializable {
     private String staffAnswer;
     private String staffPassword;
     private String motto;
+    private String staffImagePath;
     @JsonIgnore
     private Set<CheckResult> checkResults = new HashSet<CheckResult>(0);
     @JsonIgnore
@@ -83,6 +84,30 @@ public class Staff implements java.io.Serializable {
         this.staffAnswer = staffAnswer;
         this.staffPassword = staffPassword;
         this.motto = motto;
+    }
+
+    public Staff(String staffId, Department department, Integer departmentId, Image image, Title title, Integer titleId, String staffName, String staffQuestion, String staffAnswer, String staffPassword, String motto, String staffImagePath) {
+        this.staffId = staffId;
+        this.department = department;
+        this.departmentId = departmentId;
+        this.image = image;
+        this.title = title;
+        this.titleId = titleId;
+        this.staffName = staffName;
+        this.staffQuestion = staffQuestion;
+        this.staffAnswer = staffAnswer;
+        this.staffPassword = staffPassword;
+        this.motto = motto;
+        this.staffImagePath = staffImagePath;
+    }
+    
+
+    public String getStaffImagePath() {
+        return staffImagePath;
+    }
+
+    public void setStaffImagePath(String staffImagePath) {
+        this.staffImagePath = staffImagePath;
     }
 
     public String getMotto() {

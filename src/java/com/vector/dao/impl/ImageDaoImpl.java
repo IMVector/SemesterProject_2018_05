@@ -72,4 +72,13 @@ public class ImageDaoImpl extends BaseDaoImpl<Image> implements ImageDao {
         return getListByQuery(hql);
     }
 
+    @Override
+    public Image getImageByPath(Serializable path) {
+        String hql = "from Image where imagePath=?";
+        System.out.println("-----------------" + path);
+        List<Image> imageList = getListByQuery(hql, path);
+        System.out.println("++++++++++++++" + imageList.size());
+        return imageList.get(0);
+    }
+
 }

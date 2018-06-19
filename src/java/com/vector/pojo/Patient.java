@@ -23,6 +23,7 @@ public class Patient implements java.io.Serializable {
     private String patientQuestion;
     private String patientAnswer;
     private String patientPassword;
+    private String patientImagePath;
     private Set<DietAdvice> dietAdvices = new HashSet<DietAdvice>(0);
     private Set<Bill> bills = new HashSet<Bill>(0);
     private Set<MedicalRecord> medicalRecords = new HashSet<MedicalRecord>(0);
@@ -48,8 +49,6 @@ public class Patient implements java.io.Serializable {
         this.patientAnswer = patientAnswer;
         this.patientPassword = patientPassword;
     }
-    
-    
 
     public Patient(String patientId, String patientName, String patientBirthday, String patientGender, String patientPhone, String patientAddress, String patientMstatus, String patientEmail, String patientQuestion, String patientAnswer, String patientPassword) {
         this.patientId = patientId;
@@ -65,7 +64,7 @@ public class Patient implements java.io.Serializable {
         this.patientPassword = patientPassword;
     }
 
-    public Patient(String patientId, Image image, String patientName, String patientBirthday, String patientGender, Integer patientAge, String bloodType, String patientPhone, String patientAddress, String patientMstatus, String patientEmail, String patientQuestion, String patientAnswer, String patientPassword, Set<DietAdvice> dietAdvices, Set<Bill> bills, Set<MedicalRecord> medicalRecords, Set<CheckResult> checkResults, Set<PrecautionAdvice> precautionAdvices, Set<CheckRecord> checkRecords, Set<MedicationHistory> medicationHistories,Set<Prescription> prescriptions) {
+    public Patient(String patientId, Image image, String patientName, String patientBirthday, String patientGender, Integer patientAge, String bloodType, String patientPhone, String patientAddress, String patientMstatus, String patientEmail, String patientQuestion, String patientAnswer, String patientPassword, Set<DietAdvice> dietAdvices, Set<Bill> bills, Set<MedicalRecord> medicalRecords, Set<CheckResult> checkResults, Set<PrecautionAdvice> precautionAdvices, Set<CheckRecord> checkRecords, Set<MedicationHistory> medicationHistories, Set<Prescription> prescriptions) {
         this.patientId = patientId;
         this.image = image;
         this.patientName = patientName;
@@ -87,7 +86,33 @@ public class Patient implements java.io.Serializable {
         this.precautionAdvices = precautionAdvices;
         this.checkRecords = checkRecords;
         this.medicationHistories = medicationHistories;
-        this.prescriptions=prescriptions;
+        this.prescriptions = prescriptions;
+    }
+
+    public Patient(String patientId, Image image, String patientName, String patientBirthday, String patientGender, Integer patientAge, String bloodType, String patientPhone, String patientAddress, String patientMstatus, String patientEmail, String patientQuestion, String patientAnswer, String patientPassword, String patientImagePath) {
+        this.patientId = patientId;
+        this.image = image;
+        this.patientName = patientName;
+        this.patientBirthday = patientBirthday;
+        this.patientGender = patientGender;
+        this.patientAge = patientAge;
+        this.bloodType = bloodType;
+        this.patientPhone = patientPhone;
+        this.patientAddress = patientAddress;
+        this.patientMstatus = patientMstatus;
+        this.patientEmail = patientEmail;
+        this.patientQuestion = patientQuestion;
+        this.patientAnswer = patientAnswer;
+        this.patientPassword = patientPassword;
+        this.patientImagePath = patientImagePath;
+    }
+
+    public String getPatientImagePath() {
+        return patientImagePath;
+    }
+
+    public void setPatientImagePath(String patientImagePath) {
+        this.patientImagePath = patientImagePath;
     }
 
     public Patient(String patientId) {
@@ -265,7 +290,6 @@ public class Patient implements java.io.Serializable {
     public void setPrescriptions(Set<Prescription> prescriptions) {
         this.prescriptions = prescriptions;
     }
-    
 
     public void setMedicationHistories(Set<MedicationHistory> medicationHistories) {
         this.medicationHistories = medicationHistories;

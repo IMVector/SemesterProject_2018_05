@@ -6,6 +6,7 @@
 package com.vector.dao;
 
 import com.vector.pojo.Image;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -15,5 +16,7 @@ import java.util.List;
 public interface ImageDao extends BaseDao<Image> ,AdminAbstractDao<Image> {
 
     public List<Image> getFirstPageImage();
+
+    public Image getImageByPath(Serializable path);
     
 }

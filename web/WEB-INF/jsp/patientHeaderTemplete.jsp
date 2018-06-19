@@ -26,10 +26,10 @@
             </div>
             <div class="item right">
                 <c:if test="${empty patient}">
-                    <a href="" class=" ui blue button">登录</a>
+                    <a href="patient/signup" class=" ui blue button">登录</a>
                     &nbsp
                     &nbsp
-                    <a href="" class="ui blue button">注册</a>
+                    <a href="patient/register" class="ui blue button">注册</a>
 
                 </c:if>
                 <c:if test="${ not empty patient}">

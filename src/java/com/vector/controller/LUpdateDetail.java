@@ -9,9 +9,11 @@ import com.qdu.service.DepartmentService;
 import com.qdu.service.PatientService;
 import com.qdu.service.StaffService;
 import com.qdu.service.TitleService;
+import com.vector.pojo.Image;
 import com.vector.pojo.Patient;
 import com.vector.pojo.Staff;
 import com.vector.pojo.Title;
+import com.vector.service.HImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,11 +31,15 @@ public class LUpdateDetail {
     private TitleService ts;
     @Autowired
     private DepartmentService departmentService;
+    @Autowired
+    private HImageService imageService;
 
     @RequestMapping(value = "/staff/updateDetail", method = POST)
     public String updateStaffDetail(Staff staff, Model model, String titleName) {
 
-        
+        String path = staff.getStaffImagePath();
+        Image image = imageService.getImageByPath(path);
+        staff.setImage(image);
 
         staff.setDepartment(departmentService.getDepartmentById(staff.getDepartmentId()));
         Title title = ts.getTitleByName(titleName);
@@ -46,6 +52,10 @@ public class LUpdateDetail {
 
     @RequestMapping(value = "/patient/updateDetail", method = POST)
     public String updatePatientDetail(Patient patient, Model model) {
+
+        String path = patient.getPatientImagePath();
+        Image image = imageService.getImageByPath(path);
+        patient.setImage(image);
 
         patient.setPatientPassword(patient.getPatientPassword());
         ps.updatePatient(patient);

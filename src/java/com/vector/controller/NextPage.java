@@ -177,9 +177,17 @@ public class NextPage {
         System.out.println(page);
         return page;
     }
+
     @RequestMapping(value = "/about/{departmentName}", method = RequestMethod.GET)
     public String aboutPage(@PathVariable String departmentName, Model model) {
         model.addAttribute("departmentName", departmentName);
         return "about";
     }
+
+    @RequestMapping(value = "updateDetail", method = RequestMethod.GET)
+
+    public String gotoUpdatePatientInfo() {
+        return "patientDetail";
+    }
+
 }

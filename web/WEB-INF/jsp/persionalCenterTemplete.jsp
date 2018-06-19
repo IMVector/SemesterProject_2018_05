@@ -42,10 +42,10 @@
                                                     可以为多个行流并给内容提供上下文的描述。
                                                 </div>-->
                     <div class="extra">
-                        <div class="ui right floated primary button">
+                        <a href="updateDetail" class="ui right floated primary button">
                             修改信息
                             <i class="right chevron icon"></i>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

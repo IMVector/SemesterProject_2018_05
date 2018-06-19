@@ -54,4 +54,23 @@ public class UploadController {
         image.setImagePath(showPath);
         return imageService.updateOne(image);
     }
+
+    @RequestMapping(value = "/uploadImage/uploadPatientImage", method = RequestMethod.POST)
+    @ResponseBody
+    public String uploadPatientImage(HttpServletRequest request) {
+        String showPath = "";
+        try {
+            showPath = UploadUtils.uploadImage(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Image image = new Image(0, showPath);
+        try {
+            imageService.addOne(image);
+        } catch (Exception e) {
+            return "Error";
+        }
+        return showPath;
+    }
+
 }

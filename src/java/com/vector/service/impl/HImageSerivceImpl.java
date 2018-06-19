@@ -18,51 +18,57 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Vector
  */
+@Transactional
 @Service
 public class HImageSerivceImpl implements HImageService {
 
     @Autowired
     private ImageDao imageDao;
 
-    @Transactional
+   
     @Override
     public List<Image> getAllList(Serializable currentPage) {
         return imageDao.getListOfAllWithPagination(currentPage);
     }
 
-    @Transactional
+   
     @Override
     public int getListItemNumber() {
         return imageDao.getListItemNumber();
     }
 
-    @Transactional
+   
     @Override
     public boolean addOne(Image object) {
         return imageDao.addOne(object);
     }
 
-    @Transactional
+   
     @Override
     public boolean updateOne(Image object) {
         return imageDao.updateOne(object);
     }
 
-    @Transactional
+   
     @Override
     public boolean deleteOne(Serializable id) {
         return imageDao.deleteOneById(id);
     }
 
-    @Transactional
+   
     @Override
     public List<Image> getFirstPageImage() {
         return imageDao.getFirstPageImage();
     }
-    @Transactional
+   
     @Override
     public Image getImageById(Serializable id) {
         return imageDao.getOneById(id);
+    }
+
+    @Override
+    public Image getImageByPath(Serializable path) {
+        return imageDao.getImageByPath(path);
     }
 
 }

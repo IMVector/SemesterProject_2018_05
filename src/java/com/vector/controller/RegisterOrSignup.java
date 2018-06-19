@@ -9,10 +9,14 @@ import com.qdu.service.DepartmentService;
 import com.qdu.service.PatientService;
 import com.qdu.service.StaffService;
 import com.qdu.service.TitleService;
+import com.vector.pojo.Image;
 import com.vector.pojo.Patient;
 import com.vector.pojo.Staff;
+import com.vector.service.HImageService;
 import com.vector.service.PatientSearchService;
 import static com.vector.utils.DateUtils.yearDateDiff;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.servlet.http.HttpSession;
 import org.hibernate.SessionFactory;
@@ -43,6 +47,9 @@ public class RegisterOrSignup {
     private SessionFactory session;
     @Autowired
     private DepartmentService departmentService;
+
+    @Autowired
+    private HImageService imageService;
 
 //    @Autowired
 //    private 
@@ -109,8 +116,6 @@ public class RegisterOrSignup {
     @RequestMapping("/patient/signup/validate")
     public String validatePassword(String username, String password, HttpSession session) {
         Patient p = psi.validatePatient(username, password);
-        int age = yearDateDiff(p.getPatientBirthday(), new Date().toString());
-        p.setPatientAge(age);
         session.setAttribute("patient", p);
 
         if (p != null) {
@@ -121,11 +126,22 @@ public class RegisterOrSignup {
     }
 
     @RequestMapping(value = "/patient/register/register", method = POST)
-    public String insertPatient(Patient newPatient) {
+    public String insertPatient(Patient newPatient) throws ParseException {
         newPatient.setPatientId(newPatient.getPatientEmail());
         newPatient.setPatientPassword(newPatient.getPatientPassword());
+
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh;mm;ss");
+//        int age = yearDateDiff(newPatient.getPatientBirthday(),
+//                sdf.format(new Date()));
+//        newPatient.setPatientAge(age);
+        String path = newPatient.getPatientImagePath();
+        Image image = imageService.getImageByPath(path);
+        newPatient.setImage(image);
+
         psi.addPatient(newPatient);
+
         Patient p = pss.searchPatient(newPatient.getPatientId());
+
         if (p != null) {
             return "signup";
         } else {
@@ -141,6 +157,11 @@ public class RegisterOrSignup {
 
         newstaff.setDepartment(departmentService.getDepartmentById(newstaff.getDepartmentId()));
         System.out.println(newstaff.getDepartment().getDepartmentName());
+
+        String path = newstaff.getStaffImagePath();
+        Image image = imageService.getImageByPath(path);
+        newstaff.setImage(image);
+
         ss.addStaff(newstaff);
         Staff s = ss.getStaffById(newstaff.getStaffId());
         if (s != null) {
