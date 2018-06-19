@@ -13,7 +13,8 @@
         <jsp:include page="resourcesTemplete.jsp"/>
     </head>
     <body>
-        <div class="container">
+        <div class="container container-outer">
+            <div class="container-inner">
             <table id="checkRecordTable" class="ui teal table">
                 <!--                        <thead>
                                     <tr>
@@ -37,7 +38,7 @@
                                 </tbody>-->
 
             </table>
-
+                </div>
             <div>
                 <p id="pageText_1"></p>
                 <div id="checkRecordButtons" class="mini ui basic buttons">
@@ -77,16 +78,18 @@
                 var str = "<tr id=" + checkRecord.checkRecordId + ">\n\
                    <td>"+checkRecord.checkRecordId+"</td>\n\
                     <td>${patient.patientName}</td>\n\
-                    <td>" + checkRecord.checkItem.checkItemName + "</td>\n\
-                    <td>" + formatDatebox(checkRecord.checkDate) + "</td>\n\
-                    <td> <a  class='ui button small blue' href='checkRecordDetails/" + checkRecord.checkRecordId + "'>查看</a> </td>\n\</tr>"
+                    <td><label class=\"mylabel\" data-content=\"" + formatDatebox(checkRecord.checkDate)  + "\" data-position=\"right center\">" + checkRecord.checkItem.checkItemName + "</label></td>\n\
+                    <td><label class=\"mylabel\" data-content=\"" + formatDatebox(checkRecord.checkDate)  + "\" data-position=\"right center\">" + formatDatebox(checkRecord.checkDate) + "</label></td>\n\
+                    <td> <a  class='ui button small blue' href='checkRecordDetails/" + checkRecord.checkRecordId + "'>查看</a> </td>\n\</tr>";
 
                 $("#checkRecordTable").append(str);
             });
-
-
         }
 
+        $(document).on("mouseover", ".mylabel", function () {
+            $(this).popup("show");
+        });
+        
         function getCheckRecordItemNumber() {
             var itemNum = 0;
             $.ajax({
@@ -99,7 +102,7 @@
                     itemNum = data
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！错误码:1_1");
+                      toastError("请求失败" + errorThrown);
                 }
             });
             return itemNum;

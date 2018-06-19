@@ -4,6 +4,7 @@
     Author     : Vector
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="ui four column grid">
@@ -20,37 +21,22 @@
                 <a href="patientIndex" class="item">
                     患者主页
                 </a>
-                <div class="menu">
-                    <div class="ui dropdown item">
-                        科室导航
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <a class="item" href="#">内科</a>
-                            <a class="item" href="#">外科</a>
-                            <a class="item" href="#">检验科</a>
-                            <a class="item" href="#">输血科</a>
-                            <a class="item" href="#">放射科</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu">
-                    <div class="ui dropdown item">
-                        病友服务
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <a class="item" href="#">预约挂号</a>
-                            <a class="item" href="#">饮食建议</a>
-                            <a class="item" href="#">疾病预防</a>
-                        </div>
-                    </div>
-                </div>
-                <a href="#about" class="item">关于我们</a>
-                <a href="#contact" class="item">联系方式</a>
+
+                <a href="personalCenter" class="item">个人中心</a>
             </div>
-            <div class="right stackable  menu">
-                <a class="item" href="personalCenter">
-                    <img class="ui avatar image" src="resources/image/狗子.jpeg">
-                </a>
+            <div class="item right">
+                <c:if test="${empty patient}">
+                    <a href="" class=" ui blue button">登录</a>
+                    &nbsp
+                    &nbsp
+                    <a href="" class="ui blue button">注册</a>
+
+                </c:if>
+                <c:if test="${ not empty patient}">
+                    <a href="personalCenter">
+                        <img class="ui avatar image" src="${patient.image.imagePath}">
+                    </a>
+                </c:if>
             </div>
         </div>
     </div>

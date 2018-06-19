@@ -216,6 +216,26 @@ public class PatientController {
         model.addAttribute("dietAdvice", dietAdvice);
         return "dietAdviceDetails";
     }
+
+    //////////////////////////////////////未检查的内容//////////////////////////////////////////////////////////
+    @RequestMapping(value = "getCheckRecordWithNoCheck/{patientId}/{currentPage}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<CheckRecord> getCheckRecordWithNoCheck(@PathVariable String patientId, @PathVariable int currentPage) {
+        return checkRecordService.getCheckRecordWithNoCheck(patientId, currentPage);
+    }
+
+    @RequestMapping(value = "/checkRecordItemNumberWithNoCheck/{patientId}", method = RequestMethod.POST)
+    @ResponseBody
+    public int showCheckRecordItemNumberWithNoCheck(@PathVariable String patientId) {
+        return checkRecordService.getListItemNumWithNoCheck(patientId);
+    }
+
+    @RequestMapping(value = "/checkRecordDetailsWithNoCheck/{checkRecordId}", method = RequestMethod.GET)
+    public String showCheckRecordDetailsWithNoCheck(@PathVariable int checkRecordId, Model model) {
+        CheckRecord checkRecord = checkRecordService.getOneById(checkRecordId);
+        model.addAttribute("checkRecord", checkRecord);
+        return "checkRecordDetailsWithNoCheck";
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     @RequestMapping(value = "weather", method = RequestMethod.POST)
@@ -227,7 +247,8 @@ public class PatientController {
 //        String weather = weatherService.getWeather(city);
 //        System.out.println(weather);
 //        return weather;
-        return "{\"date\":\"06月09日\",\"temperature\":\"22℃\",\"temperature_\":\"18℃\",\"weather\":\"阵雨\",\"weather_\":\"阵雨\",\"week\":\"今天星期六\",\"windDirection\":\"东南风\",\"windDirection_\":\"东南风\",\"windPower\":\"3~4级\",\"windPower_\":\"3~4级\"}";
+        return "{\"date\":\"06月14日\",\"temperature\":\"19℃\",\"weather\":\"多云\",\"week\":\"今天星期四\",\"windDirection\":\"南风\",\"windPower\":\"3~4级\"}";
+//        return "{\"date\":\"06月09日\",\"temperature\":\"22℃\",\"temperature_\":\"18℃\",\"weather\":\"阵雨\",\"weather_\":\"阵雨\",\"week\":\"今天星期六\",\"windDirection\":\"东南风\",\"windDirection_\":\"东南风\",\"windPower\":\"3~4级\",\"windPower_\":\"3~4级\"}";
     }
 
 }

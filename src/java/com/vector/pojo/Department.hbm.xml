@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2018-5-26 16:13:07 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2018-6-10 9:29:46 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.vector.pojo.Department" table="Department" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
         <id name="departmentId" type="int">
             <column name="DepartmentId" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <property name="departmentName" type="string">
             <column name="DepartmentName" not-null="true" />
@@ -19,6 +19,12 @@
                 <column name="DepartmentId" />
             </key>
             <one-to-many class="com.vector.pojo.MedicalRecord" />
+        </set>
+        <set name="staffs" table="Staff" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DepartmentId" not-null="true" />
+            </key>
+            <one-to-many class="com.vector.pojo.Staff" />
         </set>
     </class>
 </hibernate-mapping>

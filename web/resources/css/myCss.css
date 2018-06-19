@@ -1,6 +1,18 @@
 .body-under-header{
     margin-top: 60px;
 }
+.container-admin-outer{
+    min-height: 630px;
+}
+.container-admin-inner{
+    min-height: 380px;
+}
+.container-outer{
+    min-height: 420px;
+}
+.container-inner{
+    min-height: 360px;
+}
 canvas{
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -66,7 +78,21 @@ canvas{
     display: none;
 }
 
-
+.mylabel{
+    display: block;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width:60px;
+}
+/*.mylabel:hover{
+    display: block;
+    text-overflow:clip;
+    overflow: auto;
+    white-space: normal;
+    width:100px;
+    max-height: 40px;;
+}*/
 
 .table-input{
     width: 50%;
@@ -154,6 +180,31 @@ canvas{
 
 
 
+.cpt-toast {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    animation-duration: 0.3s;
+    max-width: 300px;
+    line-height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 0);
+    font-family: '微软雅黑','Microsoft Yahei';
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
 
 
 
@@ -300,7 +351,7 @@ canvas{
     text-decoration: none;
 }
 #bg_body{
-    background-image: url('../../resources/image/bg.png');
+    background: url('../../resources/image/bg.png') fixed center top;
     background-repeat:no-repeat;
     background-size: 100% 100%;  
     -moz-background-size: 100% 100%;  

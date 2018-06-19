@@ -26,7 +26,7 @@ public class MedicationServiceImpl implements MedicationService {
 
     @Transactional
     @Override
-    public List<Medication> getListOfAllWithPagination(Serializable currentPage) {
+    public List<Medication> getAllList(Serializable currentPage) {
         return medicationDao.getListOfAllWithPagination(currentPage);
     }
 
@@ -50,13 +50,13 @@ public class MedicationServiceImpl implements MedicationService {
 
     @Transactional
     @Override
-    public boolean deleteOneById(Serializable id) {
+    public boolean deleteOne(Serializable id) {
         return medicationDao.deleteOneById(id);
     }
 
     @Transactional
     @Override
-    public Medication getMedicationByName(String name) {
+    public List<Medication> getOneByName(Serializable name) {
         return medicationDao.getOneByName(name);
     }
 

@@ -8,7 +8,7 @@
             <column name="PatientId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="image" class="com.vector.pojo.Image" fetch="select">
+        <many-to-one name="image" class="com.vector.pojo.Image" lazy="false" fetch="join">
             <column name="ImageId" />
         </many-to-one>
         <property name="patientName" type="string">
@@ -47,43 +47,43 @@
         <property name="patientPassword" type="string">
             <column name="PatientPassword" not-null="true" />
         </property>
-        <set name="dietAdvices" table="DietAdvice" inverse="true" lazy="false" fetch="select">
+        <set name="dietAdvices" table="DietAdvice" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PatientId" not-null="true" />
             </key>
             <one-to-many class="com.vector.pojo.DietAdvice" />
         </set>
-        <set name="bills" table="Bill" inverse="true" lazy="false" fetch="select">
+        <set name="bills" table="Bill" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PatientId" not-null="true" />
             </key>
             <one-to-many class="com.vector.pojo.Bill" />
         </set>
-        <set name="medicalRecords" table="MedicalRecord" inverse="true" lazy="false" fetch="select">
+        <set name="medicalRecords" table="MedicalRecord" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PatientId" not-null="true" />
             </key>
             <one-to-many class="com.vector.pojo.MedicalRecord" />
         </set>
-        <set name="checkResults" table="CheckResult" inverse="true" lazy="false" fetch="select">
+        <set name="checkResults" table="CheckResult" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PatientId" not-null="true" />
             </key>
             <one-to-many class="com.vector.pojo.CheckResult" />
         </set>
-        <set name="precautionAdvices" table="PrecautionAdvice" inverse="true" lazy="false" fetch="select">
+        <set name="precautionAdvices" table="PrecautionAdvice" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PatientId" not-null="true" />
             </key>
             <one-to-many class="com.vector.pojo.PrecautionAdvice" />
         </set>
-        <set name="checkRecords" table="CheckRecord" inverse="true" lazy="false" fetch="select">
+        <set name="checkRecords" table="CheckRecord" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PatientId" not-null="true" />
             </key>
             <one-to-many class="com.vector.pojo.CheckRecord" />
         </set>
-        <set name="medicationHistories" table="MedicationHistory" inverse="true" lazy="false" fetch="select">
+        <set name="medicationHistories" table="MedicationHistory" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PatientId" not-null="true" />
             </key>

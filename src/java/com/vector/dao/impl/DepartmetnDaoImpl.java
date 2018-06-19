@@ -9,11 +9,13 @@ import com.vector.dao.DepartmentDao;
 import com.vector.pojo.Department;
 import java.io.Serializable;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Vector
  */
+@Repository
 public class DepartmetnDaoImpl extends BaseDaoImpl<Department> implements DepartmentDao {
 
     @Override
@@ -62,6 +64,18 @@ public class DepartmetnDaoImpl extends BaseDaoImpl<Department> implements Depart
     public int getListItemNumber() {
         String hql = "select count(*) from Department";
         return getListSize(hql);
+    }
+
+    @Override
+    public List<Department> getOneByName(Serializable name) {
+        String hql = "from Department where departmentName=?";
+        return getListByQuery(hql, name);
+    }
+
+    @Override
+    public List<Department> getAllList() {
+        String hql = "from Department";
+        return getListByQuery(hql);
     }
 
 }

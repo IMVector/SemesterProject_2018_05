@@ -7,8 +7,12 @@ package com.vector.dao.impl;
 
 import com.vector.dao.StaffDao;
 import com.vector.pojo.Staff;
+import static com.vector.utils.CommonUtils.EVERY_PAGE_NUMBER;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -83,6 +87,42 @@ public class StaffDaoImpl extends BaseDaoImpl<Staff> implements StaffDao {
     public int getListItemNumber() {
         String hql = "select count(*) from Staff";
         return getListSize(hql);
+    }
+
+    @Override
+    public Integer getStaffByNameItemNum(Serializable name) {
+        String hql = "select count(*) from Staff where staffName=?";
+        return getListSize(hql, name);
+    }
+
+    @Override
+    public Integer getStaffByTitleItemNum(Serializable titleName) {
+        String hql = "select count(*) from Staff where title.titleName=?";
+        return getListSize(hql, titleName);
+    }
+
+    @Override
+    public List<Staff> getStaffWithImage(Serializable number) {
+        String hql = "from Staff where image.imagePath is not null";
+        return getListPaginationByQuery(hql, number);
+    }
+
+    @Override
+    public int getStaffNumWithImage() {
+        String hql = "select count(*) from Staff where image.imagePath is not null";
+        return getListSize(hql);
+    }
+
+    @Override
+    public List<Staff> getStaffByDepartmentName(Serializable departmentName, Serializable currentPage) {
+        String hql = "from Staff where department.departmentName=?";
+        return getListPaginationByQuery(hql, currentPage, departmentName);
+    }
+
+    @Override
+    public int getStaffByDepartmentNameItemNum(Serializable departmentName) {
+        String hql = "select count(*) from Staff where department.departmentName=?";
+        return getListSize(hql, departmentName);
     }
 
 }

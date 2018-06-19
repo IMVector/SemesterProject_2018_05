@@ -96,6 +96,18 @@ function formatDatebox(value) {
     }
     return dt.format("yyyy-MM-dd");
 }
+function formatDateboxDetails(value) {
+    if (value == null || value == '') {
+        return '';
+    }
+    var dt;
+    if (value instanceof Date) {
+        dt = value;
+    } else {
+        dt = new Date(value);
+    }
+    return dt.format("yyyy-MM-dd hh:mm:ss");
+}
 
 
 /**
@@ -109,6 +121,32 @@ function myRandom(min, max) {
 }
 
 
-function getRandomcolor(){
-    return "rgb("+myRandom(0,255)+","+myRandom(0,255)+","+myRandom(0,255)+")";
+function getRandomcolor() {
+    return "rgb(" + myRandom(0, 255) + "," + myRandom(0, 255) + "," + myRandom(0, 255) + ")";
+}
+
+
+function toastError(message) {
+    $('body').toast({
+        position: 'fixed',
+        content: message,
+        duration: 3000,
+        isCenter: true,
+        background: 'rgba(230,0,0,0.5)',
+        animateIn: 'bounceIn-hastrans',
+        animateOut: 'bounceOut-hastrans',
+    });
+}
+
+function toastSuccess(message) {
+
+    $('body').toast({
+        position: 'fixed',
+        content: message,
+        duration: 3000,
+        isCenter: true,
+        background: '#4EA44E',
+        animateIn: 'bounceIn-hastrans',
+        animateOut: 'bounceOut-hastrans',
+    });
 }

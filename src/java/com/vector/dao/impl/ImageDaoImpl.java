@@ -62,8 +62,14 @@ public class ImageDaoImpl extends BaseDaoImpl<Image> implements ImageDao {
 
     @Override
     public int getListItemNumber() {
-        String hql="select count(*) from Image";
+        String hql = "select count(*) from Image";
         return getListSize(hql);
+    }
+
+    @Override
+    public List<Image> getFirstPageImage() {
+        String hql = "from Image where imageId <5";
+        return getListByQuery(hql);
     }
 
 }

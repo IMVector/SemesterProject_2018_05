@@ -25,7 +25,7 @@
 
                     <jsp:include page="adminMenuTemplete.jsp"/>
                     <div class="eleven wide column">
-                        <div class="ui segment" style="overflow:scroll">
+                        <div class="ui segment container-admin-outer" style="overflow:scroll">
                             <div class="ui header orange segment">
                                 数据库管理
                             </div>
@@ -41,21 +41,11 @@
                                     <td></td>
                                 </tr>
                             </table>
+                            <div class="container-admin-inner">
+                                <table id="databaseSettingTable" class="ui table orange">
 
-                            <table id="databaseSettingTable" class="ui table orange">
-                                <!--                                <thead>
-                                                                    <tr>
-                                                                        <th>选择</th>
-                                                                        <th>备份设置编号</th>
-                                                                        <th>sql脚本路径</th>
-                                                                        <th>bat脚本路径</th>
-                                                                        <th>备份保存路径</th>
-                                                                        <th style="padding-left: 10%" colspan="2">操作</th>
-                                                                    </tr>
-                                                                </thead>-->
-
-
-                            </table>
+                                </table>
+                            </div>
                             <div>
                                 <p id="pageText"></p>
                                 <div id="pageButtons" class="mini ui basic buttons">
@@ -167,7 +157,7 @@
                 $(this).closest("tr").find(".nonevisiual").removeClass("ui input");
             }
 
-        })
+        });
         $(document).ready(function () {
 
             $("#getList").click(function () {
@@ -192,15 +182,20 @@
 //                var str = '<tr><td><div class="ui toggle checkbox"><input name="public" type="checkbox"><label></label></div></td><td> <label class="mylabel">编号1</label><div class="nonevisiual" ><input  class="myInput" style="width: 80%;" type="text"></div></td><td><label  class="mylabel" for="">编号2</label><div class="nonevisiual" ><input  class="myInput" style="width: 80%;" type="text"></div></td><td><label  class="mylabel" for="">编号3</label><div class="nonevisiual"><input  class="myInput" style="width: 80%;" type="text"></div></td><td><label class="mylabel" for="">编号4</label><div class="nonevisiual"><input  class="myInput" style="width: 80%;" type="text"></div></td><td> <button class="ui button orange updatebtn">修改</button></td> <td> <button class="ui button orange deleteBtn">删除</button> </td> </tr>'
                 var str = " <tr id=" + detabaseSetting.backpackSettingId + "><td><div class=\"ui toggle checkbox\"><input name=\"public\" type=\"checkbox\"><label></label></div></td><td>\n\
                                         <label class=\"mylabel table-label\" >" + detabaseSetting.backpackSettingId + "</label>\n\<div class=\"nonevisiual\" ><input value=" + detabaseSetting.backpackSettingId + " class=\"myInput\" style=\"width: 80%;\" type=\"text\"></div></td><td>\n\
-                                    <label class=\"mylabel table-label\" >" + detabaseSetting.backpackSqlFile + "</label><div class=\"nonevisiual\" ><input value=" + detabaseSetting.backpackSqlFile + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
-                                     <label class=\"mylabel table-label\" >" + detabaseSetting.backpackBatFile + "</label><div class=\"nonevisiual\"><input value=" + detabaseSetting.backpackBatFile + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
-                                        <label class=\"mylabel table-label\" >" + detabaseSetting.backpackToPath + "</label><div class=\"nonevisiual\"><input value=" + detabaseSetting.backpackToPath + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
+                                    <label class=\"mylabel table-label\" data-content=\"" + detabaseSetting.backpackSqlFile + "\" data-position=\"right center\">" + detabaseSetting.backpackSqlFile + "</label><div class=\"nonevisiual\" ><input value=" + detabaseSetting.backpackSqlFile + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
+                                     <label class=\"mylabel table-label\" data-content=\"" + detabaseSetting.backpackBatFile + "\" data-position=\"right center\">" + detabaseSetting.backpackBatFile + "</label><div class=\"nonevisiual\"><input value=" + detabaseSetting.backpackBatFile + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
+                                        <label class=\"mylabel table-label\" data-content=\"" + detabaseSetting.backpackToPath + "\" data-position=\"right center\">" + detabaseSetting.backpackToPath + "</label><div class=\"nonevisiual\"><input value=" + detabaseSetting.backpackToPath + " class=\"myInput\"  style=\"width: 80%;\" type=\"file\"></div></td><td>\n\
                                         <button  class=\"ui button orange updatebtn\" >修改</button></td><td><button class=\"ui button orange\">删除</button></td></tr>";
 
 //                $("#databaseSettingTable").append(str);
                 $("#databaseSettingTable").append(str);
             });
         }
+
+        $(document).on("mouseover", ".mylabel", function () {
+            $(this).popup("show");
+        });
+
         function getDatabaseSettingItemNum() {
             var itemNum = 0;
             $.ajax({
@@ -210,10 +205,10 @@
                 data: {},
                 success: function (data, textStatus, jqXHR) {
                     //返回List项目总数量
-                    itemNum = data
+                    itemNum = data;
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！");
+                    toastError("请求失败" + errorThrown);
                 }
             });
             return itemNum;

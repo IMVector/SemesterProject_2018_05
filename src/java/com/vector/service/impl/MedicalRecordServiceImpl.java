@@ -95,13 +95,16 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
 
         Map illnessMap = new HashMap();
         for (MedicalRecord m : list) {
-            if (illnessMap.containsKey(m.getInDiagnosis())) {
-                int value = (int) illnessMap.get(m.getInDiagnosis());
-                value++;
-                illnessMap.replace(m.getInDiagnosis(), value);
-            } else {
-                illnessMap.put(m.getInDiagnosis(), 1);
+            if (null != m.getInDiagnosis()) {
+                if (illnessMap.containsKey(m.getInDiagnosis())) {
+                    int value = (int) illnessMap.get(m.getInDiagnosis());
+                    value++;
+                    illnessMap.replace(m.getInDiagnosis(), value);
+                } else {
+                    illnessMap.put(m.getInDiagnosis(), 1);
+                }
             }
+
         }
         //遍历map中的键  
 

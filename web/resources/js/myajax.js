@@ -24,7 +24,7 @@ function getSomethingByAjax(url, successFun, async, reqType, reqData) {
         async: async,
         success: successFun,
         error: function (req, status, error) {
-            alert("请求失败，请重试！ajax封装器BUG请检查");
+            toastError("请求失败，请重试！ajax封装器BUG请检查");
         }
     });
 }
@@ -114,4 +114,24 @@ function fillForm(pageContainerId, pageShowElementId, dropDownListElementId, cur
 function goToThPage(pageContainerId, pageShowElementId, dropDownListElementId, reqUrl, showTableFun, totalItemFun) {
     var pageTh = $("#" + dropDownListElementId).val();
     fillForm(pageContainerId, pageShowElementId, dropDownListElementId, currentPage = pageTh, reqUrl, showTableFun, totalItemFun);
+}
+/**
+ * 显示模态框，等待用户确认
+ * @param {type} title 模态框标题
+ * @param {type} content 模态框内容
+ * @returns {undefined}
+ */
+function showWarning(title, content,fun) {
+    $(".warning_model").find(".header").html(title);
+    $(".warning_model").find(".content").html("<p>" + content + "</p>");
+    var flag = $('.warning_model').modal({
+        closable: false,
+        onDeny: function () {
+            return true;
+        },
+        onApprove: function () {
+            fun();
+            return true;
+        }
+    }).modal('show');
 }

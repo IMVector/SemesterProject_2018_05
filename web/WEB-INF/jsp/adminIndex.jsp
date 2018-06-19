@@ -18,9 +18,9 @@
                     <jsp:include page="adminMenuTemplete.jsp"/>
                     <div class="eleven wide column">
                         <div class="ui segment">
-                            <div class=""></div>
+                            <div class="ui header blue segment">欢迎使用管理系统</div>
                             
-                            
+                            <img class="ui fluid image" src="resources/image/bgthird.png" alt="管理员背景">
                         </div>
                     </div>
                 </div>

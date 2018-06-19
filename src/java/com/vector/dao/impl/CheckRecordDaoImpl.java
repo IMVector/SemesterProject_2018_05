@@ -51,6 +51,18 @@ public class CheckRecordDaoImpl extends BaseDaoImpl<CheckRecord> implements Chec
         return getListSize(hql, isChecked);
     }
 
-  
+    @Override
+    public List<CheckRecord> getCheckRecordWithNoCheck(Serializable patientId, Serializable currentPage) {
+        int isChecked = 0;
+        String hql = "from CheckRecord where patient.patientId=? and isChecked=?";
+        return getListPaginationByQuery(hql, currentPage, patientId, isChecked);
+    }
+
+    @Override
+    public int getListItemNumWithNoCheck(Serializable patientId) {
+        int isChecked = 0;
+        String hql = "select count(*) from CheckRecord where isChecked=?";;
+        return getListSize(hql, isChecked);
+    }
 
 }

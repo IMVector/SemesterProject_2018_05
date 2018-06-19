@@ -15,12 +15,13 @@
     <body>
         <jsp:include page="patientHeaderTemplete.jsp"/>
         <%--<jsp:include page="persionalCenterTemplete.jsp"/>--%>
-        <div class="container">
+        <div class="container container-outer">
+            <div class="container-inner">
+                <table id="billTable" class="ui orange table">
 
-            <table id="billTable" class="ui orange table">
-            
 
-            </table>
+                </table>
+            </div>
             <div>
                 <p id="pageText_3"></p>
                 <div id="billButtons" class="mini ui basic buttons">
@@ -42,11 +43,11 @@
 
         $(document).ready(function () {
             $("#bill").click(function () {
-                 var url = 'billList/${patient.patientId}/page_key_word';
+                var url = 'billList/${patient.patientId}/page_key_word';
                 fillForm("billButtons", "pageText_3", "pageSelecter_3", currentPage = 1, url, billTableShow, getbillItemNumber);
             });
             $("#pageSelecter_3").on("change", function () {
-                 var url = 'checkRecordList/${patient.patientId}/page_key_word';
+                var url = 'checkRecordList/${patient.patientId}/page_key_word';
                 goToThPage("billButtons", "pageText_3", "pageSelecter_3", url, billTableShow, getbillItemNumber);
             });
         });
@@ -55,7 +56,7 @@
         function billTableShow(data) {
 
             $("#billTable").empty();
-            $("#billTable").append("<thead><tr> <th>账单编号</th><th>病人姓名</th><th>账单金额</th><th>账单日期</th>th>是否支付</th><th>查看详情</th></tr></thead>");
+            $("#billTable").append("<thead><tr> <th>账单编号</th><th>病人姓名</th><th>账单金额</th><th>账单日期</th><th>是否支付</th><th>查看详情</th></tr></thead>");
             $.each(data, function (index, bill) {
                 var str = "<tr id=" + bill.billId + ">\n\
                   <td>" + bill.billId + "</td>\n\
@@ -74,7 +75,7 @@
         function getbillItemNumber() {
             var itemNum = 0;
             $.ajax({
-                 url: "billListItemNumber/${patient.patientId}",
+                url: "billListItemNumber/${patient.patientId}",
                 type: 'POST',
                 async: false,
                 data: {},
@@ -83,7 +84,7 @@
                     itemNum = data
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("请求失败，请重试！错误码:1_1");
+                    toastError("请求失败" + errorThrown);
                 }
             });
             return itemNum;
