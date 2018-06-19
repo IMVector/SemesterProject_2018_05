@@ -12,7 +12,7 @@
         <div class="ui divider"></div>
         <div class="item">
             <div class="ui small image">
-                <img src="resources/image/狗子.jpeg">
+                <img src="${staffDetail.image.imagePath}">
             </div>
 
             <div class="content">
