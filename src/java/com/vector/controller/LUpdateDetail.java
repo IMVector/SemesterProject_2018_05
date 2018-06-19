@@ -59,7 +59,7 @@ public class LUpdateDetail {
 
         patient.setPatientPassword(patient.getPatientPassword());
         ps.updatePatient(patient);
-        model.addAttribute("isSuccess", "更新成功");
+        model.addAttribute("isSuccess", "更新成功!<a href=\"goBackToPatientCenter\">返回</a>");
         return "patientDetail";
     }
 
