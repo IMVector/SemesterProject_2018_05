@@ -177,6 +177,12 @@ public class NextPage {
     public String billReport() {
         return "billReport";
     }
+    
+    @RequestMapping("/insertBloodBank")
+    public String insertBloodBank() {
+        return "register_1";
+    }
+
 
     @RequestMapping(value = "/admin/{page}", method = RequestMethod.GET)
     public String changePage(@PathVariable String page) {

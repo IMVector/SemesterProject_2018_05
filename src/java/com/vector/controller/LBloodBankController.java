@@ -36,9 +36,7 @@ public class LBloodBankController {
     @RequestMapping(value = "/bloodBank/getBloodList",method = RequestMethod.GET)
     @ResponseBody
     public List getBloodList(String LbloodType){
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         List list=bloodService.getBloodBankByType(LbloodType);
-        System.out.println("44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444");
         System.out.println(list.size());
         return list;
     }
@@ -54,7 +52,7 @@ public class LBloodBankController {
         bloodBank.setRecordId(0);
         bloodBank.setIsInBank("是");
         bloodService.addBloodBank(bloodBank);
-        model.addAttribute("insert", "插入成功");
+        model.addAttribute("insert", "更新成功!<a href=\"doctor/doctorCenter\">返回</a>");
         return "register_1";
         
     }
