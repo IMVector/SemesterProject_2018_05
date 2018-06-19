@@ -18,14 +18,14 @@ import com.qdu.dao.LDepartmentDao;
  * @author 刘福港
  */
 @Service
-public class DepartmentServiceImpl implements DepartmentService{
-    
+@Transactional
+public class DepartmentServiceImpl implements DepartmentService {
+
     @Autowired
     private LDepartmentDao departmentDao;
-    
 
     @Override
-    @Transactional
+
     public List<Department> getDepartmentList() {
         return departmentDao.getListByQuery("from Department");
     }
@@ -34,5 +34,5 @@ public class DepartmentServiceImpl implements DepartmentService{
     public Department getDepartmentById(int departmentId) {
         return departmentDao.getOneById(departmentId);
     }
-    
+
 }

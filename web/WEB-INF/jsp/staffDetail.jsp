@@ -18,14 +18,14 @@
             <table >
                 <tr>
                     <td style="font-size: 20px">员工编号：</td>
-                    <td><input  type="text" value="${staffDetail.staffId}" disabled="true">
+                    <td><input  type="text" value="${staffDetail.staffId}" readonly="true">
                         <input name="staffId" type="hidden" value="${staffDetail.staffId}">
                     </td>
                 </tr>
                 <tr>
                     <td style="font-size: 20px">职位：</td>
                 <input type="hidden" value="${staffDetail.titleId}" name="titleId">
-                    <td><input type="text" value="${staffDetail.title.titleName}" disabled="true"></td>
+                    <td><input type="text" value="${staffDetail.title.titleName}" readonly="true"></td>
                     <td><input type="hidden" name="titleName" value="${staffDetail.title.titleName}" ></td>
                 </tr>
                 <tr>
@@ -34,7 +34,7 @@
                 </tr>
                 <tr>
                     <td style="font-size: 20px">部门编号：</td>
-                    <td><input type="text" value="${staffDetail.departmentId}" disabled="true" name="departmentId">
+                    <td><input type="text" value="${staffDetail.departmentId}" readonly="true" >
                         <input type="hidden" value="${staffDetail.departmentId}" name="departmentId">
                     </td>
                 </tr>

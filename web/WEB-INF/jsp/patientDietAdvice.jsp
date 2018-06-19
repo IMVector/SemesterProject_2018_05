@@ -25,7 +25,7 @@
                 </tr>
                 <tr>
                     <td>病人ID：</td>
-                    <td><input id="LpatientId" type="text"  value="${Lpatient.patientId}" id="YpatientId" readonly="true"></td>
+                    <td><input id="hhhpatientId" type="text"  value="${Lpatient.patientId}" id="YpatientId" readonly="true"></td>
                 </tr>
                 <tr>
                     <td>相关医生：</td>

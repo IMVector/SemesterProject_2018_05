@@ -50,7 +50,7 @@ public class NextPage {
     public String index() {
         return "mainIndex";
     }
-    
+
     @RequestMapping({"/hhhhhh"})
     public String indexhh() {
         return "hhhhhh";
@@ -82,7 +82,6 @@ public class NextPage {
 //        l.addMedicalRecord();
 //        return "diagnosis";
 //    }
-
     @RequestMapping({"patient/signup"})
     public String signupIndex() {
         return "signup";
@@ -156,11 +155,11 @@ public class NextPage {
     @RequestMapping("/personalCenter")
     public String personalCenter(HttpSession session) {
 
-        Patient p = patientSearchService.searchPatient("p001");
-        session.setAttribute("patient", p);
-        
-        l.addMedicalRecord(p);
-        return "personalCenter";
+        if (null != session.getAttribute("patient")) {
+            return "personalCenter";
+        } else {
+            return "signup";
+        }
     }
 
     @RequestMapping("/medicalRecord")
@@ -178,5 +177,9 @@ public class NextPage {
         System.out.println(page);
         return page;
     }
-
+    @RequestMapping(value = "/about/{departmentName}", method = RequestMethod.GET)
+    public String aboutPage(@PathVariable String departmentName, Model model) {
+        model.addAttribute("departmentName", departmentName);
+        return "about";
+    }
 }

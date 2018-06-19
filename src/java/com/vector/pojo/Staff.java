@@ -107,6 +107,7 @@ public class Staff implements java.io.Serializable {
 
     public void setDepartment(Department department) {
         this.department = department;
+        this.departmentId = department.getDepartmentId();
     }
 
     public Image getImage() {

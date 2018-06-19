@@ -38,7 +38,7 @@
                                     <li class="l1">
                                         <p class="p">患者版</p>
                                         <a class="link" href="patientIndex">进入</a>
-                                        <a href="patient/signup">登陆</a>
+                                        <!--<a href="patient/signup">登陆</a>-->
                                     </li>
                                 </ul>
                             </div>
@@ -50,8 +50,8 @@
                                 <ul class="links">
                                     <li class="l2">
                                         <p class="p">医生版</p>
-                                        <a class="link" href="patientIndex">进入</a>
-                                        <a href="doctor/signup">登陆</a>
+                                        <a class="link" href="doctor/signup">进入</a>
+                                        <!--<a href="doctor/signup">登陆</a>-->
                                     </li>
                                 </ul>
                             </div>

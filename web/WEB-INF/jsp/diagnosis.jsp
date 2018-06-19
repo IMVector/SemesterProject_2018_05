@@ -59,9 +59,10 @@
                                 $("#patientDetail").append(str);// 将当前学生的数据追加到表格中
                        
                                 $("#LpatientName").val(patient.patientName);
+                                $("#hhhpatientId").val(patient.patientId);
                                 $("#LpatientId").val(patient.patientId);
                                 $("#LFGpatientName").val(patient.patientName);
-                                $("#LFGpatientId").val(patient.patientId)
+                                $("#LFGpatientId").val(patient.patientId);
     },
                         error: function (jqXHR, textStatus, errorThrown) {
                         alert(errorThrown);
