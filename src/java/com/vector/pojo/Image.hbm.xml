@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-26 16:13:07 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.vector.pojo.Image" table="Image" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
+        <id name="imageId" type="int">
+            <column name="ImageId" />
+            <generator class="native" />
+        </id>
+        <property name="imagePath" type="string">
+            <column name="ImagePath" not-null="true" />
+        </property>
+        <property name="usePage" type="string">
+            <column name="usePage" />
+        </property>
+        <set name="patients" table="Patient" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ImageId" />
+            </key>
+            <one-to-many class="com.vector.pojo.Patient" />
+        </set>
+        <set name="staffs" table="Staff" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ImageId" />
+            </key>
+            <one-to-many class="com.vector.pojo.Staff" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-26 16:13:07 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.vector.pojo.Bill" table="Bill" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
+        <id name="billId" type="int">
+            <column name="BillId" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="patient" class="com.vector.pojo.Patient" fetch="select">
+            <column name="PatientId" not-null="true" />
+        </many-to-one>
+        <property name="paymentStatus" type="string">
+            <column name="PaymentStatus" not-null="true" />
+        </property>
+        <property name="billDate" type="timestamp">
+            <column name="BillDate" length="23" not-null="true" />
+        </property>
+        <property name="totalAmount" type="java.lang.Double">
+            <column name="TotalAmount" precision="53" scale="0" />
+        </property>
+        <set name="checkRecords" table="CheckRecord" inverse="true" lazy="false" fetch="join">
+            <key>
+                <column name="BillId" not-null="true" />
+            </key>
+            <one-to-many class="com.vector.pojo.CheckRecord" />
+        </set>
+    </class>
+</hibernate-mapping>

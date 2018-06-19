@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-26 16:13:07 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.vector.pojo.Prescription" table="Prescription" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
+        <id name="prescriptionId" type="int">
+            <column name="PrescriptionId" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="medicalRecord" class="com.vector.pojo.MedicalRecord" lazy="false" fetch="join">
+            <column name="MedicalRecordId" not-null="false" />
+        </many-to-one>
+        <many-to-one name="patient" class="com.vector.pojo.Patient" fetch="select">
+            <column name="PatientId" not-null="true" />
+        </many-to-one>
+        <property name="prescriptionContent" type="string">
+            <column name="PrescriptionContent" not-null="true" />
+        </property>
+        <property name="prescriptionDate" type="timestamp">
+            <column name="PrescriptionDate" length="23" not-null="true" />
+        </property>
+        <property name="prescriptionPrecautions" type="string">
+            <column name="PrescriptionPrecautions" />
+        </property>
+    </class>
+</hibernate-mapping>

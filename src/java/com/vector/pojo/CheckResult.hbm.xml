@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-29 16:00:48 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.vector.pojo.CheckResult" table="CheckResult" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
+        <id name="checkResultId" type="int">
+            <column name="CheckResultId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="checkItem" class="com.vector.pojo.CheckItem" lazy="false" fetch="join">
+            <column name="CheckItemId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="medicalRecord" class="com.vector.pojo.MedicalRecord" fetch="select">
+            <column name="MedicalRecordId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="patient" class="com.vector.pojo.Patient" fetch="select">
+            <column name="PatientId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="staff" class="com.vector.pojo.Staff" fetch="select">
+            <column name="StaffId" not-null="true" />
+        </many-to-one>
+        <property name="checkDate" type="timestamp">
+            <column name="CheckDate" length="23" not-null="true" />
+        </property>
+        <property name="checkResultDescription" type="string">
+            <column name="CheckResultDescription" not-null="true" />
+        </property>
+        <set name="checkRecords" table="CheckRecord" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CheckResultId" not-null="true" />
+            </key>
+            <one-to-many class="com.vector.pojo.CheckRecord" />
+        </set>
+    </class>
+</hibernate-mapping>

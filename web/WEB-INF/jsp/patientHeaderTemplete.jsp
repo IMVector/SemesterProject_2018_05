@@ -1,0 +1,154 @@
+<%-- 
+    Document   : templete
+    Created on : 2018-5-18, 8:36:08
+    Author     : Vector
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<div class="ui four column grid">
+    <div class="computer only one column row">
+
+        <div class="ui top fixed menu">
+            <div class="ui secondary menu">
+                <div class="item">
+                    <img src="resources/image/狗子.jpeg">
+                </div>
+                <a href="index" class="active item">
+                    InstalHMS 医院系统
+                </a>
+                <a href="patientIndex" class="item">
+                    患者主页
+                </a>
+                <div class="menu">
+                    <div class="ui dropdown item">
+                        科室导航
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="#">内科</a>
+                            <a class="item" href="#">外科</a>
+                            <a class="item" href="#">检验科</a>
+                            <a class="item" href="#">输血科</a>
+                            <a class="item" href="#">放射科</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="ui dropdown item">
+                        病友服务
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="#">预约挂号</a>
+                            <a class="item" href="#">饮食建议</a>
+                            <a class="item" href="#">疾病预防</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#about" class="item">关于我们</a>
+                <a href="#contact" class="item">联系方式</a>
+            </div>
+            <div class="right stackable  menu">
+                <a class="item" href="personalCenter">
+                    <img class="ui avatar image" src="resources/image/狗子.jpeg">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="tablet only column">
+        <div class="ui top fixed menu">
+            <div class="ui secondary menu">
+                <div class="item">
+                    <img src="resources/image/狗子.jpeg">
+                </div>
+                <a class="active item">
+                    InstalHMS 医院系统
+                </a>
+                <a class="item">
+                    患者主页
+                </a>
+                <div class="menu">
+                    <div class="ui dropdown item">
+                        科室导航
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="#">内科</a>
+                            <a class="item" href="#">外科</a>
+                            <a class="item" href="#">检验科</a>
+                            <a class="item" href="#">输血科</a>
+                            <a class="item" href="#">放射科</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="ui dropdown item">
+                        病友服务
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="#">预约挂号</a>
+                            <a class="item" href="#">饮食建议</a>
+                            <a class="item" href="#">疾病预防</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#about" class="item">关于我们</a>
+                <a href="#contact" class="item">联系方式</a>
+            </div>
+            <div class="right stackable  menu">
+                <a class="item" href="personalCenter">
+                    <img class="ui avatar image" src="resources/image/狗子.jpeg">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fixed navbar -->
+<!--<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">导航栏</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">InstalHMS 医院系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index">患者主页</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">科室导航<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">内科</a></li>
+                        <li><a href="#">外科</a></li>
+                        <li><a href="#">检验科</a></li>
+                        <li><a href="#">输血科</a></li>
+                        <li><a href="#">放射科</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">病友服务<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">预约挂号</a></li>
+                        <li><a href="#">饮食建议</a></li>
+                        <li><a href="#">疾病预防</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#contact">联系方式</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="../navbar/">Default</a></li>
+                <li>
+                    <a href="personalCenter" class="navbar-brand">
+                        <img src="resources/image/狗子.jpeg" class="img-circle" alt="资源丢失" style="height: 30px;">
+                    </a>
+                </li>
+                            <li><a href="../navbar-static-top/">Static top</a></li>
+                            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+            </ul>
+        </div>/.nav-collapse 
+    </div>
+</nav>
+-->

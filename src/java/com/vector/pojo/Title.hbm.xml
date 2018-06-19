@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-26 16:13:07 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.vector.pojo.Title" table="Title" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
+        <id name="titleId" type="int">
+            <column name="TitleId" />
+            <generator class="assigned" />
+        </id>
+        <property name="titleName" type="string">
+            <column name="TitleName" not-null="true" />
+        </property>
+        <property name="titleDescription" type="string">
+            <column name="TitleDescription" not-null="true" />
+        </property>
+        <set name="staffs" table="Staff" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TitleId" not-null="true" />
+            </key>
+            <one-to-many class="com.vector.pojo.Staff" />
+        </set>
+    </class>
+</hibernate-mapping>

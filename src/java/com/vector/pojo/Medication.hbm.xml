@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-26 16:13:07 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.vector.pojo.Medication" table="Medication" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
+        <id name="medicationId" type="int">
+            <column name="MedicationId" />
+            <generator class="native" />
+        </id>
+        <property name="medicationName" type="string">
+            <column name="MedicationName" not-null="true" />
+        </property>
+        <property name="productionDate" type="timestamp">
+            <column name="ProductionDate" length="23" not-null="true" />
+        </property>
+        <property name="price" type="float">
+            <column name="Price"  not-null="true" />
+        </property>
+        <property name="validityPeriod" type="string">
+            <column name="ValidityPeriod" not-null="true" />
+        </property>
+        <property name="medicationInstructions" type="string">
+            <column name="MedicationInstructions" not-null="true" />
+        </property>
+        <property name="medicationDescription" type="string">
+            <column name="MedicationDescription" not-null="true" />
+        </property>
+        <set name="medicationHistories" table="MedicationHistory" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MedicationId" not-null="true" />
+            </key>
+            <one-to-many class="com.vector.pojo.MedicationHistory" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-6-2 13:19:17 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.vector.pojo.Admin" table="Admin" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
+        <id name="adminId" type="string">
+            <column name="AdminId" />
+            <generator class="assigned" />
+        </id>
+        <property name="email" type="string">
+            <column name="Email" />
+        </property>
+        <property name="adminName" type="string">
+            <column name="AdminName" not-null="true" />
+        </property>
+        <property name="adminPassword" type="string">
+            <column name="AdminPassword" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
