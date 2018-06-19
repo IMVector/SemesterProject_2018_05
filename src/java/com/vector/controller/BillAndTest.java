@@ -71,6 +71,6 @@ public class BillAndTest {
 ////        CheckResult hh=recordService.getCheckResult("p001");
 //        CheckRecord cr=new CheckRecord(0, bill1, c, cc, p, LpaymentStatus, LcheckDate, Integer.SIZE);
 //        recordService.insertCheckRecord(cr);
-        return "插入成功";
+        return "physicalTestInsert";
     }
 }

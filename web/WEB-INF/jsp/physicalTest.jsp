@@ -25,7 +25,7 @@
                 
                 
                 
-                <input name="LpaymentStatus" type="text" value="否" id="LpaymentStatus" readonly="true">
+<!--                <input name="LpaymentStatus" type="text" value="否" id="LpaymentStatus" readonly="true">-->
                 <tr>
                     <td>选择检查项目：</td>
                     <td><select name="LcheckItem" id="LcheckItem">

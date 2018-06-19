@@ -44,7 +44,7 @@ public class LUpdateDetail {
     public String updatePatientDetail(Patient patient,Model model){
         
         
-        patient.setPatientPassword(md5(patient.getPatientPassword()));
+        patient.setPatientPassword(patient.getPatientPassword());
         ps.updatePatient(patient);
         model.addAttribute("isSuccess", "更新成功");
         return "patientDetail";
