@@ -52,7 +52,7 @@
                     </td>
                 <br>
                 <br>
-                <input id="imageValue" name="patientImagePath" type="hidden" >
+                <input id="imageValue" name="staffImagePath" type="hidden" >
                 </tr>
                 <tr>
                     <td style="font-size: 20px">部门编号：</td>

@@ -6,6 +6,7 @@
 package com.vector.controller;
 
 import com.qdu.service.BloodBankService;
+import com.vector.pojo.BloodBank;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,5 +47,15 @@ public class LBloodBankController {
     public String getDonor(int recordId,Model model){
         model.addAttribute("donor", bloodService.getDonor(recordId));
         return "donorDetail";
+    }
+    
+    @RequestMapping(value = "/donor/insert",method = RequestMethod.POST)
+    public String insertBloodBank(BloodBank bloodBank,Model model){
+        bloodBank.setRecordId(0);
+        bloodBank.setIsInBank("是");
+        bloodService.addBloodBank(bloodBank);
+        model.addAttribute("insert", "插入成功");
+        return "register_1";
+        
     }
 }

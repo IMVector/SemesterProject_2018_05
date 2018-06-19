@@ -60,6 +60,12 @@ public class NextPage {
     public String intoDoctorCenter() {
         return "doctorCenter";
     }
+    
+    
+    @RequestMapping({"/goBackToPatientCenter"})
+    public String intoPatientCenter() {
+        return "personalCenter";
+    }
 
     @RequestMapping({"/getStaffDetail"})
     public String getDetail() {

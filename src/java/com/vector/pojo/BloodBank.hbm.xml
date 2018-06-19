@@ -6,7 +6,7 @@
     <class name="com.vector.pojo.BloodBank" table="BloodBank" schema="dbo" catalog="InstalHMS" optimistic-lock="version">
         <id name="recordId" type="int">
             <column name="RecordId" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <property name="donorName" type="string">
             <column name="DonorName" not-null="true" />
