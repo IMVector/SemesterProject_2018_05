@@ -197,9 +197,14 @@ public class NextPage {
     }
 
     @RequestMapping(value = "updateDetail", method = RequestMethod.GET)
-
     public String gotoUpdatePatientInfo() {
         return "patientDetail";
+    }
+
+    @RequestMapping(value = "unload", method = RequestMethod.GET)
+    public String unload(HttpSession session) {
+        session.removeAttribute("patient");
+        return "patientIndex";
     }
 
 }

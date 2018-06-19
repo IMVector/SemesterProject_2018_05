@@ -74,7 +74,6 @@ public class RegisterOrSignup {
         if (password != null) {
             Staff s = ss.getStaffById(staffId);
             String newPassword = "123456";
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             System.out.println(s.getStaffName());
             s.setStaffPassword(newPassword);
             System.out.println(ss.getStaffById(staffId).getStaffPassword());
@@ -107,11 +106,6 @@ public class RegisterOrSignup {
         return "123456";
 
     }
-//    @RequestMapping("/doctor/register")
-//    public void getDepartment(Model model){
-//        List<Department> list=departmentService.getDepartmentList();
-//        model.addAttribute("department", list);
-//    }
 
     @RequestMapping("/patient/signup/validate")
     public String validatePassword(String username, String password, HttpSession session) {
@@ -130,10 +124,11 @@ public class RegisterOrSignup {
         newPatient.setPatientId(newPatient.getPatientEmail());
         newPatient.setPatientPassword(newPatient.getPatientPassword());
 
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh;mm;ss");
-//        int age = yearDateDiff(newPatient.getPatientBirthday(),
-//                sdf.format(new Date()));
-//        newPatient.setPatientAge(age);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        int age = yearDateDiff(newPatient.getPatientBirthday(),
+                sdf.format(new Date()));
+        newPatient.setPatientAge(age);
+        
         String path = newPatient.getPatientImagePath();
         Image image = imageService.getImageByPath(path);
         newPatient.setImage(image);
