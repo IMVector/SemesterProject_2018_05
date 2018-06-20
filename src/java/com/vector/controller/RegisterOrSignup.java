@@ -104,7 +104,6 @@ public class RegisterOrSignup {
         pp.setPatientPassword("123456");
         psi.updatePatient(pp);
         return "123456";
-
     }
 
     @RequestMapping("/patient/signup/validate")
@@ -128,10 +127,12 @@ public class RegisterOrSignup {
         int age = yearDateDiff(newPatient.getPatientBirthday(),
                 sdf.format(new Date()));
         newPatient.setPatientAge(age);
-        
+
         String path = newPatient.getPatientImagePath();
-        Image image = imageService.getImageByPath(path);
-        newPatient.setImage(image);
+        if (!path.equals("")) {
+            Image image = imageService.getImageByPath(path);
+            newPatient.setImage(image);
+        }
 
         psi.addPatient(newPatient);
 
@@ -154,8 +155,10 @@ public class RegisterOrSignup {
         System.out.println(newstaff.getDepartment().getDepartmentName());
 
         String path = newstaff.getStaffImagePath();
-        Image image = imageService.getImageByPath(path);
-        newstaff.setImage(image);
+        if (!path.equals("")) {
+            Image image = imageService.getImageByPath(path);
+            newstaff.setImage(image);
+        }
 
         ss.addStaff(newstaff);
         Staff s = ss.getStaffById(newstaff.getStaffId());

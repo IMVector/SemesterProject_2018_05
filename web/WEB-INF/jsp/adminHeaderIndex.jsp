@@ -22,11 +22,6 @@
                 </a>
 
             </div>
-            <!--            <div class="right stackable  menu">
-                            <a class="item" href="personalCenter">
-                                <img class="ui avatar image" src="resources/image/狗子.jpeg">
-                            </a>
-                        </div>-->
         </div>
     </div>
     <div class="tablet only column">
@@ -43,11 +38,6 @@
                 </a>
 
             </div>
-            <!--            <div class="right stackable  menu">
-                            <a class="item" href="personalCenter">
-                                <img class="ui avatar image" src="resources/image/狗子.jpeg">
-                            </a>
-                        </div>-->
         </div>
     </div>
 </div>
