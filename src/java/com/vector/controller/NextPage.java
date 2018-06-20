@@ -55,6 +55,11 @@ public class NextPage {
     public String indexhh() {
         return "hhhhhh";
     }
+    
+    @RequestMapping({"/managerSignUp"})
+    public String managerSignUp() {
+        return "signup_1";
+    }
 
     @RequestMapping({"/doctor/doctorCenter"})
     public String intoDoctorCenter() {

@@ -5,10 +5,12 @@
  */
 package com.vector.controller;
 
+import com.qdu.service.AdminService;
 import com.qdu.service.DepartmentService;
 import com.qdu.service.PatientService;
 import com.qdu.service.StaffService;
 import com.qdu.service.TitleService;
+import com.vector.pojo.Admin;
 import com.vector.pojo.Image;
 import com.vector.pojo.Patient;
 import com.vector.pojo.Staff;
@@ -24,6 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -47,6 +50,8 @@ public class RegisterOrSignup {
     private SessionFactory session;
     @Autowired
     private DepartmentService departmentService;
+    @Autowired
+    private AdminService adminService;
 
     @Autowired
     private HImageService imageService;
@@ -113,6 +118,22 @@ public class RegisterOrSignup {
 
         if (p != null) {
             return "personalCenter";
+        } else {
+            return "密码或用户名错误";
+        }
+    }
+    
+    @RequestMapping(value = "/manager/validate",method = RequestMethod.POST)
+    public String validateManager(String username, String password, HttpSession session) {
+        Staff staff=ss.getStaffById(username);
+        System.out.println("''''''''''''''''''''''''''''''''''''''''''''''");
+        System.out.println(password);
+//        session.setAttribute("patient", admin);
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(staff.getStaffPassword());
+
+        if (staff.getStaffPassword().equals(password)) {
+            return "adminIndex";
         } else {
             return "密码或用户名错误";
         }
