@@ -120,8 +120,26 @@ public class AdminController {
             return -1;
         }
     }
-//////////////////////////////////////药品增删改查/////////////////////////////////////////////////////////////////
 
+    @RequestMapping(value = "/addBackpackSetting", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean addSetting(BackpackSetting setting) {
+        return databaseSettingService.addOne(setting);
+    }
+
+    @RequestMapping(value = "/deleteSetting/{settingId}", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean deleteSetting(@PathVariable int settingId) {
+        return databaseSettingService.deleteOne(settingId);
+    }
+
+    @RequestMapping(value = "/updateSetting", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean updateSetting(BackpackSetting setting) {
+        return databaseSettingService.updateOne(setting);
+    }
+
+//////////////////////////////////////药品增删改查/////////////////////////////////////////////////////////////////
     @RequestMapping(value = "/addMedication", method = RequestMethod.POST)
     @ResponseBody
     public boolean addMedication(Medication medication) {

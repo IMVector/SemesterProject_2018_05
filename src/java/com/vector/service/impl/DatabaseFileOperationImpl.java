@@ -164,6 +164,7 @@ public class DatabaseFileOperationImpl implements DatabaseFileOperation {
     @Transactional
     @Override
     public boolean addOne(BackpackSetting object) {
+        object.setBackpackSettingId(0);
         return backpackSettingDao.addOne(object);
     }
 

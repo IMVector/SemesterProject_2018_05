@@ -46,6 +46,7 @@ public class BackpackSettingDaoImpl extends BaseDaoImpl<BackpackSetting> impleme
             insert(object);
             bool = true;
         } catch (Exception e) {
+            e.printStackTrace();
             bool = false;
         }
         return bool;
