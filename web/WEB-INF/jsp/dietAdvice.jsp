@@ -59,7 +59,7 @@
                 $.each(data, function (index, dietAdvice) {
                     var str = "<tr id=" + dietAdvice.dietAdviceId + ">\n\
                     <td>" + dietAdvice.dietAdviceId + "</td><td>${patient.patientName}</td>\n\
-                    <td><label class=\"mylabel\" data-content=\"" + dietAdvice.dietAdviceContent + "\" data-position=\"right center\">" + formatDatebox(dietAdvice.dietAdviceTime) + "</label></td>\n\
+                    <td><label class=\"mylabel\" data-content=\"" + formatDatebox(dietAdvice.dietAdviceTime) + "\" data-position=\"right center\">" + formatDatebox(dietAdvice.dietAdviceTime) + "</label></td>\n\
                     <td><label class=\"mylabel\" data-content=\"" + dietAdvice.dietAdviceContent + "\" data-position=\"right center\">" + dietAdvice.dietAdviceContent + "</label></td>\n\
                     <td> <a  class='ui button small blue' href='dietAdviceDetails/" + dietAdvice.dietAdviceId + "'>查看</a> </td>\n\</tr>"
 

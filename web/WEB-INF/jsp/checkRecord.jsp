@@ -78,7 +78,7 @@
                 var str = "<tr id=" + checkRecord.checkRecordId + ">\n\
                    <td>"+checkRecord.checkRecordId+"</td>\n\
                     <td>${patient.patientName}</td>\n\
-                    <td><label class=\"mylabel\" data-content=\"" + formatDatebox(checkRecord.checkDate)  + "\" data-position=\"right center\">" + checkRecord.checkItem.checkItemName + "</label></td>\n\
+                    <td><label class=\"mylabel\" data-content=\"" + checkRecord.checkItem.checkItemName  + "\" data-position=\"right center\">" + checkRecord.checkItem.checkItemName + "</label></td>\n\
                     <td><label class=\"mylabel\" data-content=\"" + formatDatebox(checkRecord.checkDate)  + "\" data-position=\"right center\">" + formatDatebox(checkRecord.checkDate) + "</label></td>\n\
                     <td> <a  class='ui button small blue' href='checkRecordDetails/" + checkRecord.checkRecordId + "'>查看</a> </td>\n\</tr>";
 
