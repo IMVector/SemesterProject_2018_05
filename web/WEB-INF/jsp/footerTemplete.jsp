@@ -47,7 +47,7 @@
                 $("#weatherImage").attr("src",str);
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                alert("请求失败" + errorThrown);
+                toastError("请求失败" + errorThrown);
             }
         })
     })

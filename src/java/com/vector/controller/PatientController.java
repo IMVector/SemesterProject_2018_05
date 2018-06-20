@@ -241,13 +241,13 @@ public class PatientController {
     @RequestMapping(value = "weather", method = RequestMethod.POST)
     @ResponseBody
     public String showHospitalitalInfo(HttpServletRequest request) {
-//        String city = weatherService.getCity(request);
-//        System.out.println("controller   "+city);
-//        //String city = "青岛";
-//        String weather = weatherService.getWeather(city);
-//        System.out.println(weather);
-//        return weather;
-        return "{\"date\":\"06月14日\",\"temperature\":\"19℃\",\"weather\":\"多云\",\"week\":\"今天星期四\",\"windDirection\":\"南风\",\"windPower\":\"3~4级\"}";
+        String city = weatherService.getCity(request);
+        System.out.println("controller   "+city);
+        //String city = "青岛";
+        String weather = weatherService.getWeather(city);
+        System.out.println(weather);
+        return weather;
+//        return "{\"date\":\"06月14日\",\"temperature\":\"19℃\",\"weather\":\"多云\",\"week\":\"今天星期四\",\"windDirection\":\"南风\",\"windPower\":\"3~4级\"}";
 //        return "{\"date\":\"06月09日\",\"temperature\":\"22℃\",\"temperature_\":\"18℃\",\"weather\":\"阵雨\",\"weather_\":\"阵雨\",\"week\":\"今天星期六\",\"windDirection\":\"东南风\",\"windDirection_\":\"东南风\",\"windPower\":\"3~4级\",\"windPower_\":\"3~4级\"}";
     }
 

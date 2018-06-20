@@ -13,7 +13,7 @@
         <div class="ui top fixed menu">
             <div class="ui secondary menu">
                 <div class="item">
-                    <img src="resources/image/狗子.jpeg">
+                    <img class="myLogo" src="resources/image/狗子.jpeg">
                 </div>
                 <a href="index" class="active item">
                     InstalHMS 医院系统
@@ -45,49 +45,50 @@
         <div class="ui top fixed menu">
             <div class="ui secondary menu">
                 <div class="item">
-                    <img src="resources/image/狗子.jpeg">
+                    <img class="myLogo" src="resources/image/狗子.jpeg">
                 </div>
-                <a class="active item">
+                <a href="index" class="active item">
                     InstalHMS 医院系统
                 </a>
-                <a class="item">
+                <a href="patientIndex" class="item">
                     患者主页
                 </a>
-                <div class="menu">
-                    <div class="ui dropdown item">
-                        科室导航
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <a class="item" href="#">内科</a>
-                            <a class="item" href="#">外科</a>
-                            <a class="item" href="#">检验科</a>
-                            <a class="item" href="#">输血科</a>
-                            <a class="item" href="#">放射科</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu">
-                    <div class="ui dropdown item">
-                        病友服务
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <a class="item" href="#">预约挂号</a>
-                            <a class="item" href="#">饮食建议</a>
-                            <a class="item" href="#">疾病预防</a>
-                        </div>
-                    </div>
-                </div>
-                <a href="#about" class="item">关于我们</a>
-                <a href="#contact" class="item">联系方式</a>
+
+                <a href="personalCenter" class="item">个人中心</a>
             </div>
-            <div class="right stackable  menu">
-                <a class="item" href="personalCenter">
-                    <img class="ui avatar image" src="resources/image/狗子.jpeg">
-                </a>
+            <div class="item right">
+                <c:if test="${empty patient}">
+                    <a href="patient/signup" class=" ui blue button">登录</a>
+                    &nbsp
+                    &nbsp
+                    <a href="patient/register" class="ui blue button">注册</a>
+
+                </c:if>
+                <c:if test="${ not empty patient}">
+                    <a href="personalCenter">
+                        <img class="ui avatar image" src="${patient.image.imagePath}">
+                    </a>
+                    <a class="ui blue" href="unload">退出</a>
+                </c:if>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "getLogo",
+            type: 'POST',
+            success: function (data, textStatus, jqXHR) {
+                $(".myLogo").attr("src", data.imagePath);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                toastError("请求失败" + errorThrown);
+            }
+        });
+    });
+
+</script>
 <!-- Fixed navbar -->
 <!--<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">

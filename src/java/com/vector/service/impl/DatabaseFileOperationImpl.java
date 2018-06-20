@@ -42,7 +42,7 @@ public class DatabaseFileOperationImpl implements DatabaseFileOperation {
     private BackpackSetting setting;
 
     @Transactional
-    @Scheduled(cron = "0 */30 * * * ?")
+    @Scheduled(cron = "0 */5 * * * ?")
     public void backpack() {
         if (null == setting || null == setting.getBackpackToPath()) {
             Resource resource = new ClassPathResource("properties/jdbc.properties");
@@ -164,6 +164,7 @@ public class DatabaseFileOperationImpl implements DatabaseFileOperation {
     @Transactional
     @Override
     public boolean addOne(BackpackSetting object) {
+        object.setBackpackSettingId(0);
         return backpackSettingDao.addOne(object);
     }
 

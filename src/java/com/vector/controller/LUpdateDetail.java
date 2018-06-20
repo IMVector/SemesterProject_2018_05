@@ -38,9 +38,11 @@ public class LUpdateDetail {
     public String updateStaffDetail(Staff staff, Model model, String titleName) {
 
         String path = staff.getStaffImagePath();
-        Image image = imageService.getImageByPath(path);
-        staff.setImage(image);
-
+        System.out.println(path + "++++++++++++++++++++");
+        if (!path.equals("")) {
+            Image image = imageService.getImageByPath(path);
+            staff.setImage(image);
+        }
         staff.setDepartment(departmentService.getDepartmentById(staff.getDepartmentId()));
         Title title = ts.getTitleByName(titleName);
         staff.setTitle(title);
@@ -54,9 +56,12 @@ public class LUpdateDetail {
     public String updatePatientDetail(Patient patient, Model model) {
 
         String path = patient.getPatientImagePath();
-        Image image = imageService.getImageByPath(path);
-        patient.setImage(image);
+        System.out.println(path + "++++++++++++++++++++");
 
+        if (!path.equals("")) {
+            Image image = imageService.getImageByPath(path);
+            patient.setImage(image);
+        }
         patient.setPatientPassword(patient.getPatientPassword());
         ps.updatePatient(patient);
         model.addAttribute("isSuccess", "更新成功!<a href=\"goBackToPatientCenter\">返回</a>");
