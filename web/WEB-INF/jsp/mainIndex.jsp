@@ -63,7 +63,7 @@
                                 <ul class="links">
                                     <li class="l3">
                                         <p class="p">管理版</p>
-                                        <a class="link" href="adminIndex">进入</a>
+                                        <a class="link" href="managerSignUp">进入</a>
                                     </li>
                                 </ul>
                             </div>
