@@ -18,7 +18,7 @@
         <div class="ui container body-under-header">
 
             <div class="ui segment">
-                <div class="ui header blue segment">${patient.patientName}建议详情</div>
+                <div class="ui header blue segment">${patient.patientName}健康建议详情</div>
                 <div class="ui segment item"><p class="ui label">建议日期：</p>${precautionAdvice.dietAdviceTime}</div>
                 <div class="ui segment item"><p class="ui label">建议内容：</p>${precautionAdvice.precautionAdviceContent}</div>
                 <div class="ui segment item"><p class="ui label">建议给出医生：</p>${precautionAdvice.staff.staffName}</div>

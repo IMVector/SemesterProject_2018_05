@@ -65,7 +65,7 @@
                                 <jsp:include page="dietAdvice.jsp"/>
                             </div>
                             <div class="ui tab attached segment " data-tab="record">
-                                <div class="ui header red segment">    ${patient.patientName}的个人就医记录</div>
+                                <div class="ui header red segment">    ${patient.patientName}的个人检查通知</div>
                                 <jsp:include page="hospitalRecord.jsp"/>
                             </div>
                             <div class="ui tab attached segment " data-tab="graphy">

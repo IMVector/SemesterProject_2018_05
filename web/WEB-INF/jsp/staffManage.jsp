@@ -200,8 +200,28 @@
             $("#updateAll").on("click", function () {
                 if ($(this).text() == "全部更新") {
                     $(this).text("全部保存");
+                    var checkBox = $(this).closest("tr").find(".ui.toggle.checkbox");
+                    $(this).closest("tr").find(".ui.toggle.checkbox").checkbox("check");
+                    if (checkBox.checkbox("is checked")) {
+                        //选中
+                        $(this).closest("tr").find(".nonevisiual").addClass("ui input");
+                        $(this).closest("tr").find(".table-label").removeClass("mylabel");
+                        $(this).closest("tr").find(".table-label").addClass("nonevisiual");
+                    }
+
+
                 } else {
                     $(this).text("全部更新");
+
+                    var checkBox = $(this).closest("tr").find(".ui.toggle.checkbox");
+                    $(this).closest("tr").find(".ui.toggle.checkbox").checkbox("uncheck");
+                    if (!checkBox.checkbox("is checked")) {
+                        //去除选中状态
+                        $(this).closest("tr").find(".table-label").removeClass("nonevisiual");
+                        $(this).closest("tr").find(".table-label").addClass("mylabel");
+                        $(this).closest("tr").find(".nonevisiual").removeClass("ui input");
+                    }
+
 
                     //发送ajax请求更新全部选中
                     $(".ui.toggle.checkbox").each(function (index, element) {
@@ -273,17 +293,17 @@
                     });
                     $("#selectAll").click();//关闭checkbox
                 }
-                $(".ui.toggle.checkbox").each(function (index, element) {
-                    if ($(this).checkbox("is checked")) {
-                        $(this).closest("tr").find(".nonevisiual").addClass("ui input");
-                        $(this).closest("tr").find(".table-label").removeClass("mylabel");
-                        $(this).closest("tr").find(".table-label").addClass("nonevisiual");
-                    } else {
-                        $(this).closest("tr").find(".table-label").removeClass("nonevisiual");
-                        $(this).closest("tr").find(".table-label").addClass("mylabel");
-                        $(this).closest("tr").find(".nonevisiual").removeClass("ui input");
-                    }
-                });
+//                $(".ui.toggle.checkbox").each(function (index, element) {
+//                    if ($(this).checkbox("is checked")) {
+//                        $(this).closest("tr").find(".nonevisiual").addClass("ui input");
+//                        $(this).closest("tr").find(".table-label").removeClass("mylabel");
+//                        $(this).closest("tr").find(".table-label").addClass("nonevisiual");
+//                    } else {
+//                        $(this).closest("tr").find(".table-label").removeClass("nonevisiual");
+//                        $(this).closest("tr").find(".table-label").addClass("mylabel");
+//                        $(this).closest("tr").find(".nonevisiual").removeClass("ui input");
+//                    }
+//                });
 
             });
 

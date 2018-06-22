@@ -163,6 +163,7 @@
             $("#updateAll").on("click", function () {
                 if ($(this).text() == "全部更新") {
                     $(this).text("全部保存");
+                    
                 } else {
                     $(this).text("全部更新");
 

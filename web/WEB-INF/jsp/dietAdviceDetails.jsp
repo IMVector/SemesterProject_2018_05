@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>健康建议详情</title>
+        <title>饮食建议详情</title>
         <jsp:include page="resourcesTemplete.jsp"/>
     </head>
     <body>
@@ -18,7 +18,7 @@
         <div class="ui container body-under-header">
 
             <div class="ui segment">
-                <div class="ui header blue segment">${patient.patientName}建议详情</div>
+                <div class="ui header blue segment">${patient.patientName}饮食建议详情</div>
                 <div class="ui segment item"><p class="ui label">建议日期：</p>${dietAdvice.dietAdviceTime}</div>
                 <div class="ui segment item"><p class="ui label">建议内容：</p>${dietAdvice.dietAdviceContent}</div>
                 <div class="ui segment item"><p class="ui label">建议给出医生：</p>${dietAdvice.staff.staffName}</div>
