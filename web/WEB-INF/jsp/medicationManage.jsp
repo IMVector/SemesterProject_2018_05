@@ -100,7 +100,7 @@
                             <div class="field">
                                 <label for="">药品价格：</label>
                                 <div class="ui input ">
-                                    <input id="price" name="price" placeholder="价格" type="text">
+                                    <input id="price" name="price" placeholder="价格" type="number">
                                 </div>
                             </div>
 

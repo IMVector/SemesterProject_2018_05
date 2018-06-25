@@ -101,10 +101,10 @@
             </div>
 
             <div id="modeltest" class="ui inverted modal ">
-                <div class="header">添加药品</div>
+                <div class="header">添加职工</div>
                 <div class="content" style="text-align:center">
                     <div class="ui segment" style="width: 50%;margin: 0 auto">
-                        <div class="ui header blue segment">药品信息</div>
+                        <div class="ui header blue segment">职工信息</div>
                         <form id="myForm">
                             <div class="field">
                                 <label for="">员工编号：</label>
